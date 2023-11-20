@@ -1,8 +1,9 @@
-import { Box, Text, theme } from "@/theme";
+import { Box, Text } from "@/theme";
 import { Button } from "@/components/Button";
 import { router } from "expo-router";
 import { ImageBackground } from "expo-image";
 import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function Onboarding() {
   return (
@@ -10,6 +11,8 @@ export default function Onboarding() {
       style={styles.image}
       source={require("@/assets/images/onboarding.png")}
     >
+      <StatusBar style="light" />
+
       <Box flex={1} padding="m" justifyContent="flex-end">
         <Text style={styles.title}>
           Coffee so good, your taste buds will love it.

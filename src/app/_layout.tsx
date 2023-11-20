@@ -54,12 +54,10 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-
+  const darkMode = colorScheme === "dark";
   return (
     <ThemeProvider theme={theme}>
-      <NavigationThemeProvider
-        value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-      >
+      <NavigationThemeProvider value={darkMode ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="modal" options={{ presentation: "modal" }} />
         </Stack>
