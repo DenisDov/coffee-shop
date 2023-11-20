@@ -6,6 +6,11 @@ import {
   Sora_400Regular,
   Sora_600SemiBold,
 } from "@expo-google-fonts/sora";
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider as NavigationThemeProvider,
+} from "@react-navigation/native";
 
 import { ThemeProvider } from "@shopify/restyle";
 import { theme } from "@/theme";
@@ -52,10 +57,13 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-      </Stack>
+      <NavigationThemeProvider
+        value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+      >
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        </Stack>
+      </NavigationThemeProvider>
     </ThemeProvider>
   );
 }
