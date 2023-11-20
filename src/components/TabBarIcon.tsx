@@ -1,8 +1,13 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { View } from "./Themed";
-import { Image } from "expo-image";
+import { Image, ImageSource } from "expo-image";
 
-export function TabBarIcon({ source, focused }) {
+interface TabBarIconProps {
+  source: ImageSource;
+  focused: boolean;
+}
+
+export function TabBarIcon({ source, focused }: TabBarIconProps) {
   return (
     <View style={{ backgroundColor: "transparent", gap: 7 }}>
       <Image
