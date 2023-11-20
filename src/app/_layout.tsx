@@ -1,13 +1,14 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
+import {
+  useFonts,
+  Sora_400Regular,
+  Sora_600SemiBold,
+} from "@expo-google-fonts/sora";
+
+import { ThemeProvider } from "@shopify/restyle";
+import { theme } from "@/theme";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -24,8 +25,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    ...FontAwesome.font,
+    Sora_400Regular,
+    Sora_600SemiBold,
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -50,7 +51,7 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <ThemeProvider theme={theme}>
       <Stack screenOptions={{ headerShown: false }}>
         {/* <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> */}
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
