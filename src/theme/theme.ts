@@ -57,6 +57,15 @@ const theme = createTheme({
   },
 });
 
+const darkTheme: Theme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    background: palette.black,
+    text: palette.white,
+  },
+};
+
 export type Theme = typeof theme;
 
-export { theme };
+export { theme, darkTheme };

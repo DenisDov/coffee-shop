@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "@/components/Themed";
+import { Text, Box } from "@/theme";
 
 export default function FavoritesScreen() {
   return (
-    <View style={styles.container}>
+    <Box style={styles.container}>
       <Text style={styles.title}>FavoritesScreen</Text>
-    </View>
+    </Box>
   );
 }
 

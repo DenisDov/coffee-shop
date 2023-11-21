@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "@/components/Themed";
+import { Text, Box } from "@/theme";
 
 export default function CartScreen() {
   return (
-    <View style={styles.container}>
+    <Box style={styles.container}>
       <Text style={styles.title}>CartScreen</Text>
-    </View>
+    </Box>
   );
 }
 

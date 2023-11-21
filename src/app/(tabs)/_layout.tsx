@@ -1,16 +1,12 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
-import { Pressable, useColorScheme } from "react-native";
-import Colors from "@/constants/Colors";
+import { Pressable } from "react-native";
 import { TabBarIcon } from "@/components/TabBarIcon";
+import { Text } from "@/theme";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         tabBarShowLabel: false,
       }}
     >
@@ -26,15 +22,17 @@ export default function TabLayout() {
           ),
           headerRight: () => (
             <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
+              <Pressable
+                hitSlop={16}
+                // android_ripple={RIPPLE_CONFIG}
+                style={({ pressed }) => [
+                  // styles.button,
+                  {
+                    opacity: pressed ? 0.7 : 1,
+                  },
+                ]}
+              >
+                <Text>ME</Text>
               </Pressable>
             </Link>
           ),

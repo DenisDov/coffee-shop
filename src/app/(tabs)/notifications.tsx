@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "@/components/Themed";
+import { Text, Box } from "@/theme";
 
 export default function NotificationsScreen() {
   return (
-    <View style={styles.container}>
+    <Box style={styles.container}>
       <Text style={styles.title}>NotificationsScreen</Text>
-    </View>
+    </Box>
   );
 }
 

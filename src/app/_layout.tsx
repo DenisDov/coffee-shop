@@ -13,7 +13,7 @@ import {
 } from "@react-navigation/native";
 
 import { ThemeProvider } from "@shopify/restyle";
-import { theme } from "@/theme";
+import { theme, darkTheme } from "@/theme";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -56,7 +56,7 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
   const darkMode = colorScheme === "dark";
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkMode ? darkTheme : theme}>
       <NavigationThemeProvider value={darkMode ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="modal" options={{ presentation: "modal" }} />
