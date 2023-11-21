@@ -1,28 +1,28 @@
-import { SplashScreen, Stack } from "expo-router";
-import { useEffect } from "react";
-import { useColorScheme } from "react-native";
 import {
-  useFonts,
   Sora_400Regular,
   Sora_600SemiBold,
-} from "@expo-google-fonts/sora";
+  useFonts,
+} from '@expo-google-fonts/sora';
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider as NavigationThemeProvider,
-} from "@react-navigation/native";
+} from '@react-navigation/native';
+import { ThemeProvider } from '@shopify/restyle';
+import { SplashScreen, Stack } from 'expo-router';
+import { useEffect } from 'react';
+import { useColorScheme } from 'react-native';
 
-import { ThemeProvider } from "@shopify/restyle";
-import { theme, darkTheme } from "@/theme";
+import { darkTheme, theme } from '@/theme';
 
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
-} from "expo-router";
+} from 'expo-router';
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "onboarding",
+  initialRouteName: 'onboarding',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -54,12 +54,12 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-  const darkMode = colorScheme === "dark";
+  const darkMode = colorScheme === 'dark';
   return (
     <ThemeProvider theme={darkMode ? darkTheme : theme}>
       <NavigationThemeProvider value={darkMode ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </NavigationThemeProvider>
     </ThemeProvider>

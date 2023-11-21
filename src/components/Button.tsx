@@ -1,8 +1,8 @@
-import * as Haptics from "expo-haptics";
-import React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import * as Haptics from 'expo-haptics';
+import React from 'react';
+import { Pressable, StyleSheet } from 'react-native';
 
-import { Text, theme } from "@/theme";
+import { Text, theme } from '@/theme';
 
 type Props = {
   onPress: () => void;
@@ -29,8 +29,7 @@ export const Button = ({ onPress, title }: Props) => {
         {
           opacity: pressed ? 0.7 : 1,
         },
-      ]}
-    >
+      ]}>
       <Text variant="button">{title}</Text>
     </Pressable>
   );
@@ -41,8 +40,8 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     paddingHorizontal: theme.spacing.s,
     height: theme.spacing.xxl,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: theme.borderRadii.m,
   },
 });

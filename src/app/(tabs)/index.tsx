@@ -1,4 +1,4 @@
-import { Box, Text } from "@/theme";
+import { Box, Text } from '@/theme';
 
 export default function HomeScreen() {
   return (

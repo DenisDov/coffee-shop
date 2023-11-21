@@ -1,19 +1,19 @@
-import { createTheme } from "@shopify/restyle";
+import { createTheme } from '@shopify/restyle';
 
 const palette = {
-  black: "#1C1C1C",
-  white: "#FFFFFF",
-  gold: "#C67C4E",
-  red: "#ED5151",
+  black: '#1C1C1C',
+  white: '#FFFFFF',
+  gold: '#C67C4E',
+  red: '#ED5151',
 
-  gray100: "#F9F9F9",
-  gray200: "#9B9B9B",
-  gray300: "#2F2D2C",
-  gray400: "#313131",
-  gray500: "#2A2A2A",
+  gray100: '#F9F9F9',
+  gray200: '#9B9B9B',
+  gray300: '#2F2D2C',
+  gray400: '#313131',
+  gray500: '#2A2A2A',
 
-  yellow: "#FBBE21",
-  green: "#36C07E",
+  yellow: '#FBBE21',
+  green: '#36C07E',
 };
 
 const theme = createTheme({
@@ -43,16 +43,16 @@ const theme = createTheme({
   textVariants: {
     defaults: {
       fontSize: 16,
-      fontFamily: "Sora_400Regular",
-      color: "text",
+      fontFamily: 'Sora_400Regular',
+      color: 'text',
     },
     muted: {
-      color: "mutedText",
+      color: 'mutedText',
     },
     button: {
-      fontFamily: "Sora_600SemiBold",
-      color: "btnText",
-      textTransform: "capitalize",
+      fontFamily: 'Sora_600SemiBold',
+      color: 'btnText',
+      textTransform: 'capitalize',
     },
   },
 });

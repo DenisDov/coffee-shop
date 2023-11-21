@@ -1,7 +1,7 @@
-import * as React from "react";
-import renderer from "react-test-renderer";
+import * as React from 'react';
+import renderer from 'react-test-renderer';
 
-import { Text } from "@/theme";
+import { Text } from '@/theme';
 
 it(`renders correctly`, () => {
   const tree = renderer.create(<Text>Snapshot test!</Text>).toJSON();
