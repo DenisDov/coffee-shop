@@ -21,7 +21,7 @@ const theme = createTheme({
     primary: palette.gold,
     background: palette.gray100,
     text: palette.gray300,
-
+    mutedText: palette.gray200,
     btnText: palette.white,
   },
   spacing: {
@@ -40,15 +40,14 @@ const theme = createTheme({
     xl: 40,
     xxl: 64,
   },
-  breakpoints: {
-    phone: 0,
-    tablet: 768,
-  },
   textVariants: {
     defaults: {
       fontSize: 16,
       fontFamily: "Sora_400Regular",
       color: "text",
+    },
+    muted: {
+      color: "mutedText",
     },
     button: {
       fontFamily: "Sora_600SemiBold",

@@ -13,7 +13,7 @@ export default function Onboarding() {
     >
       <StatusBar style="light" />
 
-      <Box flex={1} padding="m" justifyContent="flex-end">
+      <Box flex={1} padding="l" justifyContent="flex-end">
         <Text style={styles.title}>
           Coffee so good, your taste buds will love it.
         </Text>

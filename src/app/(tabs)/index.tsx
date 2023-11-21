@@ -1,28 +1,26 @@
-import { StyleSheet } from "react-native";
-
-import { Text, View } from "@/components/Themed";
+import { Box, Text } from "@/theme";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>HomeScreen</Text>
-    </View>
+    <Box flex={1} backgroundColor="background">
+      <Text>HomeScreen</Text>
+    </Box>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   title: {
+//     fontSize: 20,
+//     fontWeight: "bold",
+//   },
+//   separator: {
+//     marginVertical: 30,
+//     height: 1,
+//     width: "80%",
+//   },
+// });
