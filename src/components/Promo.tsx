@@ -1,26 +1,29 @@
 import React from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground } from 'react-native';
 
 import { Box, Text } from '@/theme';
 
-export const Promo = ({ promoHeight = 150 }) => {
+export const Promo = () => {
+  // const marginTop = height === 0 ? undefined : -(height / 2);
   return (
     <Box
-      height={promoHeight}
+      height={150}
       margin="m"
       overflow="hidden"
       borderRadius="m"
-      style={{ marginTop: -(promoHeight / 2) }}>
+      // style={{ marginTop }}
+    >
       <ImageBackground
         style={{ flex: 1 }}
         resizeMode="cover"
         source={require('@/assets/images/promo.png')}>
         <Box
           flex={1}
+          alignItems="flex-start"
           paddingVertical="m"
           paddingHorizontal="l"
           justifyContent="space-between">
-          <Box backgroundColor="error" alignSelf="flex-start" borderRadius="s">
+          <Box backgroundColor="error" borderRadius="s">
             <Text
               fontSize={14}
               fontFamily="Sora_600SemiBold"
@@ -31,7 +34,7 @@ export const Promo = ({ promoHeight = 150 }) => {
               promo
             </Text>
           </Box>
-          <Box alignSelf="flex-start">
+          <Box>
             <Text>
               <Text
                 style={{ backgroundColor: '#1C1C1C' }}

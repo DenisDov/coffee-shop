@@ -24,6 +24,7 @@ const theme = createTheme({
     mutedText: palette.gray200,
     white: palette.white,
     error: palette.red,
+    debug: palette.green,
   },
   spacing: {
     xs: 4,
