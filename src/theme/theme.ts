@@ -22,7 +22,7 @@ const theme = createTheme({
     background: palette.gray100,
     text: palette.gray300,
     mutedText: palette.gray200,
-    lightText: palette.white,
+    white: palette.white,
     error: palette.red,
   },
   spacing: {
@@ -55,7 +55,7 @@ const theme = createTheme({
     },
     button: {
       fontFamily: 'Sora_600SemiBold',
-      color: 'lightText',
+      color: 'white',
       textTransform: 'capitalize',
     },
   },

@@ -1,25 +1,20 @@
-import { ReactElement } from 'react';
-import { View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet } from 'react-native';
 
-interface IScrollViewBackgroundLayer {
-  topBounceColor: string;
-  bottomBounceColor: string;
-}
+import { Box } from '@/theme';
 
-export const ScrollViewBackgroundLayer = ({
-  topBounceColor,
-  bottomBounceColor,
-}: IScrollViewBackgroundLayer): ReactElement => (
-  <View
+export const ScrollViewBackgroundLayer = () => (
+  <Box
     style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
+      ...StyleSheet.absoluteFillObject,
       zIndex: -1, // appear under the scrollview
     }}>
-    <View style={{ flex: 1, backgroundColor: topBounceColor }} />
-    <View style={{ flex: 1, backgroundColor: bottomBounceColor }} />
-  </View>
+    <LinearGradient
+      style={{ flex: 1 }}
+      colors={['#313131', '#131313']}
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 1 }}
+    />
+    <Box flex={1} backgroundColor="background" />
+  </Box>
 );

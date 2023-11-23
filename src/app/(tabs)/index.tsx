@@ -39,14 +39,14 @@ export default function HomeScreen() {
             alignItems="center"
             justifyContent="space-between">
             <Box>
-              <Text color="lightText">Location</Text>
+              <Text color="white">Location</Text>
               <PlatformPressable
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
                 hitSlop={16}
                 // style={styles.button}
                 pressOpacity={0.7}>
                 <Box flexDirection="row" alignItems="center" gap="m">
-                  <Text color="lightText">Bilzen, Tanjungbalai</Text>
+                  <Text color="white">Bilzen, Tanjungbalai</Text>
                   <Image
                     style={{
                       width: 14,
