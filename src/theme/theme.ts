@@ -22,7 +22,8 @@ const theme = createTheme({
     background: palette.gray100,
     text: palette.gray300,
     mutedText: palette.gray200,
-    btnText: palette.white,
+    lightText: palette.white,
+    error: palette.red,
   },
   spacing: {
     xs: 4,
@@ -46,26 +47,31 @@ const theme = createTheme({
       fontFamily: 'Sora_400Regular',
       color: 'text',
     },
+    // light: {
+    //   color: 'light',
+    // },
     muted: {
       color: 'mutedText',
     },
     button: {
       fontFamily: 'Sora_600SemiBold',
-      color: 'btnText',
+      color: 'lightText',
       textTransform: 'capitalize',
     },
   },
 });
 
-const darkTheme: Theme = {
-  ...theme,
-  colors: {
-    ...theme.colors,
-    background: palette.black,
-    text: palette.white,
-  },
-};
+// const darkTheme: Theme = {
+//   ...theme,
+//   colors: {
+//     ...theme.colors,
+//     text: palette.white,
+//   },
+// };
 
 export type Theme = typeof theme;
 
-export { theme, darkTheme };
+export {
+  theme,
+  //  darkTheme
+};

@@ -4,16 +4,16 @@ import {
   useFonts,
 } from '@expo-google-fonts/sora';
 import {
-  DarkTheme,
+  // DarkTheme,
   DefaultTheme,
   ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
 
-import { darkTheme, theme } from '@/theme';
+// import { useColorScheme } from 'react-native';
+import { theme } from '@/theme';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,11 +53,12 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-  const darkMode = colorScheme === 'dark';
+  // const colorScheme = useColorScheme();
+  // const darkMode = colorScheme === 'dark';
+  // const darkMode = false;
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : theme}>
-      <NavigationThemeProvider value={darkMode ? DarkTheme : DefaultTheme}>
+    <ThemeProvider theme={theme}>
+      <NavigationThemeProvider value={DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
