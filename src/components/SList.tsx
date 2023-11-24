@@ -1,6 +1,8 @@
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 
+import { COFFEES } from '@/utils/faker';
+
 const generateListItems = (startChar, endChar) => {
   const listItems = [];
   for (
@@ -29,30 +31,19 @@ const YourComponent = () => {
 
   const renderHeader = () => (
     <View>
-      {/* Top section with buttons */}
       <View
         style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
+          backgroundColor: 'lime',
+          height: 400,
+          justifyContent: 'center',
+          alignItems: 'center',
           padding: 10,
         }}>
-        <TouchableOpacity
-          onPress={() => {
-            /* Handle button press */
-          }}>
-          <Text>Button 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            /* Handle button press */
-          }}>
-          <Text>Button 2</Text>
-        </TouchableOpacity>
-        {/* Add more buttons as needed */}
+        <Text>BANNER</Text>
       </View>
 
-      {/* Middle horizontally scrollable view */}
       <FlatList
+        style={{ backgroundColor: 'red' }}
         horizontal
         data={scrollableItems}
         keyExtractor={(item, index) => index.toString()}
@@ -73,12 +64,37 @@ const YourComponent = () => {
     <FlatList
       data={listItems}
       renderItem={({ item }) => (
-        <View style={{ padding: 15 }}>
+        <View style={{ flex: 1, padding: 30, backgroundColor: 'tomato' }}>
           <Text>{item}</Text>
         </View>
       )}
       keyExtractor={(item, index) => index.toString()}
       ListHeaderComponent={renderHeader}
+      numColumns={2}
+      contentContainerStyle={{ gap: 8, paddingHorizontal: 8 }}
+      columnWrapperStyle={{ gap: 8 }}
+      stickyHeaderIndices={[0]}
+      stickyHeaderHiddenOnScroll
+      // StickyHeaderComponent={() => (
+      //   <FlatList
+      //     // stickyHeaderIndices={[0]}
+      //     horizontal
+      //     data={scrollableItems}
+      //     keyExtractor={(item, index) => index.toString()}
+      //     renderItem={({ item }) => {
+      //       console.log('item: ', item);
+      //       return (
+      //         <TouchableOpacity
+      //           style={{
+      //             paddingHorizontal: 15,
+      //             paddingVertical: 10,
+      //           }}>
+      //           <Text>{item}</Text>
+      //         </TouchableOpacity>
+      //       );
+      //     }}
+      //   />
+      // )}
     />
   );
 };
