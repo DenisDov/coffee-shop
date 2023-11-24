@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-import { Box, Text } from '@/theme';
+import SList from '@/components/SList';
+import { Box } from '@/theme';
 
 export default function NotificationsScreen() {
   return (
     <Box style={styles.container}>
-      <Text style={styles.title}>NotificationsScreen</Text>
+      <SList />
     </Box>
   );
 }
@@ -13,8 +14,9 @@ export default function NotificationsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    paddingTop: 50,
   },
   title: {
     fontSize: 20,

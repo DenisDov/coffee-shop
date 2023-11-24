@@ -53,30 +53,30 @@ export const SECTIONS = [
   },
 ];
 
-// export const COFFEES = [
-//   faker.commerce.department(),
-//   {
-//     name: faker.commerce.productName(),
-//     description: faker.commerce.productDescription(),
-//     price: faker.commerce.price(),
-//   },
-//   {
-//     name: faker.commerce.productName(),
-//     description: faker.commerce.productDescription(),
-//     price: faker.commerce.price(),
-//   },
-//   faker.commerce.department(),
-//   {
-//     name: faker.commerce.productName(),
-//     description: faker.commerce.productDescription(),
-//     price: faker.commerce.price(),
-//   },
-//   {
-//     name: faker.commerce.productName(),
-//     description: faker.commerce.productDescription(),
-//     price: faker.commerce.price(),
-//   },
-// ];
+export const COFFEES = [
+  faker.commerce.department(),
+  {
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: faker.commerce.price(),
+  },
+  {
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: faker.commerce.price(),
+  },
+  faker.commerce.department(),
+  {
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: faker.commerce.price(),
+  },
+  {
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: faker.commerce.price(),
+  },
+];
 
 export const coffee = () => [
   {
