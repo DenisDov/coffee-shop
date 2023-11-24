@@ -34,7 +34,7 @@ const YourComponent = () => {
       <View
         style={{
           backgroundColor: 'lime',
-          height: 400,
+          height: 300,
           justifyContent: 'center',
           alignItems: 'center',
           padding: 10,
@@ -75,26 +75,6 @@ const YourComponent = () => {
       columnWrapperStyle={{ gap: 8 }}
       stickyHeaderIndices={[0]}
       stickyHeaderHiddenOnScroll
-      // StickyHeaderComponent={() => (
-      //   <FlatList
-      //     // stickyHeaderIndices={[0]}
-      //     horizontal
-      //     data={scrollableItems}
-      //     keyExtractor={(item, index) => index.toString()}
-      //     renderItem={({ item }) => {
-      //       console.log('item: ', item);
-      //       return (
-      //         <TouchableOpacity
-      //           style={{
-      //             paddingHorizontal: 15,
-      //             paddingVertical: 10,
-      //           }}>
-      //           <Text>{item}</Text>
-      //         </TouchableOpacity>
-      //       );
-      //     }}
-      //   />
-      // )}
     />
   );
 };
