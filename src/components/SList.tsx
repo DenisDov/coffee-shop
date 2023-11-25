@@ -54,6 +54,7 @@ const YourComponent = () => {
       </View>
 
       <FlatList
+        testID="row"
         style={{ backgroundColor: 'red' }}
         horizontal
         data={scrollableItems}
