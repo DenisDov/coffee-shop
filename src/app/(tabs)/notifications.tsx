@@ -8,7 +8,7 @@ export default function NotificationsScreen() {
   const { top } = useSafeAreaInsets();
   return (
     <Box>
-      <Box style={{ height: top, backgroundColor: 'blue' }} />
+      {/* <Box style={{ height: top, backgroundColor: 'blue' }} /> */}
       <SList />
     </Box>
   );
