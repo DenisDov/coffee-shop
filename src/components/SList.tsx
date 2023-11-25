@@ -48,16 +48,20 @@ const YourComponent = () => {
       <View
         style={{
           backgroundColor: 'lime',
-          height: 300,
+          gap: 34,
         }}>
-        <Text>BANNER</Text>
+        <Text style={{ fontSize: 36, fontWeight: '700' }}>DROPDOWN</Text>
+        <Text style={{ fontSize: 36, fontWeight: '700' }}>INPUT</Text>
+        <Text style={{ fontSize: 36, fontWeight: '700' }}>BOX</Text>
+        <Text style={{ fontSize: 36, fontWeight: '700' }}>PROMO</Text>
       </View>
 
       <FlatList
         testID="row"
-        style={{ backgroundColor: 'red' }}
-        horizontal
         data={scrollableItems}
+        horizontal
+        style={{ backgroundColor: 'red' }}
+        showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -83,7 +87,7 @@ const YourComponent = () => {
       keyExtractor={(item, index) => index.toString()}
       ListHeaderComponent={renderHeader}
       numColumns={2}
-      contentContainerStyle={{ gap: 8, paddingHorizontal: 8 }}
+      contentContainerStyle={{ gap: 8 }}
       columnWrapperStyle={{ gap: 8 }}
     />
   );
