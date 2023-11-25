@@ -4,15 +4,8 @@ import { ImageBackground } from 'react-native';
 import { Box, Text } from '@/theme';
 
 export const Promo = () => {
-  // const marginTop = height === 0 ? undefined : -(height / 2);
   return (
-    <Box
-      height={150}
-      margin="m"
-      overflow="hidden"
-      borderRadius="m"
-      // style={{ marginTop }}
-    >
+    <Box height={150} overflow="hidden" borderRadius="m">
       <ImageBackground
         style={{ flex: 1 }}
         resizeMode="cover"

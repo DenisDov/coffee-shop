@@ -26,7 +26,7 @@ export default function HomeScreen() {
       {/* <LinearGradient colors={['#313131', '#131313']} start={{ x: 0, y: 0.7 }}> */}
       <ScrollView
         style={{ flex: 1, paddingTop: insets.top, backgroundColor: 'gray' }}
-        stickyHeaderIndices={[0]}>
+        stickyHeaderIndices={[0, 1]}>
         <Box
           // style={{ paddingTop: insets.top }}
           padding="m"

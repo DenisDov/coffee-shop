@@ -3,19 +3,6 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 
 import { COFFEES } from '@/utils/faker';
 
-const generateListItems = (startChar, endChar) => {
-  const listItems = [];
-  for (
-    let charCode = startChar.charCodeAt(0);
-    charCode <= endChar.charCodeAt(0);
-    charCode++
-  ) {
-    const newItem = `Item ${String.fromCharCode(charCode)}`;
-    listItems.push(newItem);
-  }
-  return listItems;
-};
-
 const YourComponent = () => {
   // Data for your horizontally scrollable view and list
   const scrollableItems = [
@@ -27,7 +14,34 @@ const YourComponent = () => {
     'Item 6',
     'Item 7',
   ];
-  const listItems = generateListItems('A', 'Z');
+  const listItems = [
+    'Item A',
+    'Item B',
+    'Item C',
+    'Item D',
+    'Item E',
+    'Item F',
+    'Item G',
+    'Item H',
+    'Item I',
+    'Item J',
+    'Item K',
+    'Item L',
+    'Item M',
+    'Item N',
+    'Item O',
+    'Item P',
+    'Item Q',
+    'Item R',
+    'Item S',
+    'Item T',
+    'Item U',
+    'Item V',
+    'Item W',
+    'Item X',
+    'Item Y',
+    'Item Z',
+  ];
 
   const renderHeader = () => (
     <View>
@@ -35,9 +49,6 @@ const YourComponent = () => {
         style={{
           backgroundColor: 'lime',
           height: 300,
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: 10,
         }}>
         <Text>BANNER</Text>
       </View>
@@ -73,8 +84,6 @@ const YourComponent = () => {
       numColumns={2}
       contentContainerStyle={{ gap: 8, paddingHorizontal: 8 }}
       columnWrapperStyle={{ gap: 8 }}
-      stickyHeaderIndices={[0]}
-      stickyHeaderHiddenOnScroll
     />
   );
 };
