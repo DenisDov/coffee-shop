@@ -4,9 +4,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { COFFEES } from '@/utils/faker';
 
+const rowHeight = 40;
+
 const YourComponent = () => {
   const insets = useSafeAreaInsets();
-  console.log('top: ', insets.top);
+  // console.log('top: ', insets.top);
   const [bannerHeight, setBannerHeight] = useState(0);
   console.log('bannerHeight: ', bannerHeight);
 
@@ -57,8 +59,8 @@ const YourComponent = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const translateY = scrollY.interpolate({
-    inputRange: [0, bannerHeight],
-    outputRange: [0, -bannerHeight],
+    inputRange: [0, bannerHeight - rowHeight],
+    outputRange: [0, -bannerHeight + rowHeight],
     extrapolate: 'clamp',
   });
 
@@ -85,7 +87,7 @@ const YourComponent = () => {
         testID="row"
         data={scrollableItems}
         horizontal
-        style={{ backgroundColor: 'red' }}
+        style={{ backgroundColor: 'blue', height: rowHeight }}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
@@ -94,7 +96,7 @@ const YourComponent = () => {
               paddingHorizontal: 15,
               paddingVertical: 10,
             }}>
-            <Text>{item}</Text>
+            <Text style={{ color: 'white' }}>{item}</Text>
           </TouchableOpacity>
         )}
       />
@@ -103,13 +105,13 @@ const YourComponent = () => {
 
   return (
     <View>
-      <View
+      {/* <View
         style={{
           height: insets.top,
           backgroundColor: 'blue',
           // zIndex: 2,
         }}
-      />
+      /> */}
       <View>
         <Banner />
         <Animated.FlatList
@@ -121,7 +123,10 @@ const YourComponent = () => {
           )}
           keyExtractor={(item, index) => index.toString()}
           numColumns={2}
-          contentContainerStyle={{ gap: 8, paddingTop: bannerHeight + 8 }}
+          contentContainerStyle={{
+            gap: 8,
+            paddingTop: bannerHeight + 8,
+          }}
           columnWrapperStyle={{ gap: 8 }}
           // stickyHeaderIndices={[0]}
           onScroll={Animated.event(
