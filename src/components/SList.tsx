@@ -10,7 +10,6 @@ const YourComponent = () => {
   const insets = useSafeAreaInsets();
   // console.log('top: ', insets.top);
   const [bannerHeight, setBannerHeight] = useState(0);
-  console.log('bannerHeight: ', bannerHeight);
 
   const onLayout = event => {
     const { height } = event.nativeEvent.layout;
@@ -59,12 +58,11 @@ const YourComponent = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const translateY = scrollY.interpolate({
-    inputRange: [0, bannerHeight - rowHeight],
-    outputRange: [0, -bannerHeight + rowHeight],
+    inputRange: [0, Math.max(0, bannerHeight - rowHeight)],
+    outputRange: [0, -Math.max(0, bannerHeight - rowHeight)],
     extrapolate: 'clamp',
   });
 
-  console.log('translateY: ', translateY);
   const Banner = () => (
     <Animated.View
       onLayout={onLayout}
@@ -128,7 +126,6 @@ const YourComponent = () => {
             paddingTop: bannerHeight + 8,
           }}
           columnWrapperStyle={{ gap: 8 }}
-          // stickyHeaderIndices={[0]}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: scrollY } } }],
             { useNativeDriver: true },
