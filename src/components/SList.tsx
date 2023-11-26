@@ -1,14 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { Animated, FlatList, Text, TouchableOpacity, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { COFFEES } from '@/utils/faker';
 
 const rowHeight = 40;
 
 const YourComponent = () => {
-  const insets = useSafeAreaInsets();
-  // console.log('top: ', insets.top);
   const [bannerHeight, setBannerHeight] = useState(0);
 
   const onLayout = event => {
@@ -40,7 +35,6 @@ const YourComponent = () => {
     <Animated.View
       onLayout={onLayout}
       style={{
-        backgroundColor: 'lime',
         transform: [{ translateY }],
         zIndex: 1,
         position: 'absolute',
@@ -48,7 +42,7 @@ const YourComponent = () => {
         left: 0,
         right: 0,
       }}>
-      <View>
+      <View style={{ backgroundColor: 'lime' }}>
         <Text style={{ fontSize: 36, fontWeight: '700' }}>DROPDOWN</Text>
         <Text style={{ fontSize: 36, fontWeight: '700' }}>INPUT</Text>
         <Text style={{ fontSize: 36, fontWeight: '700' }}>BOX</Text>
@@ -58,15 +52,20 @@ const YourComponent = () => {
         testID="row"
         data={scrollableItems}
         horizontal
-        style={{ backgroundColor: 'blue', height: rowHeight }}
+        style={{
+          backgroundColor: 'blue',
+          height: rowHeight,
+        }}
+        contentContainerStyle={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          columnGap: 16,
+          paddingHorizontal: 8,
+        }}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={{
-              paddingHorizontal: 15,
-              paddingVertical: 10,
-            }}>
+          <TouchableOpacity>
             <Text style={{ color: 'white' }}>{item}</Text>
           </TouchableOpacity>
         )}
@@ -76,38 +75,29 @@ const YourComponent = () => {
 
   return (
     <View>
-      {/* <View
-        style={{
-          height: insets.top,
-          backgroundColor: 'blue',
-          // zIndex: 2,
+      <Banner />
+      <Animated.FlatList
+        data={listItems}
+        renderItem={({ item }) => (
+          <View style={{ flex: 1, padding: 30, backgroundColor: 'tomato' }}>
+            <Text>{item}</Text>
+          </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        numColumns={2}
+        contentContainerStyle={{
+          gap: 8,
+          paddingTop: bannerHeight + 8,
+          paddingBottom: 60,
+          paddingHorizontal: 8,
         }}
-      /> */}
-      <View>
-        <Banner />
-        <Animated.FlatList
-          data={listItems}
-          renderItem={({ item }) => (
-            <View style={{ flex: 1, padding: 30, backgroundColor: 'tomato' }}>
-              <Text>{item}</Text>
-            </View>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-          numColumns={2}
-          contentContainerStyle={{
-            gap: 8,
-            paddingTop: bannerHeight + 8,
-            paddingBottom: 60,
-            paddingHorizontal: 8,
-          }}
-          columnWrapperStyle={{ gap: 8 }}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-            { useNativeDriver: true },
-          )}
-          scrollEventThrottle={16}
-        />
-      </View>
+        columnWrapperStyle={{ gap: 8 }}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true },
+        )}
+        scrollEventThrottle={16}
+      />
     </View>
   );
 };
