@@ -26,34 +26,7 @@ const YourComponent = () => {
     'Item 7',
     'Item 7',
   ];
-  const listItems = [
-    'Item A',
-    'Item B',
-    'Item C',
-    'Item D',
-    'Item E',
-    'Item F',
-    'Item G',
-    'Item H',
-    'Item I',
-    'Item J',
-    'Item K',
-    'Item L',
-    'Item M',
-    'Item N',
-    'Item O',
-    'Item P',
-    'Item Q',
-    'Item R',
-    'Item S',
-    'Item T',
-    'Item U',
-    'Item V',
-    'Item W',
-    'Item X',
-    'Item Y',
-    'Item Z',
-  ];
+  const listItems = Array.from({ length: 50 }, (_, index) => index + 1);
 
   const scrollY = useRef(new Animated.Value(0)).current;
 
@@ -124,6 +97,8 @@ const YourComponent = () => {
           contentContainerStyle={{
             gap: 8,
             paddingTop: bannerHeight + 8,
+            paddingBottom: 60,
+            paddingHorizontal: 8,
           }}
           columnWrapperStyle={{ gap: 8 }}
           onScroll={Animated.event(
