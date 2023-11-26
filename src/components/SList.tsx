@@ -1,9 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { Animated, FlatList, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Animated,
+  FlatList,
+  RefreshControl,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const rowHeight = 40;
 
 const YourComponent = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const [bannerHeight, setBannerHeight] = useState(0);
 
   const onLayout = event => {
@@ -30,6 +38,15 @@ const YourComponent = () => {
     outputRange: [0, -Math.max(0, bannerHeight - rowHeight)],
     extrapolate: 'clamp',
   });
+
+  const onRefresh = () => {
+    setRefreshing(true);
+
+    // Simulated data fetching delay, replace this with your actual data fetching logic
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000); // Simulated 2-second delay, change as needed
+  };
 
   const Banner = () => (
     <Animated.View
@@ -97,6 +114,14 @@ const YourComponent = () => {
           { useNativeDriver: true },
         )}
         scrollEventThrottle={16}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="red"
+            progressViewOffset={bannerHeight + 8}
+          />
+        }
       />
     </View>
   );
