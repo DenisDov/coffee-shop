@@ -21,14 +21,16 @@ const theme = createTheme({
     primary: palette.gold,
     background: palette.gray100,
     text: palette.gray300,
-    mutedText: palette.gray200,
+    muted: palette.gray200,
     white: palette.white,
     error: palette.red,
     debug: palette.green,
   },
   spacing: {
+    xxs: 2,
     xs: 4,
     s: 8,
+    sm: 12,
     m: 16,
     l: 24,
     xl: 40,
@@ -48,11 +50,8 @@ const theme = createTheme({
       fontFamily: 'Sora_400Regular',
       color: 'text',
     },
-    // light: {
-    //   color: 'light',
-    // },
-    muted: {
-      color: 'mutedText',
+    semiBold: {
+      fontFamily: 'Sora_600SemiBold',
     },
     button: {
       fontFamily: 'Sora_600SemiBold',

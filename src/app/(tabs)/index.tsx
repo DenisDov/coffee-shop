@@ -53,9 +53,7 @@ export default function HomeScreen() {
                       height: 14,
                     }}
                     source={require('@/assets/icons/svg/chevron-down.svg')}
-                    // placeholder={blurhash}
                     contentFit="contain"
-                    // transition={1000}
                   />
                 </Box>
               </PlatformPressable>
