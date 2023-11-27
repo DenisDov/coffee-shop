@@ -17,25 +17,27 @@ export interface Coffee {
   price: number;
   thumbnail: ImageSourcePropType;
   rating: number;
+  onPress: () => void;
 }
 
 export const CoffeeCard = ({
+  id,
   title,
   description,
   price,
   thumbnail,
   rating,
+  onPress,
 }: Coffee) => {
   const { width } = useWindowDimensions();
   const cardWidth = width / 2 - 24; // minus gap
   return (
-    <Box
-      backgroundColor="white"
-      borderRadius="m"
-      width={cardWidth}
-      style={styles.shadow}>
+    <PlatformPressable
+      onPress={onPress}
+      style={[styles.pressable, { width: cardWidth }]}
+      pressOpacity={0.7}>
       <Box padding="xs">
-        <ImageBackground style={styles.image} source={thumbnail}>
+        <ImageBackground style={styles.imageBackground} source={thumbnail}>
           <Box flexDirection="row" alignItems="center" gap="xxs">
             <Image
               style={{ width: 10, height: 10 }}
@@ -66,7 +68,7 @@ export const CoffeeCard = ({
             $ {price}
           </Text>
           <PlatformPressable
-            onPress={() => console.log('add')}
+            onPress={() => console.log('add item', id)}
             hitSlop={16}
             style={styles.button}
             pressOpacity={0.7}>
@@ -81,25 +83,28 @@ export const CoffeeCard = ({
           </PlatformPressable>
         </Box>
       </Box>
-    </Box>
+    </PlatformPressable>
   );
 };
 
 const styles = StyleSheet.create({
-  image: {
-    padding: 8,
-    resizeMode: 'cover',
+  pressable: {
+    backgroundColor: 'white',
     borderRadius: 16,
-    overflow: 'hidden',
-    height: 132,
-  },
-  shadow: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 3,
   },
+  imageBackground: {
+    padding: 8,
+    resizeMode: 'cover',
+    borderRadius: 16,
+    overflow: 'hidden',
+    height: 132,
+  },
+
   button: {
     width: 32,
     height: 32,

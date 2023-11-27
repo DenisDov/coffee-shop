@@ -117,7 +117,13 @@ export default function FavoritesScreen() {
           flexDirection="row"
           justifyContent="space-between"
           gap="m">
-          {data?.map(item => <CoffeeCard key={item.id} {...item} />)}
+          {data?.map(item => (
+            <CoffeeCard
+              key={item.id}
+              {...item}
+              onPress={() => console.log('nav to item', item.id)}
+            />
+          ))}
         </Box>
       </ScrollView>
     </Box>
