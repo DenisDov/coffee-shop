@@ -9,8 +9,8 @@ export default function CartScreen() {
   return (
     <Box flex={1}>
       <Box style={{ height: top, backgroundColor: 'blue', zIndex: 2 }} />
-      {/* <MySectionList /> */}
-      <MyList />
+      <MySectionList />
+      {/* <MyList /> */}
     </Box>
   );
 }
