@@ -1,14 +1,22 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useState } from 'react';
-import { ActivityIndicator, RefreshControl, ScrollView } from 'react-native';
+import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Coffee, CoffeeCard } from '@/components/CoffeeCard';
+import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { Promo } from '@/components/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { Box, Text } from '@/theme';
 
-// const data = Array.from({ length: 20 }, (_, index) => index + 1);
+const categories: string[] = [
+  'Cappucino',
+  'Machiato',
+  'Latte',
+  'Americano',
+  'qwewew',
+  'dsdscs',
+];
 
 const data: Coffee[] = [
   {
@@ -65,6 +73,7 @@ export default function FavoritesScreen() {
   const insets = useSafeAreaInsets();
 
   const [refreshing, setRefreshing] = useState(false);
+  const [aciveCategory, setActiveCategory] = useState(categories[0]);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -102,16 +111,31 @@ export default function FavoritesScreen() {
           </Box>
         </LinearGradient>
 
-        <Box padding="m" backgroundColor="background">
+        <Box paddingTop="m" paddingHorizontal="m" backgroundColor="background">
           <Promo />
         </Box>
 
-        <Box backgroundColor="debug">
-          <Text>LIST_OF_COFFEE</Text>
+        <Box backgroundColor="background">
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ gap: 8, padding: 16 }}>
+            {categories?.map(item => {
+              return (
+                <CoffeeCategory
+                  key={item}
+                  item={item}
+                  onPress={() => setActiveCategory(item)}
+                  isActive={aciveCategory === item}
+                />
+              );
+            })}
+          </ScrollView>
         </Box>
 
         <Box
-          padding="m"
+          paddingHorizontal="m"
+          paddingBottom="m"
           backgroundColor="background"
           flexWrap="wrap"
           flexDirection="row"

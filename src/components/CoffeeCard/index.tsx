@@ -17,7 +17,7 @@ export interface Coffee {
   price: number;
   thumbnail: ImageSourcePropType;
   rating: number;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 export const CoffeeCard = ({
