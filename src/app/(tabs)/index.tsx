@@ -14,12 +14,15 @@ import { SearchBar } from '@/components/SearchBar';
 import { Box, Text } from '@/theme';
 
 const categories: string[] = [
+  'Black',
+  'Espresso',
   'Cappucino',
   'Machiato',
   'Latte',
   'Americano',
-  'qwewew',
-  'dsdscs',
+  'Ristretto',
+  'Flat white',
+  'Doppio',
 ];
 
 const data: Coffee[] = [
@@ -151,7 +154,7 @@ export default function HomeScreen() {
           </Box>
 
           <Box padding="m">
-            <SearchBar />
+            <SearchBar onChangeText={() => null} value="" />
           </Box>
         </LinearGradient>
 
