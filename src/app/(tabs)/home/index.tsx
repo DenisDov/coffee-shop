@@ -1,6 +1,7 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
+import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
@@ -192,7 +193,7 @@ export default function HomeScreen() {
             <CoffeeCard
               key={item.id}
               {...item}
-              onPress={() => console.log('nav to item', item.id)}
+              onPress={() => router.push(`/home/${item.id}`)}
               onAddToCart={() => console.log('add to cart item', item.id)}
             />
           ))}
