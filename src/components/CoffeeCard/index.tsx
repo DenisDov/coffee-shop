@@ -13,10 +13,12 @@ import { Box, Text } from '@/theme';
 export interface Coffee {
   id: number;
   title: string;
+  ingredients: string;
   description: string;
   price: number;
   thumbnail: ImageSourcePropType;
   rating: number;
+  reviewsCount: number;
   onPress?: () => void;
   onAddToCart?: () => void;
 }
@@ -24,7 +26,7 @@ export interface Coffee {
 export const CoffeeCard = ({
   id,
   title,
-  description,
+  ingredients,
   price,
   thumbnail,
   rating,
@@ -59,7 +61,7 @@ export const CoffeeCard = ({
             {title}
           </Text>
           <Text numberOfLines={1} fontSize={12} color="muted">
-            {description}
+            with {ingredients}
           </Text>
         </Box>
         <Box

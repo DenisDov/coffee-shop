@@ -30,50 +30,68 @@ const data: Coffee[] = [
   {
     id: 1,
     title: 'Cappucino',
-    description: 'with Chocolate',
+    ingredients: 'Chocolate',
+    description:
+      'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee1.png'),
     rating: 4.8,
+    reviewsCount: 230,
   },
   {
     id: 2,
     title: 'Machiato',
-    description: 'with Oat Milk',
+    ingredients: 'Oat Milk',
+    description:
+      'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee2.png'),
     rating: 4.9,
+    reviewsCount: 230,
   },
   {
     id: 3,
     title: 'Latte',
-    description: 'with Chocolate',
+    ingredients: 'Chocolate',
+    description:
+      'A creamy espresso-based drink ingredients steamed milk, known for its smooth texture.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee3.png'),
     rating: 4.8,
+    reviewsCount: 230,
   },
   {
     id: 4,
     title: 'Americano',
-    description: 'with Oat Milk',
+    ingredients: 'hot water',
+    description:
+      'An Americano is made by diluting espresso ingredients hot water, resulting in a similar strength to regular coffee but ingredients a distinct espresso flavor profile.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee4.png'),
     rating: 4.9,
+    reviewsCount: 230,
   },
   {
     id: 5,
     title: 'Cappucino',
-    description: 'with Chocolate',
+    ingredients: 'foamed milk',
+    description:
+      'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee1.png'),
     rating: 4.8,
+    reviewsCount: 230,
   },
   {
     id: 6,
     title: 'Machiato',
-    description: 'with Oat Milk',
+    ingredients: 'Oat Milk',
+    description:
+      'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
     price: 4.53,
     thumbnail: require('@/components/CoffeeCard/images/coffee2.png'),
     rating: 4.9,
+    reviewsCount: 230,
   },
 ];
 
@@ -96,7 +114,7 @@ export default function HomeScreen() {
       <ScrollViewBackgroundLayer />
       <Box style={{ height: insets.top }} />
       <ScrollView
-        removeClippedSubviews // TODO: test performance with https://github.com/Shopify/react-native-performance
+        removeClippedSubviews // TODO: test performance ingredients https://github.com/Shopify/react-native-performance
         showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[0, 2]}
         style={{ flex: 1 }}
@@ -189,14 +207,30 @@ export default function HomeScreen() {
           flexDirection="row"
           justifyContent="space-between"
           gap="m">
-          {data?.map(item => (
-            <CoffeeCard
-              key={item.id}
-              {...item}
-              onPress={() => router.push(`/home/${item.id}`)}
-              onAddToCart={() => console.log('add to cart item', item.id)}
-            />
-          ))}
+          {data?.map(item => {
+            console.log('item: ', item);
+
+            return (
+              <CoffeeCard
+                key={item.id}
+                {...item}
+                onPress={() =>
+                  router.push({
+                    pathname: `/home/${item.id}`,
+                    params: {
+                      title: item.title,
+                      ingredients: item.ingredients,
+                      description: item.description,
+                      rating: item.rating,
+                      reviewsCount: item.reviewsCount,
+                      price: item.price,
+                    },
+                  })
+                }
+                onAddToCart={() => console.log('add to cart item', item.id)}
+              />
+            );
+          })}
         </Box>
       </ScrollView>
     </Box>
