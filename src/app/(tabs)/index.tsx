@@ -190,6 +190,7 @@ export default function HomeScreen() {
               key={item.id}
               {...item}
               onPress={() => console.log('nav to item', item.id)}
+              onAddToCart={() => console.log('add to cart item', item.id)}
             />
           ))}
         </Box>

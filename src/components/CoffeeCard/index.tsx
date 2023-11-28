@@ -18,6 +18,7 @@ export interface Coffee {
   thumbnail: ImageSourcePropType;
   rating: number;
   onPress?: () => void;
+  onAddToCart?: () => void;
 }
 
 export const CoffeeCard = ({
@@ -28,6 +29,7 @@ export const CoffeeCard = ({
   thumbnail,
   rating,
   onPress,
+  onAddToCart,
 }: Coffee) => {
   const { width } = useWindowDimensions();
   const cardWidth = width / 2 - 24; // minus gap
@@ -68,7 +70,7 @@ export const CoffeeCard = ({
             $ {price}
           </Text>
           <PlatformPressable
-            onPress={() => console.log('add item', id)}
+            onPress={onAddToCart}
             hitSlop={16}
             style={styles.button}
             pressOpacity={0.7}>
