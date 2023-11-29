@@ -1,19 +1,12 @@
 import { Image } from 'expo-image';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
-// import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Header } from '@/components/Header';
 import { Box, Text } from '@/theme';
 
-// const blurhash = 'LHHx1n0M00tRpKZ~I;a}02WB~oi^';
-// const imgURL =
-//   'https://images.unsplash.com/photo-1444418185997-1145401101e0?q=80&w=3017&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-
 export default function CoffeeDetailScreen() {
-  // const insets = useSafeAreaInsets();
-  // const router = useRouter();
   const params = useLocalSearchParams();
   return (
     <>
@@ -27,7 +20,7 @@ export default function CoffeeDetailScreen() {
           <Image
             style={styles.image}
             source={params.source}
-            placeholder={params.blurhash}
+            placeholder={{ thumbhash: params.thumbhash }}
             contentFit="cover"
             transition={1000}
           />

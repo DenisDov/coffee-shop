@@ -26,7 +26,7 @@ export const CoffeeCard = memo(props => {
       pathname: `/home/${id}`,
       params: {
         source: image.source,
-        blurhash: image.blurhash,
+        thumbhash: image.thumbhash,
         title,
         ingredients,
         description,
@@ -50,7 +50,7 @@ export const CoffeeCard = memo(props => {
         <ImageBackground
           style={styles.imageBackground}
           source={image.source}
-          placeholder={image.blurhash}
+          placeholder={{ thumbhash: image.thumbhash }}
           contentFit="cover"
           transition={1000}>
           <Box flexDirection="row" alignItems="center" gap="xxs">

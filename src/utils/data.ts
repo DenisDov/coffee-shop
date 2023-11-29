@@ -21,7 +21,7 @@ const coffees = [
     image: {
       source:
         'https://images.unsplash.com/photo-1472973681244-f5bcc808ad47?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+      thumbhash: '1zgKDYJ2d5aviHdmerhXakX/BXya',
     },
     rating: 4.8,
     reviewsCount: 230,
@@ -35,8 +35,8 @@ const coffees = [
     price: 4.53,
     image: {
       source:
-        'https://images.unsplash.com/photo-1472973681244-f5bcc808ad47?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+        'https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=80&w=3108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      thumbhash: 'kBgOHIIIl3h5iHdziogId4KBCA',
     },
     rating: 4.9,
     reviewsCount: 230,
@@ -50,8 +50,8 @@ const coffees = [
     price: 4.53,
     image: {
       source:
-        'https://images.unsplash.com/photo-1472973681244-f5bcc808ad47?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+        'https://images.unsplash.com/photo-1598971948291-38c380f80f85?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      thumbhash: '5HoKFYJ/uHZ7iHdmeoV4ecVqL3v2',
     },
     rating: 4.8,
     reviewsCount: 230,
@@ -66,7 +66,7 @@ const coffees = [
     image: {
       source:
         'https://images.unsplash.com/photo-1582252852999-5ca546037481?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+      thumbhash: '1zgKDYJ2d5aviHdmerhXakX/BXya',
     },
     rating: 4.9,
     reviewsCount: 230,
@@ -81,7 +81,7 @@ const coffees = [
     image: {
       source:
         'https://images.unsplash.com/photo-1472973681244-f5bcc808ad47?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+      thumbhash: '1zgKDYJ2d5aviHdmerhXakX/BXya',
     },
     rating: 4.8,
     reviewsCount: 230,
@@ -95,8 +95,8 @@ const coffees = [
     price: 4.53,
     image: {
       source:
-        'https://images.unsplash.com/photo-1472973681244-f5bcc808ad47?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      blurhash: 'LHHx1n0M00tRpKZ~I;a}02WB~oi^',
+        'https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=80&w=3108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      thumbhash: 'kBgOHIIIl3h5iHdziogId4KBCA',
     },
     rating: 4.9,
     reviewsCount: 230,
