@@ -28,6 +28,11 @@ export default function HomeScreen() {
     }, 2000);
   }, []);
 
+  const handleCategoryPress = useCallback(item => {
+    console.log('category:', item);
+    setActiveCategory(item);
+  }, []);
+
   return (
     <Box flex={1}>
       <StatusBar style="light" />
@@ -111,7 +116,7 @@ export default function HomeScreen() {
                 <CoffeeCategory
                   key={item}
                   item={item}
-                  onPress={() => setActiveCategory(item)}
+                  onPress={handleCategoryPress}
                   isActive={aciveCategory === item}
                 />
               );
@@ -128,30 +133,7 @@ export default function HomeScreen() {
           justifyContent="space-between"
           gap="m">
           {coffees?.map(item => {
-            console.log('item: ', item);
-
-            return (
-              <CoffeeCard
-                key={item.id}
-                {...item}
-                onPress={() =>
-                  router.push({
-                    pathname: `/home/${item.id}`,
-                    params: {
-                      source: item.image.source,
-                      blurhash: item.image.blurhash,
-                      title: item.title,
-                      ingredients: item.ingredients,
-                      description: item.description,
-                      rating: item.rating,
-                      reviewsCount: item.reviewsCount,
-                      price: item.price,
-                    },
-                  })
-                }
-                onAddToCart={() => console.log('add to cart item', item.id)}
-              />
-            );
+            return <CoffeeCard key={item.id} {...item} />;
           })}
         </Box>
       </ScrollView>

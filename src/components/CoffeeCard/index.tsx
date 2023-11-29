@@ -1,24 +1,49 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image, ImageBackground } from 'expo-image';
-import React from 'react';
+import { router } from 'expo-router';
+import { memo } from 'react';
 import { StyleSheet, useWindowDimensions } from 'react-native';
 
 import { Box, Text } from '@/theme';
 
-export const CoffeeCard = ({
-  title,
-  ingredients,
-  price,
-  image,
-  rating,
-  onPress,
-  onAddToCart,
-}: any) => {
+export const CoffeeCard = memo(props => {
   const { width } = useWindowDimensions();
   const cardWidth = width / 2 - 24; // minus gap
+
+  const {
+    id,
+    title,
+    ingredients,
+    description,
+    price,
+    image,
+    rating,
+    reviewsCount,
+  } = props;
+
+  const navTo = () => {
+    router.push({
+      pathname: `/home/${id}`,
+      params: {
+        source: image.source,
+        blurhash: image.blurhash,
+        title,
+        ingredients,
+        description,
+        rating,
+        reviewsCount,
+        price,
+      },
+    });
+  };
+
+  const onAddToCart = () => {
+    console.log('add to cart item', id);
+  };
+
   return (
     <PlatformPressable
-      onPress={onPress}
+      onPress={navTo}
       style={[styles.pressable, { width: cardWidth }]}
       pressOpacity={0.7}>
       <Box padding="xs">
@@ -75,7 +100,7 @@ export const CoffeeCard = ({
       </Box>
     </PlatformPressable>
   );
-};
+});
 
 const styles = StyleSheet.create({
   pressable: {

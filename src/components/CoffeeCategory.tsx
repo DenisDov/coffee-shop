@@ -2,11 +2,11 @@ import { PlatformPressable } from '@react-navigation/elements';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Box, Text } from '@/theme';
+import { Text } from '@/theme';
 
 interface CoffeeCategoryProps {
   item: string;
-  onPress: () => void;
+  onPress: (item: string) => void;
   isActive: boolean;
 }
 
@@ -17,7 +17,7 @@ export const CoffeeCategory = ({
 }: CoffeeCategoryProps) => {
   return (
     <PlatformPressable
-      onPress={onPress}
+      onPress={() => onPress(item)}
       style={[
         styles.category,
         {
