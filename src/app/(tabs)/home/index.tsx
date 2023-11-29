@@ -7,93 +7,13 @@ import { useCallback, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Coffee, CoffeeCard } from '@/components/CoffeeCard';
+import { CoffeeCard } from '@/components/CoffeeCard';
 import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { Promo } from '@/components/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
 import { Box, Text } from '@/theme';
-
-const categories: string[] = [
-  'Black',
-  'Espresso',
-  'Cappucino',
-  'Machiato',
-  'Latte',
-  'Americano',
-  'Ristretto',
-  'Flat white',
-  'Doppio',
-];
-
-const data: Coffee[] = [
-  {
-    id: 1,
-    title: 'Cappucino',
-    ingredients: 'Chocolate',
-    description:
-      'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee1.png'),
-    rating: 4.8,
-    reviewsCount: 230,
-  },
-  {
-    id: 2,
-    title: 'Machiato',
-    ingredients: 'Oat Milk',
-    description:
-      'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee2.png'),
-    rating: 4.9,
-    reviewsCount: 230,
-  },
-  {
-    id: 3,
-    title: 'Latte',
-    ingredients: 'Chocolate',
-    description:
-      'A creamy espresso-based drink ingredients steamed milk, known for its smooth texture.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee3.png'),
-    rating: 4.8,
-    reviewsCount: 230,
-  },
-  {
-    id: 4,
-    title: 'Americano',
-    ingredients: 'hot water',
-    description:
-      'An Americano is made by diluting espresso ingredients hot water, resulting in a similar strength to regular coffee but ingredients a distinct espresso flavor profile.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee4.png'),
-    rating: 4.9,
-    reviewsCount: 230,
-  },
-  {
-    id: 5,
-    title: 'Cappucino',
-    ingredients: 'foamed milk',
-    description:
-      'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee1.png'),
-    rating: 4.8,
-    reviewsCount: 230,
-  },
-  {
-    id: 6,
-    title: 'Machiato',
-    ingredients: 'Oat Milk',
-    description:
-      'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
-    price: 4.53,
-    thumbnail: require('@/components/CoffeeCard/images/coffee2.png'),
-    rating: 4.9,
-    reviewsCount: 230,
-  },
-];
+import { categories, coffees } from '@/utils/data';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
@@ -207,7 +127,7 @@ export default function HomeScreen() {
           flexDirection="row"
           justifyContent="space-between"
           gap="m">
-          {data?.map(item => {
+          {coffees?.map(item => {
             console.log('item: ', item);
 
             return (
@@ -218,6 +138,8 @@ export default function HomeScreen() {
                   router.push({
                     pathname: `/home/${item.id}`,
                     params: {
+                      source: item.image.source,
+                      blurhash: item.image.blurhash,
                       title: item.title,
                       ingredients: item.ingredients,
                       description: item.description,

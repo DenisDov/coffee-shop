@@ -1,38 +1,19 @@
 import { PlatformPressable } from '@react-navigation/elements';
-import { Image } from 'expo-image';
+import { Image, ImageBackground } from 'expo-image';
 import React from 'react';
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import { StyleSheet, useWindowDimensions } from 'react-native';
 
 import { Box, Text } from '@/theme';
 
-export interface Coffee {
-  id: number;
-  title: string;
-  ingredients: string;
-  description: string;
-  price: number;
-  thumbnail: ImageSourcePropType;
-  rating: number;
-  reviewsCount: number;
-  onPress?: () => void;
-  onAddToCart?: () => void;
-}
-
 export const CoffeeCard = ({
-  id,
   title,
   ingredients,
   price,
-  thumbnail,
+  image,
   rating,
   onPress,
   onAddToCart,
-}: Coffee) => {
+}: any) => {
   const { width } = useWindowDimensions();
   const cardWidth = width / 2 - 24; // minus gap
   return (
@@ -41,7 +22,12 @@ export const CoffeeCard = ({
       style={[styles.pressable, { width: cardWidth }]}
       pressOpacity={0.7}>
       <Box padding="xs">
-        <ImageBackground style={styles.imageBackground} source={thumbnail}>
+        <ImageBackground
+          style={styles.imageBackground}
+          source={image.source}
+          placeholder={image.blurhash}
+          contentFit="cover"
+          transition={1000}>
           <Box flexDirection="row" alignItems="center" gap="xxs">
             <Image
               style={{ width: 10, height: 10 }}
@@ -103,7 +89,6 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     padding: 8,
-    resizeMode: 'cover',
     borderRadius: 16,
     overflow: 'hidden',
     height: 132,
