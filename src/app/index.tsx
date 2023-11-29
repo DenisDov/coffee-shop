@@ -6,6 +6,8 @@ import { StyleSheet } from 'react-native';
 import { Button } from '@/components/Button';
 import { Box, Text } from '@/theme';
 
+// import '../../wdyr';
+
 export default function Onboarding() {
   return (
     <ImageBackground
