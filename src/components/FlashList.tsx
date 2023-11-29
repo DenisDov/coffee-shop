@@ -1,12 +1,6 @@
 import { FlashList } from '@shopify/flash-list';
 import React from 'react';
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 const items = Array.from({ length: 50 }, (_, index) => `Item ${index + 1}`);
 

@@ -1,10 +1,9 @@
 import {
-  PlatformPressable,
   getDefaultHeaderHeight,
+  PlatformPressable,
 } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { StyleSheet } from 'react-native';
 import {
   useSafeAreaFrame,
   useSafeAreaInsets,

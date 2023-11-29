@@ -1,3 +1,5 @@
+// import '../../wdyr';
+
 import { ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -5,8 +7,6 @@ import { StyleSheet } from 'react-native';
 
 import { Button } from '@/components/Button';
 import { Box, Text } from '@/theme';
-
-// import '../../wdyr';
 
 export default function Onboarding() {
   return (
