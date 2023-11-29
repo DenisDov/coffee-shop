@@ -39,6 +39,7 @@ export const SearchBar = ({ onChangeText, value }) => {
           flex: 1,
           color: 'white',
           paddingHorizontal: 12,
+          height: '100%',
         }}
         onChangeText={onChangeText}
         value={value}
