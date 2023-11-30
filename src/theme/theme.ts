@@ -6,6 +6,7 @@ const palette = {
   gold: '#C67C4E',
   red: '#ED5151',
 
+  gray50: '#EAEAEA',
   gray100: '#F9F9F9',
   gray200: '#9B9B9B',
   gray300: '#2F2D2C',
@@ -24,6 +25,7 @@ const theme = createTheme({
     muted: palette.gray200,
     white: palette.white,
     error: palette.red,
+    stroke: palette.gray50,
     debug: palette.green,
   },
   spacing: {

@@ -10,16 +10,8 @@ export const CoffeeCard = memo(props => {
   const { width } = useWindowDimensions();
   const cardWidth = width / 2 - 24; // minus gap
 
-  const {
-    id,
-    title,
-    ingredients,
-    description,
-    price,
-    image,
-    rating,
-    reviewsCount,
-  } = props;
+  const { id, title, extras, description, price, image, rating, reviewsCount } =
+    props;
 
   const navTo = () => {
     router.push({
@@ -28,7 +20,7 @@ export const CoffeeCard = memo(props => {
         source: image.source,
         thumbhash: image.thumbhash,
         title,
-        ingredients,
+        extras,
         description,
         rating,
         reviewsCount,
@@ -72,7 +64,7 @@ export const CoffeeCard = memo(props => {
             {title}
           </Text>
           <Text numberOfLines={1} fontSize={12} color="muted">
-            with {ingredients}
+            with {extras}
           </Text>
         </Box>
         <Box
@@ -118,7 +110,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     height: 132,
   },
-
   button: {
     width: 32,
     height: 32,

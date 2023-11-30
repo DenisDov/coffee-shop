@@ -6,7 +6,12 @@ import { Box, Text } from '@/theme';
 export const Promo = () => {
   return (
     <ImageBackground
-      style={{ flex: 1, borderRadius: 16, height: 150, overflow: 'hidden' }}
+      style={{
+        flex: 1,
+        borderRadius: 16,
+        height: 150,
+        overflow: 'hidden',
+      }}
       contentFit="cover"
       source={require('@/assets/images/promo.png')}>
       <Box

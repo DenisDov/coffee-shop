@@ -1,7 +1,7 @@
 const categories: string[] = [
   'Black',
   'Espresso',
-  'Cappucino',
+  'Cappuccino',
   'Macchiato',
   'Latte',
   'Americano',
@@ -13,10 +13,10 @@ const categories: string[] = [
 const coffees = [
   {
     id: 1,
-    title: 'Cappucino',
-    ingredients: 'Chocolate',
+    title: 'Cappuccino',
+    extras: 'Chocolate',
     description:
-      'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
+      'The cappuccino, a classic Italian coffee, embodies a harmonious blend of espresso, steamed milk, and a luscious layer of milk foam. Originating in Italy, this beloved beverage has become a global favorite. With its precise ratio of one-third espresso, one-third steamed milk, and one-third foam, the cappuccino delivers a balanced, rich flavor profile. The robust espresso forms the foundation, offering a bold and intense kick, harmonized by the velvety smoothness of the steamed milk. Topped with a frothy crown of foam, each sip of cappuccino presents a delightful contrast of flavors and textures, inviting coffee enthusiasts into a realm of pure indulgence and comfort.',
     price: 4.53,
     image: {
       source:
@@ -29,7 +29,7 @@ const coffees = [
   {
     id: 2,
     title: 'Macchiato',
-    ingredients: 'Oat Milk',
+    extras: 'Oat Milk',
     description:
       'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
     price: 4.53,
@@ -44,7 +44,7 @@ const coffees = [
   {
     id: 3,
     title: 'Latte',
-    ingredients: 'Chocolate',
+    extras: 'Chocolate',
     description:
       'A creamy espresso-based drink ingredients steamed milk, known for its smooth texture.',
     price: 4.53,
@@ -59,7 +59,7 @@ const coffees = [
   {
     id: 4,
     title: 'Americano',
-    ingredients: 'hot water',
+    extras: 'hot water',
     description:
       'An Americano is made by diluting espresso ingredients hot water, resulting in a similar strength to regular coffee but ingredients a distinct espresso flavor profile.',
     price: 4.53,
@@ -73,8 +73,8 @@ const coffees = [
   },
   {
     id: 5,
-    title: 'Cappucino',
-    ingredients: 'foamed milk',
+    title: 'Cappuccino',
+    extras: 'foamed milk',
     description:
       'An espresso-based drink ingredients equal parts of espresso, steamed milk, and foamed milk, offering a balance of flavors and textures.',
     price: 4.53,
@@ -89,7 +89,7 @@ const coffees = [
   {
     id: 6,
     title: 'Machiato',
-    ingredients: 'Oat Milk',
+    extras: 'Oat Milk',
     description:
       'An espresso-based drink ingredients a small amount of frothed milk, offering a bolder coffee flavor ingredients a touch of creaminess.',
     price: 4.53,

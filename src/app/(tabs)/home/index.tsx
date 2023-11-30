@@ -39,7 +39,7 @@ export default function HomeScreen() {
       <ScrollViewBackgroundLayer />
       <Box style={{ height: insets.top }} />
       <ScrollView
-        removeClippedSubviews // TODO: test performance ingredients https://github.com/Shopify/react-native-performance
+        removeClippedSubviews // TODO: test performance with https://github.com/Shopify/react-native-performance
         showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[0, 2]}
         style={{ flex: 1 }}

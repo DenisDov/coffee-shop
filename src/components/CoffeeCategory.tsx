@@ -26,9 +26,11 @@ export const CoffeeCategory = ({
       ]}
       pressOpacity={0.7}>
       <Text
-        variant="button"
-        fontSize={14}
-        style={{ color: isActive ? 'white' : '#1C1C1C' }}>
+        style={{
+          fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',
+          color: isActive ? 'white' : '#1C1C1C',
+          fontSize: 14,
+        }}>
         {item}
       </Text>
     </PlatformPressable>
