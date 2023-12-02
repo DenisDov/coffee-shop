@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
+import { ReadMore } from '@/components/ReadMore';
 import { Box, Text } from '@/theme';
 
 export default function CoffeeDetailScreen() {
@@ -95,15 +96,7 @@ export default function CoffeeDetailScreen() {
           <Text variant="semiBold" marginBottom="sm">
             Description
           </Text>
-          <Text fontSize={14} color="muted" lineHeight={22.96}>
-            {`${params?.description.slice(0, 110)}.. `}
-            <Text
-              variant="semiBold"
-              color="primary"
-              onPress={() => console.log('READ MORE')}>
-              Read More
-            </Text>
-          </Text>
+          <ReadMore text={params?.description as string} maxLength={100} />
         </Box>
 
         <Box>
