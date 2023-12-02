@@ -11,7 +11,12 @@ import {
 
 import { Box, Text } from '@/theme';
 
-export const Header = ({ iconRight }: { iconRight: boolean }) => {
+type Props = {
+  title: string;
+  iconRight?: boolean;
+};
+
+export const Header = ({ title, iconRight }: Props) => {
   const frame = useSafeAreaFrame();
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -45,8 +50,12 @@ export const Header = ({ iconRight }: { iconRight: boolean }) => {
       </Box>
 
       <Box flex={1}>
-        <Text variant="semiBold" fontSize={18} textAlign="center">
-          Detail
+        <Text
+          variant="semiBold"
+          fontSize={18}
+          textAlign="center"
+          textTransform="capitalize">
+          {title}
         </Text>
       </Box>
 

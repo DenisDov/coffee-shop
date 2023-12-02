@@ -8,7 +8,7 @@ import { StyleSheet } from 'react-native';
 import { Button } from '@/components/Button';
 import { Box, Text } from '@/theme';
 
-export default function Onboarding() {
+export default function OnboardingScreen() {
   return (
     <ImageBackground
       style={styles.image}

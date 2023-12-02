@@ -1,6 +1,6 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
@@ -12,13 +12,14 @@ import { ReadMore } from '@/components/ReadMore';
 import { Box, Text } from '@/theme';
 
 export default function CoffeeDetailScreen() {
+  const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   const cupSizes = ['S', 'M', 'L'];
   const [selectedCupSize, setSelectedCupSize] = useState(cupSizes[1]);
   return (
     <Box flex={1} backgroundColor="white">
-      <Header iconRight />
+      <Header title="Detail" iconRight />
       <StatusBar style="dark" animated />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -96,7 +97,7 @@ export default function CoffeeDetailScreen() {
           <Text variant="semiBold" marginBottom="sm">
             Description
           </Text>
-          <ReadMore text={params?.description as string} maxLength={100} />
+          <ReadMore text={params?.description as string} maxLength={116} />
         </Box>
 
         <Box>
@@ -144,7 +145,7 @@ export default function CoffeeDetailScreen() {
             styles.shadow,
             {
               padding: 16,
-              height: 87,
+              paddingBottom: 8,
               backgroundColor: 'white',
               borderTopLeftRadius: 24,
               borderTopRightRadius: 24,
@@ -162,7 +163,15 @@ export default function CoffeeDetailScreen() {
             <Box flex={1}>
               <Button
                 title="Buy Now"
-                onPress={() => console.log('buy', params?.title)}
+                onPress={() =>
+                  router.push({
+                    pathname: '/order',
+                    params: {
+                      id: params?.id,
+                      title: params?.title,
+                    },
+                  })
+                }
               />
             </Box>
           </Box>
@@ -173,12 +182,6 @@ export default function CoffeeDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   image: {
     height: 226,
     width: '100%',

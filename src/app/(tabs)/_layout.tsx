@@ -1,13 +1,10 @@
-import { Link, Tabs, useSegments } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Tabs, useSegments } from 'expo-router';
 
 import { TabBarIcon } from '@/components/TabBarIcon';
-import { Text } from '@/theme';
 
 export default function TabLayout() {
-  const segments = useSegments();
-  // console.log('segments: ', segments);
-  const hide = segments.includes('[id]');
+  const segments = useSegments() as string[];
+  const hide: boolean = segments.includes('[id]') || segments.includes('order');
   return (
     <Tabs
       screenOptions={{
@@ -26,21 +23,6 @@ export default function TabLayout() {
               focused={focused}
             />
           ),
-          // headerRight: () => (
-          //   <Link href="/modal" asChild>
-          //     <Pressable
-          //       hitSlop={16}
-          //       // android_ripple={RIPPLE_CONFIG}
-          //       style={({ pressed }) => [
-          //         // styles.button,
-          //         {
-          //           opacity: pressed ? 0.7 : 1,
-          //         },
-          //       ]}>
-          //       <Text>ME</Text>
-          //     </Pressable>
-          //   </Link>
-          // ),
         }}
       />
       <Tabs.Screen
