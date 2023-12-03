@@ -7,6 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
 import { OrderControl } from '@/components/OrderControl';
+import Stepper from '@/components/Stepper';
 import { Box, Text } from '@/theme';
 
 export default function OrderScreen() {
@@ -109,12 +110,13 @@ export default function OrderScreen() {
                   </Box>
                 </Box>
               </Box>
-              <Box width={100} backgroundColor="debug" alignItems="flex-end">
-                <Box flexDirection="row" alignItems="center" gap="sm">
+              <Box width={100} alignItems="flex-end">
+                <Stepper />
+                {/* <Box flexDirection="row" alignItems="center" gap="sm">
                   <Text>-</Text>
                   <Text>1</Text>
                   <Text>+</Text>
-                </Box>
+                </Box> */}
               </Box>
             </Box>
           </Box>
