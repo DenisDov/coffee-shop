@@ -1,60 +1,184 @@
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import { PlatformPressable } from '@react-navigation/elements';
+import { Image } from 'expo-image';
 import { useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/Button';
 import { Header } from '@/components/Header';
+import { OrderControl } from '@/components/OrderControl';
 import { Box, Text } from '@/theme';
-
-const controls = ['Deliver', 'Pick Up'];
 
 export default function OrderScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [value, setValue] = useState(controls[0]);
-  console.log('value: ', value);
-
-  // const [controls] = ['deliver', 'pickup'];
-  // const segmentIndex = controls.findIndex(el => el === language);
-
-  const _onChange = (event: any) => {
-    setSelectedIndex(event.nativeEvent.selectedSegmentIndex);
-  };
-
-  const _onValueChange = (val: string) => {
-    setValue(val);
-  };
 
   return (
     <Box flex={1} backgroundColor="white">
       <Header title="Order" />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{ flex: 1, backgroundColor: '#FFFFFF' }}
-        contentContainerStyle={{ padding: 16, rowGap: 20 }}>
-        <Box>
-          <SegmentedControl
-            values={['Deliver', 'Pick Up']}
-            onChange={_onChange}
-            onValueChange={_onValueChange}
-            selectedIndex={selectedIndex}
-            tintColor="#C67C4E"
-            backgroundColor="#F2F2F2"
-            fontStyle={{ fontSize: 16 }}
-            activeFontStyle={{
-              fontSize: 16,
-              color: '#FFFFFF',
-            }}
-            style={{ height: 40 }}
-          />
-        </Box>
-        <Box>
-          <Text>{params?.id}</Text>
-          <Text>{params?.title}</Text>
+        style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+        <Box flex={1} gap="ml" paddingVertical="m">
+          <Box paddingHorizontal="m">
+            <OrderControl />
+          </Box>
+          <Box paddingHorizontal="m">
+            <Box gap="m">
+              <Box>
+                <Text variant="semiBold" marginBottom="m">
+                  Delivery Address
+                </Text>
+                <Text variant="semiBold" fontSize={14} marginBottom="s">
+                  Jl. Kpg Sutoyo
+                </Text>
+                <Text fontSize={12} style={{ color: '#808080' }}>
+                  Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.
+                </Text>
+              </Box>
+              <Box flexDirection="row" alignItems="center" gap="s">
+                <PlatformPressable
+                  // onPress={handlePress}
+                  hitSlop={16}
+                  style={{
+                    paddingVertical: 6,
+                    paddingHorizontal: 12,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    borderWidth: 1,
+                    borderColor: '#DEDEDE',
+                    borderRadius: 16,
+                    gap: 1,
+                  }}
+                  pressOpacity={0.7}>
+                  <Image
+                    style={{ width: 14, height: 14 }}
+                    source={require('@/assets/icons/svg/icon-edit.svg')}
+                    contentFit="contain"
+                  />
+                  <Text fontSize={12} textTransform="capitalize">
+                    Edit Address
+                  </Text>
+                </PlatformPressable>
+                <PlatformPressable
+                  // onPress={handlePress}
+                  hitSlop={16}
+                  style={{
+                    paddingVertical: 6,
+                    paddingHorizontal: 12,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    borderWidth: 1,
+                    borderColor: '#DEDEDE',
+                    borderRadius: 16,
+                    gap: 1,
+                  }}
+                  pressOpacity={0.7}>
+                  <Image
+                    style={{ width: 14, height: 14 }}
+                    source={require('@/assets/icons/svg/icon-note.svg')}
+                    contentFit="contain"
+                  />
+                  <Text fontSize={12} textTransform="capitalize">
+                    Add Note
+                  </Text>
+                </PlatformPressable>
+              </Box>
+              <Box height={1} backgroundColor="stroke" />
+            </Box>
+          </Box>
+
+          <Box paddingHorizontal="m">
+            <Box flexDirection="row" alignItems="center" gap="m">
+              <Box flex={1}>
+                <Box flexDirection="row" alignItems="center" gap="sm">
+                  <Image
+                    style={{ width: 54, height: 54, borderRadius: 12 }}
+                    source="https://picsum.photos/seed/696/3000/2000"
+                    contentFit="cover"
+                  />
+                  <Box gap="xs">
+                    <Text variant="semiBold" textTransform="capitalize">
+                      capuccino
+                    </Text>
+                    <Text color="muted" fontSize={12}>
+                      with Chocolate
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
+              <Box width={100} backgroundColor="debug" alignItems="flex-end">
+                <Box flexDirection="row" alignItems="center" gap="sm">
+                  <Text>-</Text>
+                  <Text>1</Text>
+                  <Text>+</Text>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box height={4} style={{ backgroundColor: '#F4F4F4' }} />
+
+          <Box paddingHorizontal="m" gap="ml">
+            <PlatformPressable
+              // onPress={handlePress}
+              hitSlop={16}
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 12,
+                padding: 16,
+                borderRadius: 14,
+                borderWidth: 1,
+                borderColor: '#EAEAEA',
+              }}
+              pressOpacity={0.7}>
+              <Image
+                style={{ width: 24, height: 24 }}
+                source={require('@/assets/icons/svg/discount.svg')}
+                contentFit="cover"
+              />
+              <Box flex={1}>
+                <Text>1 Discount is applied</Text>
+              </Box>
+              <Image
+                style={{ width: 20, height: 20 }}
+                source={require('@/assets/icons/svg/chevron-right.svg')}
+                contentFit="cover"
+              />
+            </PlatformPressable>
+
+            <Box gap="m">
+              <Text variant="semiBold">Payment Summary</Text>
+              <Box
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="m">
+                <Text>Price</Text>
+                <Text>$ 4.53</Text>
+              </Box>
+              <Box
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="m">
+                <Text>Delivery Fee</Text>
+                <Text>
+                  $ 2.0 <Text>$ 1.0</Text>
+                </Text>
+              </Box>
+              <Box height={1} backgroundColor="stroke" />
+              <Box
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                gap="m">
+                <Text>Total Payment</Text>
+                <Text>$ 5.53</Text>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       </ScrollView>
       {/* Footer */}
@@ -75,7 +199,10 @@ export default function OrderScreen() {
               borderTopRightRadius: 24,
             },
           ]}>
-          <Box>
+          <Box gap="m">
+            <Box>
+              <Text>Cash</Text>
+            </Box>
             <Button title="Order" onPress={() => null} />
           </Box>
         </Box>

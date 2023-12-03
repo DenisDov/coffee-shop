@@ -23,114 +23,114 @@ export default function CoffeeDetailScreen() {
       <StatusBar style="dark" animated />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{ flex: 1, backgroundColor: '#FFFFFF' }}
-        contentContainerStyle={{ padding: 16, rowGap: 20 }}>
-        <Box>
-          <Image
-            style={styles.image}
-            source={params.source}
-            placeholder={{ thumbhash: params.thumbhash as string }}
-            contentFit="cover"
-            transition={1000}
-          />
-        </Box>
+        style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+        <Box flex={1} gap="ml" padding="m">
+          <Box>
+            <Image
+              style={styles.image}
+              source={params.source}
+              placeholder={{ thumbhash: params.thumbhash as string }}
+              contentFit="cover"
+              transition={1000}
+            />
+          </Box>
 
-        <Box
-          borderBottomColor="stroke"
-          borderBottomWidth={1}
-          paddingBottom="m"
-          flexDirection="row"
-          alignItems="flex-end"
-          gap="m">
-          <Box flex={1} gap="m">
-            <Box>
-              <Text variant="semiBold" fontSize={20} marginBottom="xs">
-                {params?.title}
-              </Text>
-              <Text fontSize={12} color="muted">
-                with {params?.extras}
-              </Text>
+          <Box
+            borderBottomColor="stroke"
+            borderBottomWidth={1}
+            paddingBottom="m"
+            flexDirection="row"
+            alignItems="flex-end">
+            <Box flex={1} gap="m">
+              <Box>
+                <Text variant="semiBold" fontSize={20} marginBottom="xs">
+                  {params?.title}
+                </Text>
+                <Text fontSize={12} color="muted">
+                  with {params?.extras}
+                </Text>
+              </Box>
+              <Box flexDirection="row" alignItems="flex-end" gap="xs">
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require('@/assets/icons/svg/star.svg')}
+                  contentFit="contain"
+                />
+                <Text variant="semiBold">{params?.rating}</Text>
+                <Text color="muted" fontSize={12} lineHeight={20}>
+                  ({params?.reviewsCount})
+                </Text>
+              </Box>
             </Box>
-            <Box flexDirection="row" alignItems="flex-end" gap="xs">
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require('@/assets/icons/svg/star.svg')}
-                contentFit="contain"
-              />
-              <Text variant="semiBold">{params?.rating}</Text>
-              <Text color="muted" fontSize={12} lineHeight={20}>
-                ({params?.reviewsCount})
-              </Text>
+            <Box flexDirection="row" alignItems="center" gap="sm">
+              <Box
+                width={44}
+                height={44}
+                borderRadius="sm"
+                backgroundColor="background"
+                justifyContent="center"
+                alignItems="center">
+                <Image
+                  style={{ width: 24, height: 24 }}
+                  source={require('@/assets/icons/png/icon-beans.png')}
+                  contentFit="contain"
+                />
+              </Box>
+              <Box
+                width={44}
+                height={44}
+                borderRadius="sm"
+                backgroundColor="background"
+                justifyContent="center"
+                alignItems="center">
+                <Image
+                  style={{ width: 24, height: 24 }}
+                  source={require('@/assets/icons/png/icon-milk.png')}
+                  contentFit="contain"
+                />
+              </Box>
             </Box>
           </Box>
-          <Box flexDirection="row" alignItems="center" gap="sm">
-            <Box
-              width={44}
-              height={44}
-              borderRadius="sm"
-              backgroundColor="background"
-              justifyContent="center"
-              alignItems="center">
-              <Image
-                style={{ width: 24, height: 24 }}
-                source={require('@/assets/icons/png/icon-beans.png')}
-                contentFit="contain"
-              />
-            </Box>
-            <Box
-              width={44}
-              height={44}
-              borderRadius="sm"
-              backgroundColor="background"
-              justifyContent="center"
-              alignItems="center">
-              <Image
-                style={{ width: 24, height: 24 }}
-                source={require('@/assets/icons/png/icon-milk.png')}
-                contentFit="contain"
-              />
-            </Box>
+
+          <Box>
+            <Text variant="semiBold" marginBottom="sm">
+              Description
+            </Text>
+            <ReadMore text={params?.description as string} maxLength={116} />
           </Box>
-        </Box>
 
-        <Box>
-          <Text variant="semiBold" marginBottom="sm">
-            Description
-          </Text>
-          <ReadMore text={params?.description as string} maxLength={116} />
-        </Box>
+          <Box>
+            <Text variant="semiBold" marginBottom="sm">
+              Size
+            </Text>
 
-        <Box>
-          <Text variant="semiBold" marginBottom="sm">
-            Size
-          </Text>
-
-          <Box flexDirection="row" alignItems="center" gap="sm">
-            {cupSizes?.map(size => {
-              const isSelected = size === selectedCupSize;
-              return (
-                <PlatformPressable
-                  key={size}
-                  onPress={() => setSelectedCupSize(size)}
-                  hitSlop={16}
-                  style={{
-                    flex: 1,
-                    height: 43,
-                    justifyContent: 'center',
-                    backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
-                    borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
-                    borderWidth: 1,
-                    borderRadius: 12,
-                  }}
-                  pressOpacity={0.7}>
-                  <Text
-                    textAlign="center"
-                    style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>
-                    {size}
-                  </Text>
-                </PlatformPressable>
-              );
-            })}
+            <Box flexDirection="row" alignItems="center" gap="sm">
+              {cupSizes?.map(size => {
+                const isSelected = size === selectedCupSize;
+                return (
+                  <PlatformPressable
+                    key={size}
+                    onPress={() => setSelectedCupSize(size)}
+                    hitSlop={16}
+                    style={{
+                      flex: 1,
+                      height: 43,
+                      justifyContent: 'center',
+                      backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
+                      borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
+                      borderWidth: 1,
+                      borderRadius: 12,
+                    }}
+                    pressOpacity={0.7}>
+                    <Text
+                      textAlign="center"
+                      style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>
+                      {size}
+                    </Text>
+                  </PlatformPressable>
+                );
+              })}
+            </Box>
           </Box>
         </Box>
       </ScrollView>
