@@ -14,7 +14,10 @@
     "prettier": "npx prettier . --write"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   },
   "dependencies": {
     "@expo-google-fonts/sora": "^0.2.3",
