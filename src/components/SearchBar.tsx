@@ -4,9 +4,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-import { Box, Text } from '@/theme';
+// import { Box, Text } from '@/theme';
 
-export const SearchBar = ({ onChangeText, value }) => {
+type Props = {
+  value: string;
+  onChangeText: () => void;
+};
+
+export const SearchBar = ({ value, onChangeText }: Props) => {
   return (
     <LinearGradient
       colors={['#131313', '#313131']}
