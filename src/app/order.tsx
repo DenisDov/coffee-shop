@@ -94,15 +94,17 @@ export default function OrderScreen() {
                 <Box flexDirection="row" alignItems="center" gap="sm">
                   <Image
                     style={{ width: 54, height: 54, borderRadius: 12 }}
-                    source="https://picsum.photos/seed/696/3000/2000"
+                    source={params.source}
+                    placeholder={{ thumbhash: params.thumbhash as string }}
                     contentFit="cover"
+                    transition={1000}
                   />
                   <Box gap="xs">
                     <Text variant="semiBold" textTransform="capitalize">
-                      capuccino
+                      {params?.title}
                     </Text>
                     <Text color="muted" fontSize={12}>
-                      with Chocolate
+                      with {params?.extras}
                     </Text>
                   </Box>
                 </Box>
@@ -139,7 +141,9 @@ export default function OrderScreen() {
                 contentFit="cover"
               />
               <Box flex={1}>
-                <Text>1 Discount is applied</Text>
+                <Text variant="semiBold" fontSize={14}>
+                  1 Discount is applied
+                </Text>
               </Box>
               <Image
                 style={{ width: 20, height: 20 }}
@@ -155,18 +159,25 @@ export default function OrderScreen() {
                 alignItems="center"
                 justifyContent="space-between"
                 gap="m">
-                <Text>Price</Text>
-                <Text>$ 4.53</Text>
+                <Text fontSize={14}>Price</Text>
+                <Text fontSize={14} variant="semiBold">
+                  $ {params?.price}
+                </Text>
               </Box>
               <Box
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
                 gap="m">
-                <Text>Delivery Fee</Text>
-                <Text>
-                  $ 2.0 <Text>$ 1.0</Text>
-                </Text>
+                <Text fontSize={14}>Delivery Fee</Text>
+                <Box flexDirection="row" alignItems="center" gap="s">
+                  <Text fontSize={14} textDecorationLine="line-through">
+                    $ 2.0
+                  </Text>
+                  <Text fontSize={14} variant="semiBold">
+                    $ 1.0
+                  </Text>
+                </Box>
               </Box>
               <Box height={1} backgroundColor="stroke" />
               <Box
@@ -174,8 +185,10 @@ export default function OrderScreen() {
                 alignItems="center"
                 justifyContent="space-between"
                 gap="m">
-                <Text>Total Payment</Text>
-                <Text>$ 5.53</Text>
+                <Text fontSize={14}>Total Payment</Text>
+                <Text fontSize={14} variant="semiBold">
+                  $ 5.99
+                </Text>
               </Box>
             </Box>
           </Box>

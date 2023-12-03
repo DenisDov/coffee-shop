@@ -170,6 +170,10 @@ export default function CoffeeDetailScreen() {
                     params: {
                       id: params?.id,
                       title: params?.title,
+                      extras: params?.extras,
+                      source: params?.source,
+                      thumhash: params?.thumbhash,
+                      price: params?.price,
                     },
                   })
                 }
