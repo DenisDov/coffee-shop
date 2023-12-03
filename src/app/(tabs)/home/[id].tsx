@@ -134,6 +134,7 @@ export default function CoffeeDetailScreen() {
           </Box>
         </Box>
       </ScrollView>
+      {/* Footer */}
       <Box
         style={{
           paddingBottom: insets.bottom,
