@@ -1,8 +1,6 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { router } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import { useCallback, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -35,7 +33,6 @@ export default function HomeScreen() {
 
   return (
     <Box flex={1}>
-      <StatusBar style="light" />
       <ScrollViewBackgroundLayer />
       <Box style={{ height: insets.top }} />
       <ScrollView

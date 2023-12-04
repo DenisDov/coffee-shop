@@ -1,12 +1,12 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/Button';
+import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
 import { Box, Text } from '@/theme';
@@ -19,7 +19,7 @@ export default function CoffeeDetailScreen() {
   const [selectedCupSize, setSelectedCupSize] = useState(cupSizes[1]);
   return (
     <Box flex={1} backgroundColor="white">
-      <StatusBar style="dark" animated />
+      <FocusAwareStatusBar style="dark" animated />
       <Header title="Detail" iconRight />
       <ScrollView
         showsVerticalScrollIndicator={false}

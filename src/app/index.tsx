@@ -2,7 +2,6 @@
 
 import { ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 
 import { Button } from '@/components/Button';
@@ -13,8 +12,6 @@ export default function OnboardingScreen() {
     <ImageBackground
       style={styles.image}
       source={require('@/assets/images/onboarding.png')}>
-      <StatusBar style="light" />
-
       <Box flex={1} padding="l" justifyContent="flex-end">
         <Text style={styles.title}>
           Coffee so good, your taste buds will love it.

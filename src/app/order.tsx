@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button } from '@/components/Button';
+import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { OrderControl } from '@/components/OrderControl';
 import Stepper from '@/components/Stepper';
@@ -16,6 +17,7 @@ export default function OrderScreen() {
 
   return (
     <Box flex={1} backgroundColor="white">
+      <FocusAwareStatusBar style="dark" />
       <Header title="Order" />
       <ScrollView
         showsVerticalScrollIndicator={false}

@@ -1,12 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-
+import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { Box, Text } from '@/theme';
 
 export default function NotificationsScreen() {
   return (
     <Box flex={1} backgroundColor="background">
-      <StatusBar style="dark" />
+      <FocusAwareStatusBar style="dark" animated />
       <Header title="Notifications" noBack />
       <Box flex={1} padding="m">
         <Text>NotificationsScreen</Text>

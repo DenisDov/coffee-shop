@@ -4,15 +4,14 @@ import {
   useFonts,
 } from '@expo-google-fonts/sora';
 import {
-  // DarkTheme,
   DefaultTheme,
   ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
 import { SplashScreen, Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
-// import { useColorScheme } from 'react-native';
 import { theme } from '@/theme';
 
 export {
@@ -53,15 +52,11 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  // const colorScheme = useColorScheme();
-  // const darkMode = colorScheme === 'dark';
-  // const darkMode = false;
   return (
     <ThemeProvider theme={theme}>
       <NavigationThemeProvider value={DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
-        </Stack>
+        <StatusBar style="light" />
+        <Stack screenOptions={{ headerShown: false }} />
       </NavigationThemeProvider>
     </ThemeProvider>
   );
