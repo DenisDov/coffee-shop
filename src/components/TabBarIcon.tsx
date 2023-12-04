@@ -10,7 +10,7 @@ interface TabBarIconProps {
 
 export function TabBarIcon({ source, focused }: TabBarIconProps) {
   return (
-    <Box style={{ backgroundColor: 'transparent', gap: 7 }}>
+    <Box style={{ backgroundColor: 'transparent' }}>
       <Image
         style={{
           width: 24,
@@ -29,6 +29,8 @@ export function TabBarIcon({ source, focused }: TabBarIconProps) {
             height: 5,
             borderRadius: 18,
             alignSelf: 'center',
+            position: 'absolute',
+            bottom: -10,
           }}
         />
       )}
