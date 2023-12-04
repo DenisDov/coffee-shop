@@ -90,7 +90,10 @@ export default function HomeScreen() {
                     height: 44,
                     borderRadius: 14,
                   }}
-                  source="https://picsum.photos/seed/696/3000/2000"
+                  source="https://i.pravatar.cc/150?img=11"
+                  placeholder={{
+                    thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
+                  }}
                   contentFit="cover"
                 />
               </PlatformPressable>
