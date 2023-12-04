@@ -14,9 +14,10 @@ import { Box, Text } from '@/theme';
 type Props = {
   title: string;
   iconRight?: boolean;
+  noBack?: boolean;
 };
 
-export const Header = ({ title, iconRight }: Props) => {
+export const Header = ({ title, iconRight, noBack }: Props) => {
   const frame = useSafeAreaFrame();
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -34,19 +35,21 @@ export const Header = ({ title, iconRight }: Props) => {
         paddingTop: insets.top,
       }}>
       <Box width={24}>
-        <PlatformPressable
-          onPress={() => router.back()}
-          hitSlop={16}
-          pressOpacity={0.7}>
-          <Image
-            style={{
-              width: 24,
-              height: 24,
-            }}
-            source={require('@/assets/icons/svg/chevron-left.svg')}
-            contentFit="contain"
-          />
-        </PlatformPressable>
+        {!noBack && (
+          <PlatformPressable
+            onPress={() => router.back()}
+            hitSlop={16}
+            pressOpacity={0.7}>
+            <Image
+              style={{
+                width: 24,
+                height: 24,
+              }}
+              source={require('@/assets/icons/svg/chevron-left.svg')}
+              contentFit="contain"
+            />
+          </PlatformPressable>
+        )}
       </Box>
 
       <Box flex={1}>

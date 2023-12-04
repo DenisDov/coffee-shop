@@ -19,8 +19,8 @@ export default function CoffeeDetailScreen() {
   const [selectedCupSize, setSelectedCupSize] = useState(cupSizes[1]);
   return (
     <Box flex={1} backgroundColor="white">
-      <Header title="Detail" iconRight />
       <StatusBar style="dark" animated />
+      <Header title="Detail" iconRight />
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
