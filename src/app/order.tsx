@@ -112,11 +112,6 @@ export default function OrderScreen() {
               </Box>
               <Box width={100} alignItems="flex-end">
                 <Stepper />
-                {/* <Box flexDirection="row" alignItems="center" gap="sm">
-                  <Text>-</Text>
-                  <Text>1</Text>
-                  <Text>+</Text>
-                </Box> */}
               </Box>
             </Box>
           </Box>
@@ -125,7 +120,7 @@ export default function OrderScreen() {
 
           <Box paddingHorizontal="m" gap="ml">
             <PlatformPressable
-              // onPress={handlePress}
+              onPress={() => null}
               hitSlop={16}
               style={{
                 flexDirection: 'row',
@@ -216,7 +211,11 @@ export default function OrderScreen() {
           ]}>
           <Box gap="m">
             <Box>
-              <Text>Cash</Text>
+              {/* <Image
+                style={{ width: 24, height: 24 }}
+                source={require('@/assets/icons/svg/cash.svg')}
+                contentFit="contain"
+              /> */}
             </Box>
             <Button title="Order" onPress={() => null} />
           </Box>
@@ -230,8 +229,8 @@ const styles = StyleSheet.create({
   shadow: {
     elevation: 5,
     shadowColor: '#E4E4E4',
-    shadowRadius: 12,
+    shadowRadius: 24,
     shadowOffset: { width: 0, height: -10 },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.5,
   },
 });
