@@ -9,7 +9,9 @@ export const Stepper = () => {
   const [count, setCount] = useState(1);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    if (count < 10) {
+      setCount(count + 1);
+    }
   };
 
   const handleDecrement = () => {
@@ -49,10 +51,12 @@ export const Stepper = () => {
         hitSlop={16}
         style={styles.button}>
         <Image
-          style={styles.image}
           source={require('@/assets/icons/svg/plus.svg')}
           contentFit="contain"
-          tintColor="#2F2D2C"
+          style={[
+            styles.image,
+            { tintColor: count > 9 ? '#AAADB0' : '#2F2D2C' },
+          ]}
         />
       </PlatformPressable>
     </Box>
