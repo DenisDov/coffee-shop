@@ -39,7 +39,7 @@ export default function OrderScreen() {
               </Box>
               <Box flexDirection="row" alignItems="center" gap="s">
                 <PlatformPressable
-                  // onPress={handlePress}
+                  onPress={() => null}
                   hitSlop={16}
                   style={{
                     paddingVertical: 6,
@@ -62,7 +62,7 @@ export default function OrderScreen() {
                   </Text>
                 </PlatformPressable>
                 <PlatformPressable
-                  // onPress={handlePress}
+                  onPress={() => null}
                   hitSlop={16}
                   style={{
                     paddingVertical: 6,
@@ -210,12 +210,52 @@ export default function OrderScreen() {
             },
           ]}>
           <Box gap="m">
-            <Box>
-              {/* <Image
+            <Box flexDirection="row" alignItems="center" gap="m">
+              <Image
                 style={{ width: 24, height: 24 }}
                 source={require('@/assets/icons/svg/cash.svg')}
                 contentFit="contain"
-              /> */}
+              />
+              <Box flex={1}>
+                <Box
+                  alignSelf="flex-start"
+                  borderRadius="m"
+                  flexDirection="row"
+                  alignItems="center"
+                  backgroundColor="stroke">
+                  <Box
+                    borderRadius="m"
+                    backgroundColor="primary"
+                    paddingVertical="xs"
+                    paddingHorizontal="sm">
+                    <Text fontSize={12} color="white">
+                      Cash
+                    </Text>
+                  </Box>
+                  <Box
+                    borderRadius="m"
+                    paddingVertical="xs"
+                    paddingLeft="sm"
+                    paddingRight="m">
+                    <Text fontSize={12}>$ 5.99</Text>
+                  </Box>
+                </Box>
+              </Box>
+              <PlatformPressable
+                onPress={() => null}
+                hitSlop={16}
+                style={{
+                  width: 24,
+                  height: 24,
+                  backgroundColor: '#808080',
+                  borderRadius: 12,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Text color="white" lineHeight={12}>
+                  ...
+                </Text>
+              </PlatformPressable>
             </Box>
             <Button title="Order" onPress={() => null} />
           </Box>
