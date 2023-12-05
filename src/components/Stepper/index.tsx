@@ -1,5 +1,5 @@
 import { PlatformPressable } from '@react-navigation/elements';
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Box, Text } from '@/theme';
@@ -7,28 +7,32 @@ import { Box, Text } from '@/theme';
 import { MinusSign } from './minus';
 import { PlusSign } from './plus';
 
-export const Stepper = () => {
-  const [count, setCount] = useState(1);
+type StepperProps = {
+  handleIncrement: () => void;
+  handleDecrement: () => void;
+  minValue?: number;
+  maxValue?: number;
+  value: number;
+};
 
-  const handleIncrement = () => {
-    if (count < 10) {
-      setCount(count + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
+export const Stepper = ({
+  value,
+  minValue = 1,
+  maxValue = 10,
+  handleIncrement,
+  handleDecrement,
+}: StepperProps) => {
+  const minIsDisabled = useMemo(() => value <= minValue, [minValue, value]);
+  const maxIsDisabled = useMemo(() => value >= maxValue, [maxValue, value]);
 
   return (
     <Box flexDirection="row" alignItems="center">
       <PlatformPressable
         onPress={handleDecrement}
+        disabled={minIsDisabled}
         hitSlop={16}
         style={styles.button}>
-        <MinusSign stroke={count < 2 ? '#AAADB0' : '#2F2D2C'} />
+        <MinusSign stroke={minIsDisabled ? '#AAADB0' : '#2F2D2C'} />
       </PlatformPressable>
 
       <Box width={30}>
@@ -37,15 +41,16 @@ export const Stepper = () => {
           textAlign="center"
           variant="semiBold"
           fontSize={14}>
-          {count}
+          {value}
         </Text>
       </Box>
 
       <PlatformPressable
         onPress={handleIncrement}
+        disabled={maxIsDisabled}
         hitSlop={16}
         style={styles.button}>
-        <PlusSign stroke={count > 9 ? '#AAADB0' : '#2F2D2C'} />
+        <PlusSign stroke={maxIsDisabled ? '#AAADB0' : '#2F2D2C'} />
       </PlatformPressable>
     </Box>
   );

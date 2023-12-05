@@ -1,6 +1,7 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -14,6 +15,7 @@ import { Box, Text } from '@/theme';
 export default function OrderScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const [value, setValue] = useState(1);
 
   return (
     <Box flex={1} backgroundColor="white">
@@ -113,7 +115,13 @@ export default function OrderScreen() {
                 </Box>
               </Box>
               <Box width={100} alignItems="flex-end">
-                <Stepper />
+                <Stepper
+                  value={value}
+                  minValue={1}
+                  maxValue={10}
+                  handleIncrement={() => setValue(value + 1)}
+                  handleDecrement={() => setValue(value - 1)}
+                />
               </Box>
             </Box>
           </Box>

@@ -6,13 +6,11 @@ type Props = {
   props?: SvgProps;
 };
 
-export const MinusSign = ({ stroke = '#2F2D2C', ...props }: Props) => (
-  <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={16}
-    height={16}
-    fill="none"
-    {...props}>
+export const MinusSign = ({
+  stroke = '#2F2D2C',
+  ...props
+}: Props): JSX.Element => (
+  <Svg width={16} height={16} fill="none" {...props}>
     <Path
       stroke={stroke}
       strokeLinecap="round"
