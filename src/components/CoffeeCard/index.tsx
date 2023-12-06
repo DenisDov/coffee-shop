@@ -24,7 +24,7 @@ export const CoffeeCard = memo(
     const cardWidth = width / 2 - 24; // minus gap
 
     const navTo = () => {
-      router.push(`/home/${id}`);
+      router.push(`/product/${id}`);
     };
 
     const onAddToCart = () => {

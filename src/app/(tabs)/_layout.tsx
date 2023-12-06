@@ -1,21 +1,16 @@
-import { Tabs, useSegments } from 'expo-router';
+import { Tabs } from 'expo-router';
 
 import { TabBarIcon } from '@/components/TabBarIcon';
 
 export default function TabLayout() {
-  const segments = useSegments() as string[];
-  const hide: boolean = segments.includes('[id]') || segments.includes('order');
   return (
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
-        tabBarStyle: {
-          display: hide ? 'none' : 'flex',
-        },
       }}>
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon

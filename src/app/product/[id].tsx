@@ -22,6 +22,10 @@ export default function CoffeeDetailScreen() {
 
   const product = coffees.find(c => c.id === id);
 
+  const navTo = () => {
+    router.push(`/order/${id}`);
+  };
+
   return (
     <Box flex={1} backgroundColor="white">
       <FocusAwareStatusBar style="dark" animated />
@@ -167,10 +171,7 @@ export default function CoffeeDetailScreen() {
               </Text>
             </Box>
             <Box flex={1}>
-              <Button
-                title="Buy Now"
-                onPress={() => router.push(`/order/${product?.id}`)}
-              />
+              <Button title="Buy Now" onPress={navTo} />
             </Box>
           </Box>
         </Box>
