@@ -11,11 +11,14 @@ import { Header } from '@/components/Header';
 import { OrderControl } from '@/components/OrderControl';
 import { Stepper } from '@/components/Stepper';
 import { Box, Text } from '@/theme';
+import { coffees } from '@/utils/data';
 
 export default function OrderScreen() {
-  const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const { id } = useLocalSearchParams();
   const [value, setValue] = useState(1);
+
+  const product = coffees.find(c => c.id === id);
 
   return (
     <Box flex={1} backgroundColor="white">
@@ -99,17 +102,19 @@ export default function OrderScreen() {
                 <Box flexDirection="row" alignItems="center" gap="sm">
                   <Image
                     style={{ width: 54, height: 54, borderRadius: 12 }}
-                    source={params.source}
-                    placeholder={{ thumbhash: params.thumbhash as string }}
+                    source={product?.image.source}
+                    placeholder={{
+                      thumbhash: product?.image.thumbhash as string,
+                    }}
                     contentFit="cover"
                     transition={1000}
                   />
                   <Box gap="xs">
                     <Text variant="semiBold" textTransform="capitalize">
-                      {params?.title}
+                      {product?.title}
                     </Text>
                     <Text color="muted" fontSize={12}>
-                      with {params?.extras}
+                      with {product?.extras}
                     </Text>
                   </Box>
                 </Box>
@@ -168,7 +173,7 @@ export default function OrderScreen() {
                 gap="m">
                 <Text fontSize={14}>Price</Text>
                 <Text fontSize={14} variant="semiBold">
-                  $ {params?.price}
+                  $ {product?.price}
                 </Text>
               </Box>
               <Box

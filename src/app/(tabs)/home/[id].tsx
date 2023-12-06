@@ -10,13 +10,18 @@ import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
 import { Box, Text } from '@/theme';
+import { coffees } from '@/utils/data';
+
+const cupSizes = ['S', 'M', 'L'];
 
 export default function CoffeeDetailScreen() {
-  const router = useRouter();
-  const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const cupSizes = ['S', 'M', 'L'];
+  const router = useRouter();
+  const { id } = useLocalSearchParams();
   const [selectedCupSize, setSelectedCupSize] = useState(cupSizes[1]);
+
+  const product = coffees.find(c => c.id === id);
+
   return (
     <Box flex={1} backgroundColor="white">
       <FocusAwareStatusBar style="dark" animated />
@@ -28,8 +33,8 @@ export default function CoffeeDetailScreen() {
           <Box>
             <Image
               style={styles.image}
-              source={params.source}
-              placeholder={{ thumbhash: params.thumbhash as string }}
+              source={product?.image.source}
+              placeholder={{ thumbhash: product?.image.thumbhash as string }}
               contentFit="cover"
               transition={1000}
             />
@@ -44,10 +49,10 @@ export default function CoffeeDetailScreen() {
             <Box flex={1} gap="m">
               <Box>
                 <Text variant="semiBold" fontSize={20} marginBottom="xs">
-                  {params?.title}
+                  {product?.title}
                 </Text>
                 <Text fontSize={12} color="muted">
-                  with {params?.extras}
+                  with {product?.extras}
                 </Text>
               </Box>
               <Box flexDirection="row" alignItems="flex-end" gap="xs">
@@ -56,9 +61,9 @@ export default function CoffeeDetailScreen() {
                   source={require('@/assets/icons/svg/star.svg')}
                   contentFit="contain"
                 />
-                <Text variant="semiBold">{params?.rating}</Text>
+                <Text variant="semiBold">{product?.rating}</Text>
                 <Text color="muted" fontSize={12} lineHeight={20}>
-                  ({params?.reviewsCount})
+                  ({product?.reviewsCount})
                 </Text>
               </Box>
             </Box>
@@ -96,7 +101,7 @@ export default function CoffeeDetailScreen() {
             <Text variant="semiBold" marginBottom="sm">
               Description
             </Text>
-            <ReadMore text={params?.description as string} maxLength={116} />
+            <ReadMore text={product?.description as string} maxLength={116} />
           </Box>
 
           <Box>
@@ -158,25 +163,13 @@ export default function CoffeeDetailScreen() {
                 Price
               </Text>
               <Text fontSize={18} color="primary" variant="semiBold">
-                $ {params?.price}
+                $ {product?.price}
               </Text>
             </Box>
             <Box flex={1}>
               <Button
                 title="Buy Now"
-                onPress={() =>
-                  router.push({
-                    pathname: '/order',
-                    params: {
-                      id: params?.id,
-                      title: params?.title,
-                      extras: params?.extras,
-                      source: params?.source,
-                      thumhash: params?.thumbhash,
-                      price: params?.price,
-                    },
-                  })
-                }
+                onPress={() => router.push(`/order/${product?.id}`)}
               />
             </Box>
           </Box>

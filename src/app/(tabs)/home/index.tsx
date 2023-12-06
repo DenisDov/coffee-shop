@@ -26,7 +26,8 @@ export default function HomeScreen() {
     }, 2000);
   }, []);
 
-  const handleCategoryPress = useCallback(item => {
+  const handleCategoryPress = useCallback((item: any) => {
+    // TODO: fix item any type
     console.log('category:', item);
     setActiveCategory(item);
   }, []);
