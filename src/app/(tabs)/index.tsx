@@ -1,7 +1,7 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -15,9 +15,11 @@ import { categories, coffees } from '@/utils/data';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const categoriesRef = useRef<ScrollView>(null);
 
   const [refreshing, setRefreshing] = useState(false);
   const [aciveCategory, setActiveCategory] = useState(categories[0]);
+  const [categoriesCoords, setCategoriesCoords] = useState({});
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -27,9 +29,8 @@ export default function HomeScreen() {
   }, []);
 
   const handleCategoryPress = useCallback((item: any) => {
-    // TODO: fix item any type
-    console.log('category:', item);
     setActiveCategory(item);
+    categoriesRef.current?.scrollTo({ x: categoriesCoords[item] - 16 });
   }, []);
 
   return (
@@ -109,6 +110,7 @@ export default function HomeScreen() {
 
         <Box backgroundColor="background">
           <ScrollView
+            ref={categoriesRef}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ gap: 8, padding: 16 }}>
@@ -117,8 +119,14 @@ export default function HomeScreen() {
                 <CoffeeCategory
                   key={item}
                   item={item}
-                  onPress={handleCategoryPress}
+                  onPress={index => handleCategoryPress(index)}
                   isActive={aciveCategory === item}
+                  onLayout={({ nativeEvent }) => {
+                    const {
+                      layout: { x },
+                    } = nativeEvent;
+                    setCategoriesCoords({ ...categoriesCoords, [{ item }]: x });
+                  }}
                 />
               );
             })}
