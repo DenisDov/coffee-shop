@@ -22,7 +22,6 @@ export default function HomeScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [aciveCategory, setActiveCategory] = useState(categories[0]);
   const [categoriesCoords, setCategoriesCoords] = useState<CategoryCoords>({});
-  // console.log('categoriesCoords: ', categoriesCoords);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -59,7 +58,6 @@ export default function HomeScreen() {
           end={{ x: 1, y: 1 }}>
           <Box padding="m">
             <Box
-              // backgroundColor="error"
               flexDirection="row"
               alignItems="center"
               justifyContent="space-between">
@@ -68,7 +66,6 @@ export default function HomeScreen() {
                 <PlatformPressable
                   onPress={() => console.log('SHOW BOTTOMSHEET')}
                   hitSlop={16}
-                  // style={styles.button}
                   pressOpacity={0.7}>
                   <Box flexDirection="row" alignItems="center" gap="m">
                     <Text color="white">Bilzen, Tanjungbalai</Text>
