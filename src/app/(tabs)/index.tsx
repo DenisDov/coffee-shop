@@ -20,6 +20,7 @@ export default function HomeScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [aciveCategory, setActiveCategory] = useState(categories[0]);
   const [categoriesCoords, setCategoriesCoords] = useState({});
+  // console.log('categoriesCoords: ', categoriesCoords);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -28,10 +29,11 @@ export default function HomeScreen() {
     }, 2000);
   }, []);
 
-  const handleCategoryPress = useCallback((item: any) => {
+  const handleCategoryPress = (item: any) => {
     setActiveCategory(item);
-    categoriesRef.current?.scrollTo({ x: categoriesCoords[item] - 16 });
-  }, []);
+    const pos = categoriesCoords[item] - 16;
+    categoriesRef.current?.scrollTo({ x: pos });
+  };
 
   return (
     <Box flex={1}>
@@ -125,7 +127,7 @@ export default function HomeScreen() {
                     const {
                       layout: { x },
                     } = nativeEvent;
-                    setCategoriesCoords({ ...categoriesCoords, [{ item }]: x });
+                    setCategoriesCoords({ ...categoriesCoords, [item]: x });
                   }}
                 />
               );
