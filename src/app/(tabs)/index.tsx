@@ -13,13 +13,15 @@ import { SearchBar } from '@/components/SearchBar';
 import { Box, Text } from '@/theme';
 import { categories, coffees } from '@/utils/data';
 
+type CategoryCoords = { [key: string]: number };
+
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const categoriesRef = useRef<ScrollView>(null);
 
   const [refreshing, setRefreshing] = useState(false);
   const [aciveCategory, setActiveCategory] = useState(categories[0]);
-  const [categoriesCoords, setCategoriesCoords] = useState({});
+  const [categoriesCoords, setCategoriesCoords] = useState<CategoryCoords>({});
   // console.log('categoriesCoords: ', categoriesCoords);
 
   const onRefresh = useCallback(() => {
