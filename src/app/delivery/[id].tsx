@@ -1,9 +1,9 @@
 import BottomSheet, {
   BottomSheetBackdrop,
+  BottomSheetBackdropProps,
   BottomSheetFooter,
   BottomSheetFooterProps,
 } from '@gorhom/bottom-sheet';
-import { BottomSheetDefaultBackdropProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 import { PlatformPressable } from '@react-navigation/elements';
 import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
@@ -164,7 +164,7 @@ export default function DeliveryScreen() {
   );
 
   const renderBackdrop = useCallback(
-    (props: BottomSheetDefaultBackdropProps) => (
+    (props: BottomSheetBackdropProps) => (
       <BottomSheetBackdrop {...props} pressBehavior="collapse" />
     ),
     [],
