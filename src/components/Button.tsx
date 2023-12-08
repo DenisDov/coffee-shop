@@ -16,11 +16,7 @@ export const Button = ({ onPress, title }: Props) => {
     onPress();
   };
   return (
-    <PlatformPressable
-      onPress={handlePress}
-      hitSlop={16}
-      style={styles.button}
-      pressOpacity={0.7}>
+    <PlatformPressable onPress={handlePress} hitSlop={16} style={styles.button}>
       <Text variant="button">{title}</Text>
     </PlatformPressable>
   );

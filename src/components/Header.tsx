@@ -36,10 +36,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
       }}>
       <Box width={24}>
         {!noBack && (
-          <PlatformPressable
-            onPress={() => router.back()}
-            hitSlop={16}
-            pressOpacity={0.7}>
+          <PlatformPressable onPress={() => router.back()} hitSlop={16}>
             <Image
               style={{
                 width: 24,
@@ -64,10 +61,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
 
       <Box width={24} alignItems="flex-end">
         {iconRight && (
-          <PlatformPressable
-            onPress={() => null}
-            hitSlop={16}
-            pressOpacity={0.7}>
+          <PlatformPressable onPress={() => null} hitSlop={16}>
             <Image
               style={{
                 width: 24,

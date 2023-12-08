@@ -52,8 +52,7 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
       <PlatformPressable
         onPress={() => null}
         hitSlop={16}
-        style={styles.filter}
-        pressOpacity={0.7}>
+        style={styles.filter}>
         <Image
           style={{
             width: 20,

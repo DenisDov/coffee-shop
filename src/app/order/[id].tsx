@@ -57,8 +57,7 @@ export default function OrderScreen() {
                     borderColor: '#DEDEDE',
                     borderRadius: 16,
                     gap: 1,
-                  }}
-                  pressOpacity={0.7}>
+                  }}>
                   <Image
                     style={{ width: 14, height: 14 }}
                     source={require('@/assets/icons/svg/icon-edit.svg')}
@@ -80,8 +79,7 @@ export default function OrderScreen() {
                     borderColor: '#DEDEDE',
                     borderRadius: 16,
                     gap: 1,
-                  }}
-                  pressOpacity={0.7}>
+                  }}>
                   <Image
                     style={{ width: 14, height: 14 }}
                     source={require('@/assets/icons/svg/icon-note.svg')}
@@ -145,8 +143,7 @@ export default function OrderScreen() {
                 borderRadius: 14,
                 borderWidth: 1,
                 borderColor: '#EAEAEA',
-              }}
-              pressOpacity={0.7}>
+              }}>
               <Image
                 style={{ width: 24, height: 24 }}
                 source={require('@/assets/icons/svg/discount.svg')}

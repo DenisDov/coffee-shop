@@ -129,8 +129,7 @@ export default function CoffeeDetailScreen() {
                       borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
                       borderWidth: 1,
                       borderRadius: 12,
-                    }}
-                    pressOpacity={0.7}>
+                    }}>
                     <Text
                       textAlign="center"
                       style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>

@@ -34,8 +34,7 @@ export const CoffeeCard = memo(
     return (
       <PlatformPressable
         onPress={navTo}
-        style={[styles.pressable, { width: cardWidth }]}
-        pressOpacity={0.7}>
+        style={[styles.pressable, { width: cardWidth }]}>
         <Box padding="xs">
           <ImageBackground
             style={styles.imageBackground}
@@ -75,8 +74,7 @@ export const CoffeeCard = memo(
             <PlatformPressable
               onPress={onAddToCart}
               hitSlop={16}
-              style={styles.button}
-              pressOpacity={0.7}>
+              style={styles.button}>
               <Image
                 style={{
                   width: 16,

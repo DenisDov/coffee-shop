@@ -37,7 +37,6 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
       <PlatformPressable
         onPress={() => router.back()}
         hitSlop={16}
-        pressOpacity={0.7}
         style={styles.button}>
         <Image
           style={{
@@ -53,7 +52,6 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
         <PlatformPressable
           onPress={onRoutePress}
           hitSlop={16}
-          pressOpacity={0.7}
           style={styles.button}>
           <Image
             style={{
@@ -67,7 +65,6 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
         <PlatformPressable
           onPress={onGpsPress}
           hitSlop={16}
-          pressOpacity={0.7}
           style={styles.button}>
           <Image
             style={{

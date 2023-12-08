@@ -65,8 +65,7 @@ export default function HomeScreen() {
                 <Text color="white">Location</Text>
                 <PlatformPressable
                   onPress={() => console.log('SHOW BOTTOMSHEET')}
-                  hitSlop={16}
-                  pressOpacity={0.7}>
+                  hitSlop={16}>
                   <Box flexDirection="row" alignItems="center" gap="m">
                     <Text color="white">Bilzen, Tanjungbalai</Text>
                     <Image
@@ -82,8 +81,7 @@ export default function HomeScreen() {
               </Box>
               <PlatformPressable
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
-                hitSlop={16}
-                pressOpacity={0.7}>
+                hitSlop={16}>
                 <Image
                   style={{
                     width: 44,
