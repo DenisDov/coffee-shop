@@ -12,9 +12,9 @@ import { useCallback, useMemo, useRef } from 'react';
 import { Alert, StyleSheet } from 'react-native';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 
+import { DeliveryHeader } from '@/components/DeliveryHeader';
 import { DeliveryStatusIndicator } from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
-import { Header } from '@/components/Header';
 import { Box, Text } from '@/theme';
 
 const initialRegion = {
@@ -71,7 +71,7 @@ export default function DeliveryScreen() {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '80%'], []);
 
-  const showMyLocation = async () => {
+  const handleShowMyLocation = async () => {
     mapRef.current?.animateToRegion({
       latitude: 37.792746711281175, // initialRegion
       longitude: -122.42665282046873, // initialRegion
@@ -80,7 +80,7 @@ export default function DeliveryScreen() {
     });
   };
 
-  const showRoute = async () => {
+  const handleShowRoute = async () => {
     mapRef.current?.fitToCoordinates([origin, destination], { edgePadding });
   };
 
@@ -174,8 +174,7 @@ export default function DeliveryScreen() {
   return (
     <Box flex={1} backgroundColor="background">
       <FocusAwareStatusBar style="dark" />
-      <Header title="Delivery" />
-      <Box flex={0.6}>
+      <Box flex={0.7}>
         <MapView
           ref={mapRef}
           style={{ ...StyleSheet.absoluteFillObject }}
@@ -212,10 +211,10 @@ export default function DeliveryScreen() {
             strokeColor="#C67C4E"
           />
         </MapView>
-        <Box>
-          <Text onPress={showMyLocation}>showMyLocation</Text>
-          <Text onPress={showRoute}>showRoute</Text>
-        </Box>
+        <DeliveryHeader
+          onGpsPress={handleShowMyLocation}
+          onRoutePress={handleShowRoute}
+        />
       </Box>
       <BottomSheet
         backdropComponent={renderBackdrop}
