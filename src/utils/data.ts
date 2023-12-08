@@ -12,7 +12,7 @@ const categories: string[] = [
 
 const coffees = [
   {
-    id: 1,
+    id: '1',
     title: 'Cappuccino',
     extras: 'Chocolate',
     description:
@@ -27,7 +27,7 @@ const coffees = [
     reviewsCount: 230,
   },
   {
-    id: 2,
+    id: '2',
     title: 'Macchiato',
     extras: 'Oat Milk',
     description:
@@ -42,7 +42,7 @@ const coffees = [
     reviewsCount: 230,
   },
   {
-    id: 3,
+    id: '3',
     title: 'Latte',
     extras: 'Chocolate',
     description:
@@ -57,7 +57,7 @@ const coffees = [
     reviewsCount: 230,
   },
   {
-    id: 4,
+    id: '4',
     title: 'Americano',
     extras: 'hot water',
     description:
@@ -72,7 +72,7 @@ const coffees = [
     reviewsCount: 230,
   },
   {
-    id: 5,
+    id: '5',
     title: 'Cappuccino',
     extras: 'foamed milk',
     description:
@@ -87,7 +87,7 @@ const coffees = [
     reviewsCount: 230,
   },
   {
-    id: 6,
+    id: '6',
     title: 'Machiato',
     extras: 'Oat Milk',
     description:
@@ -103,4 +103,77 @@ const coffees = [
   },
 ];
 
-export { categories, coffees };
+const notifications = [
+  {
+    content: '3x Espresso',
+    id: '3',
+    read: true,
+    timestamp: '2023-12-04T15:30:00Z',
+    title: 'Order #1236',
+  },
+  {
+    content: '2x Latte, 1x Croissant',
+    id: '1',
+    read: false,
+    timestamp: '2023-12-05T08:00:00Z',
+    title: 'Order #1234',
+  },
+  {
+    content: '1x Cappuccino, 1x Blueberry Muffin',
+    id: '2',
+    read: true,
+    timestamp: '2023-12-06T10:00:00Z',
+    title: 'Order #1235',
+  },
+  {
+    content: '2x Americano, 2x Chocolate Croissant',
+    id: '4',
+    read: false,
+    timestamp: '2023-12-07T09:45:00Z',
+    title: 'Order #1237',
+  },
+  {
+    content: '1x Macchiato, 1x Scone',
+    id: '5',
+    read: false,
+    timestamp: '2023-12-08T11:20:00Z',
+    title: 'Order #1238',
+  },
+  {
+    content: '4x Flat White',
+    id: '6',
+    read: false,
+    timestamp: '2023-12-09T07:55:00Z',
+    title: 'Order #1239',
+  },
+  {
+    content: '2x Mocha',
+    id: '7',
+    read: true,
+    timestamp: '2023-12-10T14:00:00Z',
+    title: 'Order #1240',
+  },
+  {
+    content: '1x Espresso, 1x Danish Pastry',
+    id: '8',
+    read: false,
+    timestamp: '2023-12-11T10:30:00Z',
+    title: 'Order #1241',
+  },
+  {
+    content: '3x Iced Coffee',
+    id: '9',
+    read: false,
+    timestamp: '2023-12-12T08:45:00Z',
+    title: 'Order #1242',
+  },
+  {
+    content: '1x Pumpkin Spice Latte',
+    id: '10',
+    read: true,
+    timestamp: '2023-12-13T16:20:00Z',
+    title: 'Order #1243',
+  },
+];
+
+export { categories, coffees, notifications };

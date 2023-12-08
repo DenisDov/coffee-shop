@@ -1,10 +1,10 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewProps } from 'react-native';
 
 import { Text } from '@/theme';
 
-interface CoffeeCategoryProps {
+interface CoffeeCategoryProps extends ViewProps {
   item: string;
   onPress: (item: string) => void;
   isActive: boolean;
@@ -14,6 +14,7 @@ export const CoffeeCategory = ({
   item,
   onPress,
   isActive,
+  ...props
 }: CoffeeCategoryProps) => {
   return (
     <PlatformPressable
@@ -24,7 +25,8 @@ export const CoffeeCategory = ({
           backgroundColor: isActive ? '#C67C4E' : 'white',
         },
       ]}
-      pressOpacity={0.7}>
+      pressOpacity={0.7}
+      {...props}>
       <Text
         style={{
           fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',

@@ -1,7 +1,7 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -13,11 +13,15 @@ import { SearchBar } from '@/components/SearchBar';
 import { Box, Text } from '@/theme';
 import { categories, coffees } from '@/utils/data';
 
+type CategoryCoords = { [key: string]: number };
+
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const categoriesRef = useRef<ScrollView>(null);
 
   const [refreshing, setRefreshing] = useState(false);
   const [aciveCategory, setActiveCategory] = useState(categories[0]);
+  const [categoriesCoords, setCategoriesCoords] = useState<CategoryCoords>({});
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -26,10 +30,11 @@ export default function HomeScreen() {
     }, 2000);
   }, []);
 
-  const handleCategoryPress = useCallback(item => {
-    console.log('category:', item);
+  const handleCategoryPress = (item: any) => {
     setActiveCategory(item);
-  }, []);
+    const pos = categoriesCoords[item] - 16;
+    categoriesRef.current?.scrollTo({ x: pos });
+  };
 
   return (
     <Box flex={1}>
@@ -53,7 +58,6 @@ export default function HomeScreen() {
           end={{ x: 1, y: 1 }}>
           <Box padding="m">
             <Box
-              // backgroundColor="error"
               flexDirection="row"
               alignItems="center"
               justifyContent="space-between">
@@ -62,7 +66,6 @@ export default function HomeScreen() {
                 <PlatformPressable
                   onPress={() => console.log('SHOW BOTTOMSHEET')}
                   hitSlop={16}
-                  // style={styles.button}
                   pressOpacity={0.7}>
                   <Box flexDirection="row" alignItems="center" gap="m">
                     <Text color="white">Bilzen, Tanjungbalai</Text>
@@ -108,6 +111,7 @@ export default function HomeScreen() {
 
         <Box backgroundColor="background">
           <ScrollView
+            ref={categoriesRef}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ gap: 8, padding: 16 }}>
@@ -116,8 +120,14 @@ export default function HomeScreen() {
                 <CoffeeCategory
                   key={item}
                   item={item}
-                  onPress={handleCategoryPress}
+                  onPress={index => handleCategoryPress(index)}
                   isActive={aciveCategory === item}
+                  onLayout={({ nativeEvent }) => {
+                    const {
+                      layout: { x },
+                    } = nativeEvent;
+                    setCategoriesCoords({ ...categoriesCoords, [item]: x });
+                  }}
                 />
               );
             })}

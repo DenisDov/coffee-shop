@@ -19,10 +19,7 @@ export default function OnboardingScreen() {
         <Text style={styles.subTitle}>
           The best grain, the finest roast, the powerful flavor.
         </Text>
-        <Button
-          title="Get Started"
-          onPress={() => router.replace('/(tabs)/home')}
-        />
+        <Button title="Get Started" onPress={() => router.replace('/(tabs)')} />
       </Box>
     </ImageBackground>
   );
