@@ -1,19 +1,46 @@
 import BottomSheet, {
+  BottomSheetBackdrop,
   BottomSheetFooter,
   BottomSheetFooterProps,
 } from '@gorhom/bottom-sheet';
+import { BottomSheetDefaultBackdropProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 import { PlatformPressable } from '@react-navigation/elements';
 import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
 import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
-import { Alert } from 'react-native';
-import MapView from 'react-native-maps';
+import { Alert, StyleSheet } from 'react-native';
+import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import DeliveryStatusIndicator from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { Box, Text } from '@/theme';
+
+const initialRegion = {
+  latitude: 37.792746711281175,
+  longitude: -122.42665282046873,
+  latitudeDelta: 3,
+  longitudeDelta: 3,
+};
+
+const DUMMY_COORDS_FROM_SERVER = [
+  { latitude: 37.79787087428356, longitude: -122.43537529505565 },
+  { latitude: 37.797682538637964, longitude: -122.43563771164742 },
+  { latitude: 37.7952261997371, longitude: -122.43513622014946 },
+  { latitude: 37.79607514757963, longitude: -122.42857541016531 },
+];
+
+const origin = DUMMY_COORDS_FROM_SERVER[0];
+const destination = DUMMY_COORDS_FROM_SERVER[3];
+
+const edgePaddingValue = 32;
+const edgePadding = {
+  top: edgePaddingValue,
+  right: edgePaddingValue,
+  bottom: edgePaddingValue,
+  left: edgePaddingValue,
+};
 
 const statuses = [
   {
@@ -39,14 +66,24 @@ const statuses = [
 ];
 
 export default function DeliveryScreen() {
-  // ref
+  const mapRef = useRef<MapView>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
-
-  // variables
   const snapPoints = useMemo(() => ['40%', '80%'], []);
 
-  const handlePhoneCall = async () => {
-    const phone = '+123456789';
+  const showMyLocation = async () => {
+    mapRef.current?.animateToRegion({
+      latitude: 37.792746711281175, // initialRegion
+      longitude: -122.42665282046873, // initialRegion
+      latitudeDelta: 0.01,
+      longitudeDelta: 0.01,
+    });
+  };
+
+  const showRoute = async () => {
+    mapRef.current?.fitToCoordinates([origin, destination], { edgePadding });
+  };
+
+  const handlePhoneCall = async (phone: string) => {
     try {
       await Linking.openURL(`tel:${phone}`);
     } catch (error) {
@@ -97,7 +134,7 @@ export default function DeliveryScreen() {
             </Box>
           </Box>
           <Box width={100} alignItems="flex-end">
-            <PlatformPressable onPress={handlePhoneCall}>
+            <PlatformPressable onPress={() => handlePhoneCall('+123456789')}>
               <Box
                 width={54}
                 height={54}
@@ -126,23 +163,59 @@ export default function DeliveryScreen() {
     [],
   );
 
+  const renderBackdrop = useCallback(
+    (props: BottomSheetDefaultBackdropProps) => (
+      <BottomSheetBackdrop {...props} pressBehavior="collapse" />
+    ),
+    [],
+  );
+
   return (
     <Box flex={1} backgroundColor="background">
       <FocusAwareStatusBar style="dark" />
       <Header title="Delivery" />
-      <Box flex={1} backgroundColor="debug">
+      <Box flex={0.6}>
         <MapView
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-        />
+          ref={mapRef}
+          style={{ ...StyleSheet.absoluteFillObject }}
+          provider={PROVIDER_GOOGLE}
+          initialRegion={initialRegion}
+          showsUserLocation>
+          <Marker
+            coordinate={DUMMY_COORDS_FROM_SERVER[3]}
+            anchor={{ x: 0.5, y: 0.5 }}>
+            <Image
+              style={{
+                width: 36,
+                height: 36,
+              }}
+              source={require('@/assets/icons/png/icon-map-marker.png')}
+              contentFit="cover"
+            />
+          </Marker>
+          <Polyline
+            coordinates={DUMMY_COORDS_FROM_SERVER}
+            strokeWidth={5}
+            strokeColor="#C67C4E"
+          />
+        </MapView>
+        <Box>
+          <Text onPress={showMyLocation}>showMyLocation</Text>
+          <Text onPress={showRoute}>showRoute</Text>
+        </Box>
       </Box>
       <BottomSheet
+        backdropComponent={renderBackdrop}
         ref={bottomSheetRef}
         index={0}
         snapPoints={snapPoints}
-        footerComponent={renderFooter}>
+        footerComponent={renderFooter}
+        handleIndicatorStyle={{
+          width: 44,
+          height: 5,
+          borderRadius: 2.5,
+          backgroundColor: '#EAEAEA',
+        }}>
         <Box padding="m" gap="ml">
           <Box alignItems="center" style={{ gap: 6 }}>
             <Text variant="semiBold">10 minutes left</Text>
