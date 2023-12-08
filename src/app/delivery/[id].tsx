@@ -1,8 +1,10 @@
 import BottomSheet from '@gorhom/bottom-sheet';
 import { PlatformPressable } from '@react-navigation/elements';
+import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
 import * as Linking from 'expo-linking';
 import { useMemo, useRef } from 'react';
+import { Alert } from 'react-native';
 
 import DeliveryStatusIndicator from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
@@ -40,10 +42,15 @@ export default function DeliveryScreen() {
   const snapPoints = useMemo(() => ['40%', '80%'], []);
 
   const handlePhoneCall = async () => {
+    const phone = '+123456789';
     try {
-      await Linking.openURL('tel:+123456789');
+      await Linking.openURL(`tel:${phone}`);
     } catch (error) {
       if (error instanceof Error) {
+        await Clipboard.setStringAsync(phone);
+        Alert.alert(phone, 'Phone number copied to clipboard.', [
+          { text: 'OK' },
+        ]);
         console.log(error.message);
       } else {
         console.log('An unknown error occurred');
