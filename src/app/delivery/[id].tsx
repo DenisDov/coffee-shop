@@ -1,5 +1,7 @@
 import BottomSheet from '@gorhom/bottom-sheet';
+import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
+import * as Linking from 'expo-linking';
 import { useMemo, useRef } from 'react';
 
 import DeliveryStatusIndicator from '@/components/DeliveryStatusIndicator';
@@ -36,6 +38,18 @@ export default function DeliveryScreen() {
 
   // variables
   const snapPoints = useMemo(() => ['40%', '80%'], []);
+
+  const handlePhoneCall = async () => {
+    try {
+      await Linking.openURL('tel:+123456789');
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+      } else {
+        console.log('An unknown error occurred');
+      }
+    }
+  };
   return (
     <Box flex={1} backgroundColor="background">
       <FocusAwareStatusBar style="dark" />
@@ -85,26 +99,28 @@ export default function DeliveryScreen() {
               </Box>
             </Box>
             <Box width={100} alignItems="flex-end">
-              <Box
-                width={54}
-                height={54}
-                justifyContent="center"
-                alignItems="center"
-                style={{
-                  borderWidth: 1,
-                  borderColor: '#DEDEDE',
-                  borderRadius: 14,
-                }}>
-                <Image
+              <PlatformPressable onPress={handlePhoneCall}>
+                <Box
+                  width={54}
+                  height={54}
+                  justifyContent="center"
+                  alignItems="center"
                   style={{
-                    width: 24,
-                    height: 24,
-                  }}
-                  source={require('@/assets/icons/svg/phone.svg')}
-                  contentFit="cover"
-                  transition={1000}
-                />
-              </Box>
+                    borderWidth: 1,
+                    borderColor: '#DEDEDE',
+                    borderRadius: 14,
+                  }}>
+                  <Image
+                    style={{
+                      width: 24,
+                      height: 24,
+                    }}
+                    source={require('@/assets/icons/svg/phone.svg')}
+                    contentFit="cover"
+                    transition={1000}
+                  />
+                </Box>
+              </PlatformPressable>
             </Box>
           </Box>
         </Box>
