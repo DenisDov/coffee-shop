@@ -67,6 +67,7 @@ const statuses = [
 
 export default function DeliveryScreen() {
   const mapRef = useRef<MapView>(null);
+
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '80%'], []);
 
@@ -182,12 +183,24 @@ export default function DeliveryScreen() {
           initialRegion={initialRegion}
           showsUserLocation>
           <Marker
-            coordinate={DUMMY_COORDS_FROM_SERVER[3]}
+            coordinate={DUMMY_COORDS_FROM_SERVER[0]}
             anchor={{ x: 0.5, y: 0.5 }}>
             <Image
               style={{
                 width: 36,
                 height: 36,
+              }}
+              source={require('@/assets/icons/png/icon-pin.png')}
+              contentFit="cover"
+            />
+          </Marker>
+          <Marker
+            coordinate={DUMMY_COORDS_FROM_SERVER[3]}
+            anchor={{ x: 0.5, y: 0.5 }}>
+            <Image
+              style={{
+                width: 46,
+                height: 46,
               }}
               source={require('@/assets/icons/png/icon-map-marker.png')}
               contentFit="cover"
