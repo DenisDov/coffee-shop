@@ -3,7 +3,18 @@ import React from 'react';
 
 import { Box, Text } from '@/theme';
 
-const DeliveryStatusIndicator = ({ statuses, currentStep }) => {
+type Status = {
+  id: number;
+  title: string;
+  desc: string;
+};
+
+type Props = {
+  statuses: Status[];
+  currentStep: number;
+};
+
+export const DeliveryStatusIndicator = ({ statuses, currentStep }: Props) => {
   return (
     <Box gap="sm">
       <Box flexDirection="row" alignItems="center" gap="s">
@@ -66,5 +77,3 @@ const DeliveryStatusIndicator = ({ statuses, currentStep }) => {
     </Box>
   );
 };
-
-export default DeliveryStatusIndicator;

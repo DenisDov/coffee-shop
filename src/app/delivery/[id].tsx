@@ -12,7 +12,7 @@ import { useCallback, useMemo, useRef } from 'react';
 import { Alert, StyleSheet } from 'react-native';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 
-import DeliveryStatusIndicator from '@/components/DeliveryStatusIndicator';
+import { DeliveryStatusIndicator } from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { Box, Text } from '@/theme';
