@@ -151,7 +151,7 @@ export default function DeliveryScreen() {
                     width: 24,
                     height: 24,
                   }}
-                  source={require('@/assets/icons/svg/phone.svg')}
+                  source={require('@/assets/icons/png/calling.png')}
                   contentFit="cover"
                   transition={1000}
                 />
@@ -184,26 +184,30 @@ export default function DeliveryScreen() {
           <Marker
             coordinate={DUMMY_COORDS_FROM_SERVER[0]}
             anchor={{ x: 0.5, y: 0.5 }}>
-            <Image
-              style={{
-                width: 36,
-                height: 36,
-              }}
-              source={require('@/assets/icons/png/icon-pin.png')}
-              contentFit="cover"
-            />
+            <Box padding="s" backgroundColor="white" borderRadius="xl">
+              <Image
+                style={{
+                  width: 24,
+                  height: 24,
+                }}
+                source={require('@/assets/icons/png/location.png')}
+                contentFit="cover"
+              />
+            </Box>
           </Marker>
           <Marker
             coordinate={DUMMY_COORDS_FROM_SERVER[3]}
             anchor={{ x: 0.5, y: 0.5 }}>
-            <Image
-              style={{
-                width: 46,
-                height: 46,
-              }}
-              source={require('@/assets/icons/png/icon-map-marker.png')}
-              contentFit="cover"
-            />
+            <Box padding="m" backgroundColor="white" borderRadius="xl">
+              <Image
+                style={{
+                  width: 36,
+                  height: 36,
+                }}
+                source={require('@/assets/icons/png/truck.png')}
+                contentFit="cover"
+              />
+            </Box>
           </Marker>
           <Polyline
             coordinates={DUMMY_COORDS_FROM_SERVER}
@@ -246,3 +250,7 @@ export default function DeliveryScreen() {
     </Box>
   );
 }
+
+const styles = StyleSheet.create({
+  shadow: {},
+});

@@ -43,7 +43,7 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
             width: 24,
             height: 24,
           }}
-          source={require('@/assets/icons/svg/chevron-left.svg')}
+          source={require('@/assets/icons/png/arrow-left.png')}
           contentFit="contain"
         />
       </PlatformPressable>
@@ -58,7 +58,7 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
               width: 24,
               height: 24,
             }}
-            source={require('@/assets/icons/svg/routing.svg')}
+            source={require('@/assets/icons/png/routing-2.png')}
             contentFit="contain"
           />
         </PlatformPressable>
@@ -71,7 +71,7 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
               width: 24,
               height: 24,
             }}
-            source={require('@/assets/icons/svg/gps.svg')}
+            source={require('@/assets/icons/png/gps.png')}
             contentFit="contain"
           />
         </PlatformPressable>

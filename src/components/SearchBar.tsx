@@ -31,8 +31,9 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
           width: 20,
           height: 20,
           marginLeft: 12,
+          tintColor: '#FFFFFF',
         }}
-        source={require('@/assets/icons/svg/search.svg')}
+        source={require('@/assets/icons/png/search-normal.png')}
         contentFit="contain"
       />
       <TextInput
@@ -57,8 +58,9 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
           style={{
             width: 20,
             height: 20,
+            tintColor: '#FFFFFF',
           }}
-          source={require('@/assets/icons/svg/setting-4.svg')}
+          source={require('@/assets/icons/png/setting-4.png')}
           contentFit="contain"
         />
       </PlatformPressable>

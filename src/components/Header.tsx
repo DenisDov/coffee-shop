@@ -42,7 +42,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
                 width: 24,
                 height: 24,
               }}
-              source={require('@/assets/icons/svg/chevron-left.svg')}
+              source={require('@/assets/icons/png/arrow-left.png')}
               contentFit="contain"
             />
           </PlatformPressable>
@@ -67,7 +67,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
                 width: 24,
                 height: 24,
               }}
-              source={require('@/assets/icons/svg/heart.svg')}
+              source={require('@/assets/icons/png/heart.png')}
               contentFit="contain"
             />
           </PlatformPressable>

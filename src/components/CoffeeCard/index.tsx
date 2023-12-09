@@ -50,7 +50,7 @@ export const CoffeeCard = memo(
               <Box flexDirection="row" alignItems="center" gap="xxs">
                 <Image
                   style={{ width: 10, height: 10 }}
-                  source={require('@/assets/icons/svg/star.svg')}
+                  source={require('@/assets/icons/png/star.png')}
                   contentFit="contain"
                 />
                 <Text variant="semiBold" fontSize={10} color="white">
@@ -85,7 +85,7 @@ export const CoffeeCard = memo(
                     width: 16,
                     height: 16,
                   }}
-                  source={require('@/assets/icons/svg/plus.svg')}
+                  source={require('@/assets/icons/png/plus.png')}
                   contentFit="contain"
                 />
               </PlatformPressable>

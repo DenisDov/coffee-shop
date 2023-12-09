@@ -54,7 +54,7 @@ export const DeliveryStatusIndicator = ({ statuses, currentStep }: Props) => {
                         width: 32,
                         height: 32,
                       }}
-                      source={require('@/assets/icons/png/icon-bike.png')}
+                      source={require('@/assets/icons/png/signpost.png')}
                       contentFit="cover"
                       transition={1000}
                     />

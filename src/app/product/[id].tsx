@@ -62,7 +62,7 @@ export default function CoffeeDetailScreen() {
               <Box flexDirection="row" alignItems="flex-end" gap="xs">
                 <Image
                   style={{ width: 20, height: 20 }}
-                  source={require('@/assets/icons/svg/star.svg')}
+                  source={require('@/assets/icons/png/star.png')}
                   contentFit="contain"
                 />
                 <Text variant="semiBold">{product?.rating}</Text>

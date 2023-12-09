@@ -66,14 +66,15 @@ export default function HomeScreen() {
                 <PlatformPressable
                   onPress={() => console.log('SHOW BOTTOMSHEET')}
                   hitSlop={16}>
-                  <Box flexDirection="row" alignItems="center" gap="m">
+                  <Box flexDirection="row" alignItems="center" gap="s">
                     <Text color="white">Bilzen, Tanjungbalai</Text>
                     <Image
                       style={{
-                        width: 14,
-                        height: 14,
+                        width: 20,
+                        height: 20,
+                        tintColor: 'white',
                       }}
-                      source={require('@/assets/icons/svg/chevron-down.svg')}
+                      source={require('@/assets/icons/png/arrow-down.png')}
                       contentFit="contain"
                     />
                   </Box>

@@ -56,11 +56,11 @@ export default function OrderScreen() {
                     borderWidth: 1,
                     borderColor: '#DEDEDE',
                     borderRadius: 16,
-                    gap: 1,
+                    gap: 4,
                   }}>
                   <Image
                     style={{ width: 14, height: 14 }}
-                    source={require('@/assets/icons/svg/icon-edit.svg')}
+                    source={require('@/assets/icons/png/edit.png')}
                     contentFit="contain"
                   />
                   <Text fontSize={12} textTransform="capitalize">
@@ -78,11 +78,11 @@ export default function OrderScreen() {
                     borderWidth: 1,
                     borderColor: '#DEDEDE',
                     borderRadius: 16,
-                    gap: 1,
+                    gap: 4,
                   }}>
                   <Image
                     style={{ width: 14, height: 14 }}
-                    source={require('@/assets/icons/svg/icon-note.svg')}
+                    source={require('@/assets/icons/png/document-text.png')}
                     contentFit="contain"
                   />
                   <Text fontSize={12} textTransform="capitalize">
@@ -146,7 +146,7 @@ export default function OrderScreen() {
               }}>
               <Image
                 style={{ width: 24, height: 24 }}
-                source={require('@/assets/icons/svg/discount.svg')}
+                source={require('@/assets/icons/png/discount-shape.png')}
                 contentFit="cover"
               />
               <Box flex={1}>
@@ -156,7 +156,7 @@ export default function OrderScreen() {
               </Box>
               <Image
                 style={{ width: 20, height: 20 }}
-                source={require('@/assets/icons/svg/chevron-right.svg')}
+                source={require('@/assets/icons/png/arrow-right.png')}
                 contentFit="cover"
               />
             </PlatformPressable>
@@ -225,7 +225,7 @@ export default function OrderScreen() {
             <Box flexDirection="row" alignItems="center" gap="m">
               <Image
                 style={{ width: 24, height: 24 }}
-                source={require('@/assets/icons/svg/cash.svg')}
+                source={require('@/assets/icons/png/moneys.png')}
                 contentFit="contain"
               />
               <Box flex={1}>

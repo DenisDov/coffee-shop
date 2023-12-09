@@ -25,7 +25,7 @@ export default function NotificationsScreen() {
     });
     return (
       <Box
-        style={{ backgroundColor: item.read ? '#F9F9F9' : 'white' }}
+        backgroundColor="white"
         borderRadius="m"
         padding="m"
         flexDirection="row"
