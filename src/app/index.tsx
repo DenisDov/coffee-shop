@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    backgroundColor: 'black',
   },
   title: {
     color: 'white',
