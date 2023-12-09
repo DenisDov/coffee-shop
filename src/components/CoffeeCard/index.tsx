@@ -76,19 +76,25 @@ export const CoffeeCard = memo(
               <Text numberOfLines={1} variant="semiBold" fontSize={18}>
                 $ {price}
               </Text>
-              <PlatformPressable
-                onPress={onAddToCart}
-                hitSlop={16}
-                style={styles.button}>
-                <Image
-                  style={{
-                    width: 16,
-                    height: 16,
-                  }}
-                  source={require('@/assets/icons/png/plus.png')}
-                  contentFit="contain"
-                />
-              </PlatformPressable>
+              <Box
+                style={{
+                  borderRadius: 10,
+                  overflow: 'hidden',
+                }}>
+                <PlatformPressable
+                  onPress={onAddToCart}
+                  hitSlop={16}
+                  style={styles.button}>
+                  <Image
+                    style={{
+                      width: 16,
+                      height: 16,
+                    }}
+                    source={require('@/assets/icons/png/plus.png')}
+                    contentFit="contain"
+                  />
+                </PlatformPressable>
+              </Box>
             </Box>
           </Box>
         </PlatformPressable>
