@@ -9,7 +9,7 @@ import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
 import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
-import { Alert, StyleSheet } from 'react-native';
+import { Alert, Platform, StyleSheet } from 'react-native';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -102,9 +102,10 @@ export default function DeliveryScreen() {
     }
   };
 
-  const renderFooter = useCallback(
-    (props: BottomSheetFooterProps) => (
-      <BottomSheetFooter {...props} bottomInset={bottom}>
+  const renderFooter = useCallback((props: BottomSheetFooterProps) => {
+    const bottomInset = Platform.OS === 'ios' ? bottom : 16;
+    return (
+      <BottomSheetFooter {...props} bottomInset={bottomInset}>
         <Box
           flexDirection="row"
           alignItems="center"
@@ -162,9 +163,8 @@ export default function DeliveryScreen() {
           </Box>
         </Box>
       </BottomSheetFooter>
-    ),
-    [],
-  );
+    );
+  }, []);
 
   const renderBackdrop = useCallback(
     (props: BottomSheetBackdropProps) => (
@@ -233,6 +233,7 @@ export default function DeliveryScreen() {
         />
       </Box>
       <BottomSheet
+        // animateOnMount={false}
         backdropComponent={renderBackdrop}
         ref={bottomSheetRef}
         index={0}
