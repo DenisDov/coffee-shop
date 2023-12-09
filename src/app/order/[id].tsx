@@ -1,6 +1,6 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -16,6 +16,7 @@ import { coffees } from '@/utils/data';
 export default function OrderScreen() {
   const insets = useSafeAreaInsets();
   const { id } = useLocalSearchParams();
+  const router = useRouter();
   const [value, setValue] = useState(1);
 
   const product = coffees.find(c => c.id === id);
@@ -270,7 +271,7 @@ export default function OrderScreen() {
                 />
               </PlatformPressable>
             </Box>
-            <Button title="Order" onPress={() => null} />
+            <Button title="Order" onPress={() => router.push('/delivery/2')} />
           </Box>
         </Box>
       </Box>

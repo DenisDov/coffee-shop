@@ -184,7 +184,12 @@ export default function DeliveryScreen() {
           <Marker
             coordinate={DUMMY_COORDS_FROM_SERVER[0]}
             anchor={{ x: 0.5, y: 0.5 }}>
-            <Box padding="s" backgroundColor="white" borderRadius="xl">
+            <Box
+              padding="s"
+              backgroundColor="white"
+              borderRadius="xl"
+              borderWidth={1}
+              borderColor="primary">
               <Image
                 style={{
                   width: 24,
@@ -198,11 +203,16 @@ export default function DeliveryScreen() {
           <Marker
             coordinate={DUMMY_COORDS_FROM_SERVER[3]}
             anchor={{ x: 0.5, y: 0.5 }}>
-            <Box padding="m" backgroundColor="white" borderRadius="xl">
+            <Box
+              padding="s"
+              backgroundColor="white"
+              borderRadius="xl"
+              borderWidth={1}
+              borderColor="primary">
               <Image
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 24,
+                  height: 24,
                 }}
                 source={require('@/assets/icons/png/truck.png')}
                 contentFit="cover"
