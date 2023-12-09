@@ -103,6 +103,58 @@ const coffees = [
   },
 ];
 
+const cart = [
+  {
+    id: 1,
+    items: [
+      {
+        item_id: 101,
+        name: 'Espresso',
+        quantity: 2,
+        size: 'Regular',
+      },
+      {
+        item_id: 102,
+        name: 'Cappuccino',
+        quantity: 1,
+        size: 'Large',
+      },
+    ],
+    total_price: 9.5,
+  },
+  {
+    id: 2,
+    items: [
+      {
+        item_id: 103,
+        name: 'Latte',
+        quantity: 1,
+        size: 'Regular',
+      },
+    ],
+    total_price: 3.75,
+  },
+  {
+    id: 3,
+    customer_name: 'Alice Johnson',
+    items: [
+      {
+        item_id: 104,
+        name: 'Mocha',
+        quantity: 1,
+        size: 'Large',
+      },
+      {
+        item_id: 105,
+        name: 'Croissant',
+        quantity: 2,
+        size: 'Small',
+      },
+    ],
+    total_price: 14.8,
+  },
+];
+
 const notifications = [
   {
     content: '3x Espresso',
@@ -176,4 +228,4 @@ const notifications = [
   },
 ];
 
-export { categories, coffees, notifications };
+export { cart, categories, coffees, notifications };
