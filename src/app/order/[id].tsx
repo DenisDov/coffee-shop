@@ -259,14 +259,15 @@ export default function OrderScreen() {
                 style={{
                   width: 24,
                   height: 24,
-                  backgroundColor: '#808080',
-                  borderRadius: 12,
+                  borderRadius: 4,
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                <Text color="white" lineHeight={12}>
-                  ...
-                </Text>
+                <Image
+                  style={{ width: 24, height: 24 }}
+                  source={require('@/assets/icons/png/more.png')}
+                  contentFit="contain"
+                />
               </PlatformPressable>
             </Box>
             <Button title="Order" onPress={() => null} />
