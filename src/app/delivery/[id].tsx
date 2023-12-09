@@ -11,6 +11,7 @@ import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
 import { Alert, StyleSheet } from 'react-native';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DeliveryHeader } from '@/components/DeliveryHeader';
 import { DeliveryStatusIndicator } from '@/components/DeliveryStatusIndicator';
@@ -66,6 +67,7 @@ const statuses = [
 ];
 
 export default function DeliveryScreen() {
+  const { bottom } = useSafeAreaInsets();
   const mapRef = useRef<MapView>(null);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -102,7 +104,7 @@ export default function DeliveryScreen() {
 
   const renderFooter = useCallback(
     (props: BottomSheetFooterProps) => (
-      <BottomSheetFooter {...props} bottomInset={40}>
+      <BottomSheetFooter {...props} bottomInset={bottom}>
         <Box
           flexDirection="row"
           alignItems="center"
