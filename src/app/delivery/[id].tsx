@@ -72,6 +72,7 @@ export default function DeliveryScreen() {
 
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['40%', '80%'], []);
+  const bottomInset = useMemo(() => (Platform.OS === 'ios' ? bottom : 16), []);
 
   const handleShowMyLocation = async () => {
     mapRef.current?.animateToRegion({
@@ -103,7 +104,6 @@ export default function DeliveryScreen() {
   };
 
   const renderFooter = useCallback((props: BottomSheetFooterProps) => {
-    const bottomInset = Platform.OS === 'ios' ? bottom : 16;
     return (
       <BottomSheetFooter {...props} bottomInset={bottomInset}>
         <Box
