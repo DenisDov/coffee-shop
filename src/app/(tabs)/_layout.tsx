@@ -14,7 +14,7 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
-              source={require('@/assets/icons/svg/tabs/home.svg')}
+              source={require('@/assets/icons/tabs/home.png')}
               focused={focused}
             />
           ),
@@ -25,7 +25,7 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
-              source={require('@/assets/icons/svg/tabs/heart.svg')}
+              source={require('@/assets/icons/tabs/heart.png')}
               focused={focused}
             />
           ),
@@ -36,7 +36,7 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
-              source={require('@/assets/icons/svg/tabs/bag.svg')}
+              source={require('@/assets/icons/tabs/bag.png')}
               focused={focused}
             />
           ),
@@ -47,7 +47,7 @@ export default function TabLayout() {
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
-              source={require('@/assets/icons/svg/tabs/notification.svg')}
+              source={require('@/assets/icons/tabs/notification.png')}
               focused={focused}
             />
           ),
