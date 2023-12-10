@@ -1,12 +1,13 @@
 import { Tabs } from 'expo-router';
 
+import { MyTabBar } from '@/components/TabBar';
 import { TabBarIcon } from '@/components/TabBarIcon';
 
 export default function TabLayout() {
   return (
     <Tabs
+      tabBar={props => <MyTabBar {...props} />}
       screenOptions={{
-        tabBarShowLabel: false,
         headerShown: false,
       }}>
       <Tabs.Screen

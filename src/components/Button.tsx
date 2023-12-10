@@ -1,5 +1,4 @@
 import { PlatformPressable } from '@react-navigation/elements';
-import * as Haptics from 'expo-haptics';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -11,12 +10,8 @@ type Props = {
 };
 
 export const Button = ({ onPress, title }: Props) => {
-  const handlePress = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    onPress();
-  };
   return (
-    <PlatformPressable onPress={handlePress} hitSlop={16} style={styles.button}>
+    <PlatformPressable onPress={onPress} hitSlop={16} style={styles.button}>
       <Text variant="button">{title}</Text>
     </PlatformPressable>
   );
