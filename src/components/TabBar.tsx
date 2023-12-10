@@ -11,59 +11,54 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
       style={[
         styles.shadow,
         {
-          // borderTopLeftRadius: 24,
-          // borderTopRightRadius: 24,
-          backgroundColor: '#F9F9F9',
-        },
-      ]}>
-      <Box
-        style={{
           paddingBottom: bottom,
           backgroundColor: 'white',
           borderTopLeftRadius: 24,
           borderTopRightRadius: 24,
+        },
+      ]}>
+      <Box
+        style={{
+          flexDirection: 'row',
+          height: 65,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
           overflow: 'hidden',
         }}>
-        <Box
-          style={{
-            flexDirection: 'row',
-            height: 65,
-          }}>
-          {state.routes.map((route, index) => {
-            const { options } = descriptors[route.key];
+        {state.routes.map((route, index) => {
+          const { options } = descriptors[route.key];
 
-            const icon = options.tabBarIcon;
+          const icon = options.tabBarIcon;
 
-            const isFocused = state.index === index;
+          const isFocused = state.index === index;
 
-            const onPress = () => {
-              const event = navigation.emit({
-                type: 'tabPress',
-                target: route.key,
-                canPreventDefault: true,
-              });
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-              if (!isFocused && !event.defaultPrevented) {
-                navigation.navigate(route.name, route.params);
-              }
-            };
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name, route.params);
+            }
+          };
 
-            const renderIcon = icon({ focused: isFocused });
+          const renderIcon = icon({ focused: isFocused });
 
-            return (
-              <PlatformPressable
-                key={route.key}
-                onPress={onPress}
-                style={{
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                {renderIcon}
-              </PlatformPressable>
-            );
-          })}
-        </Box>
+          return (
+            <PlatformPressable
+              key={route.key}
+              onPress={onPress}
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              {renderIcon}
+            </PlatformPressable>
+          );
+        })}
       </Box>
     </Box>
   );
