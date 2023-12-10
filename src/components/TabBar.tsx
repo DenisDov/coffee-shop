@@ -51,12 +51,7 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
           );
         })}
       </Box>
-      <Box
-        style={{
-          backgroundColor: 'white',
-          height: bottom,
-        }}
-      />
+      <Box height={bottom} backgroundColor="white" />
     </Box>
   );
 };
