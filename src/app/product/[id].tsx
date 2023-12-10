@@ -4,12 +4,13 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Shadow } from 'react-native-shadow-2';
 
 import { Button } from '@/components/Button';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
-import { Box, Text } from '@/theme';
+import { Box, Text, theme } from '@/theme';
 import { coffees } from '@/utils/data';
 
 const cupSizes = ['S', 'M', 'L'];
@@ -143,16 +144,18 @@ export default function CoffeeDetailScreen() {
         </Box>
       </ScrollView>
       {/* Footer */}
-      <Box
-        style={[
-          styles.shadow,
-          {
-            paddingBottom: insets.bottom,
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            backgroundColor: 'white',
-          },
-        ]}>
+
+      <Shadow
+        stretch
+        distance={theme.spacing.tabShadow}
+        startColor="#E4E4E450"
+        offset={[0, -10]}
+        style={{
+          paddingBottom: insets.bottom,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          backgroundColor: 'white',
+        }}>
         <Box
           style={{
             padding: 16,
@@ -172,7 +175,7 @@ export default function CoffeeDetailScreen() {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Shadow>
     </Box>
   );
 }
@@ -182,12 +185,5 @@ const styles = StyleSheet.create({
     height: 226,
     width: '100%',
     borderRadius: 16,
-  },
-  shadow: {
-    elevation: 5,
-    shadowColor: '#E4E4E4',
-    shadowRadius: 24,
-    shadowOffset: { width: 0, height: -10 },
-    shadowOpacity: 0.5,
   },
 });
