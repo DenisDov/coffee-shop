@@ -38,6 +38,7 @@ const theme = createTheme({
     l: 24,
     xl: 40,
     xxl: 64,
+    tabShadow: 24,
   },
   borderRadii: {
     xs: 4,
@@ -65,17 +66,6 @@ const theme = createTheme({
   },
 });
 
-// const darkTheme: Theme = {
-//   ...theme,
-//   colors: {
-//     ...theme.colors,
-//     text: palette.white,
-//   },
-// };
-
 export type Theme = typeof theme;
 
-export {
-  theme,
-  //  darkTheme
-};
+export { theme };

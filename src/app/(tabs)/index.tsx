@@ -10,10 +10,12 @@ import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { Promo } from '@/components/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
-import { Box, Text } from '@/theme';
+import { Box, Text, theme } from '@/theme';
 import { categories, coffees } from '@/utils/data';
 
 type CategoryCoords = { [key: string]: number };
+
+const contentPadding = theme.spacing.tabShadow + theme.spacing.m;
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
@@ -41,7 +43,7 @@ export default function HomeScreen() {
       <ScrollViewBackgroundLayer />
       <Box style={{ height: insets.top }} />
       <ScrollView
-        removeClippedSubviews // TODO: test performance with https://github.com/Shopify/react-native-performance
+        removeClippedSubviews
         showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[0, 2]}
         style={{ flex: 1 }}
@@ -135,12 +137,12 @@ export default function HomeScreen() {
 
         <Box
           paddingHorizontal="m"
-          paddingBottom="m"
           backgroundColor="background"
           flexWrap="wrap"
           flexDirection="row"
           justifyContent="space-between"
-          gap="m">
+          gap="m"
+          style={{ paddingBottom: contentPadding }}>
           {coffees?.map(item => {
             return <CoffeeCard key={item.id} {...item} />;
           })}

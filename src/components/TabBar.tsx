@@ -1,30 +1,24 @@
 import { PlatformPressable } from '@react-navigation/elements';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Shadow } from 'react-native-shadow-2';
 
-import { Box } from '@/theme';
+import { Box, theme } from '@/theme';
 
 export const MyTabBar = ({ state, descriptors, navigation }) => {
   const { bottom } = useSafeAreaInsets();
+
   return (
-    <Box
-      style={[
-        styles.shadow,
-        {
-          paddingBottom: bottom,
-          backgroundColor: 'white',
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-        },
-      ]}>
-      <Box
-        style={{
-          flexDirection: 'row',
-          height: 65,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          overflow: 'hidden',
-        }}>
+    <Shadow
+      stretch
+      distance={theme.spacing.tabShadow * 2}
+      startColor="#E4E4E450"
+      offset={[0, -10]}
+      style={{
+        paddingBottom: bottom,
+        backgroundColor: 'white',
+      }}>
+      <Box style={styles.tabBar}>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
 
@@ -60,16 +54,18 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
           );
         })}
       </Box>
-    </Box>
+    </Shadow>
   );
 };
 
 const styles = StyleSheet.create({
-  shadow: {
-    elevation: 5,
-    shadowColor: '#E4E4E4',
-    shadowRadius: 24,
-    shadowOffset: { width: 0, height: -10 },
-    shadowOpacity: 0.5,
+  tabBar: {
+    flexDirection: 'row',
+    height: 65,
+    marginTop: -theme.spacing.tabShadow,
+    backgroundColor: 'white',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    overflow: 'hidden',
   },
 });
