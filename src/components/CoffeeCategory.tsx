@@ -14,10 +14,11 @@ export const CoffeeCategory = ({
   item,
   onPress,
   isActive,
-  ...props
+  onLayout,
 }: CoffeeCategoryProps) => {
   return (
     <Box
+      onLayout={onLayout}
       style={{
         borderRadius: 12,
         overflow: 'hidden',
@@ -30,8 +31,7 @@ export const CoffeeCategory = ({
             backgroundColor: isActive ? '#C67C4E' : 'white',
           },
         ]}
-        pressOpacity={0.7}
-        {...props}>
+        pressOpacity={0.7}>
         <Text
           style={{
             fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',
@@ -51,10 +51,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: 'white',
     borderRadius: 12,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 2,
-    // elevation: 3,
   },
 });
