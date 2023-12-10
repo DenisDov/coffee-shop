@@ -144,22 +144,20 @@ export default function CoffeeDetailScreen() {
       </ScrollView>
       {/* Footer */}
       <Box
-        style={{
-          paddingBottom: insets.bottom,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-        }}>
+        style={[
+          styles.shadow,
+          {
+            paddingBottom: insets.bottom,
+            borderTopLeftRadius: 24,
+            borderTopRightRadius: 24,
+            backgroundColor: 'white',
+          },
+        ]}>
         <Box
-          style={[
-            styles.shadow,
-            {
-              padding: 16,
-              paddingBottom: 8,
-              backgroundColor: 'white',
-              borderTopLeftRadius: 24,
-              borderTopRightRadius: 24,
-            },
-          ]}>
+          style={{
+            padding: 16,
+            paddingBottom: 8,
+          }}>
           <Box flexDirection="row" alignItems="center" gap="xxl">
             <Box gap="s">
               <Text fontSize={14} color="muted">
