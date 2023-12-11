@@ -1,6 +1,6 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, Text } from '@/theme';
 
@@ -27,13 +27,18 @@ export const Stepper = ({
 
   return (
     <Box flexDirection="row" alignItems="center">
-      <PlatformPressable
+      <RectButton
         onPress={handleDecrement}
-        disabled={minIsDisabled}
+        enabled={!minIsDisabled}
         hitSlop={16}
-        style={styles.button}>
-        <MinusSign stroke={minIsDisabled ? '#AAADB0' : '#2F2D2C'} />
-      </PlatformPressable>
+        style={{
+          borderRadius: 14,
+          backgroundColor: 'white',
+        }}>
+        <Box accessible accessibilityRole="button" style={styles.button}>
+          <MinusSign stroke={minIsDisabled ? '#AAADB0' : '#2F2D2C'} />
+        </Box>
+      </RectButton>
 
       <Box width={30}>
         <Text
@@ -45,13 +50,18 @@ export const Stepper = ({
         </Text>
       </Box>
 
-      <PlatformPressable
+      <RectButton
         onPress={handleIncrement}
-        disabled={maxIsDisabled}
+        enabled={!maxIsDisabled}
         hitSlop={16}
-        style={styles.button}>
-        <PlusSign stroke={maxIsDisabled ? '#AAADB0' : '#2F2D2C'} />
-      </PlatformPressable>
+        style={{
+          borderRadius: 14,
+          backgroundColor: 'white',
+        }}>
+        <Box accessible accessibilityRole="button" style={styles.button}>
+          <PlusSign stroke={maxIsDisabled ? '#AAADB0' : '#2F2D2C'} />
+        </Box>
+      </RectButton>
     </Box>
   );
 };

@@ -53,6 +53,7 @@ export default function OrderScreen() {
                   hitSlop={16}
                   style={{
                     borderRadius: 16,
+                    backgroundColor: 'white',
                   }}>
                   <Box
                     accessible
@@ -83,6 +84,7 @@ export default function OrderScreen() {
                   hitSlop={16}
                   style={{
                     borderRadius: 16,
+                    backgroundColor: 'white',
                   }}>
                   <Box
                     accessible
@@ -150,17 +152,12 @@ export default function OrderScreen() {
           <Box height={4} style={{ backgroundColor: '#F4F4F4' }} />
 
           <Box paddingHorizontal="m" gap="ml">
-            {/* <Box
-              style={{
-                // borderWidth: 1,
-                // borderColor: '#DEDEDE',
-                borderRadius: 16,
-              }}> */}
             <RectButton
               onPress={() => null}
               hitSlop={16}
               style={{
                 borderRadius: 14,
+                backgroundColor: 'white',
               }}>
               <Box
                 accessible
@@ -191,37 +188,6 @@ export default function OrderScreen() {
                 />
               </Box>
             </RectButton>
-            {/* </Box> */}
-            {/* <Box style={{ borderRadius: 14 }}>
-              <PlatformPressable
-                onPress={() => null}
-                hitSlop={16}
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  gap: 12,
-                  padding: 16,
-                  borderRadius: 14,
-                  borderWidth: 1,
-                  borderColor: '#EAEAEA',
-                }}>
-                <Image
-                  style={{ width: 24, height: 24 }}
-                  source={require('@/assets/icons/png/discount-shape.png')}
-                  contentFit="cover"
-                />
-                <Box flex={1}>
-                  <Text variant="semiBold" fontSize={14}>
-                    1 Discount is applied
-                  </Text>
-                </Box>
-                <Image
-                  style={{ width: 20, height: 20 }}
-                  source={require('@/assets/icons/png/arrow-right.png')}
-                  contentFit="cover"
-                />
-              </PlatformPressable>
-            </Box> */}
 
             <Box gap="m">
               <Text variant="semiBold">Payment Summary</Text>

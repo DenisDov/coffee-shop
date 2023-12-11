@@ -143,6 +143,7 @@ export default function DeliveryScreen() {
             hitSlop={16}
             style={{
               borderRadius: 14,
+              backgroundColor: 'white',
             }}>
             <Box
               accessible

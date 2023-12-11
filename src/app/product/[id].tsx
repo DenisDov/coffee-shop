@@ -1,8 +1,8 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
@@ -118,25 +118,33 @@ export default function CoffeeDetailScreen() {
               {cupSizes?.map(size => {
                 const isSelected = size === selectedCupSize;
                 return (
-                  <PlatformPressable
+                  <RectButton
                     key={size}
                     onPress={() => setSelectedCupSize(size)}
                     hitSlop={16}
                     style={{
                       flex: 1,
-                      height: 43,
-                      justifyContent: 'center',
-                      backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
-                      borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
-                      borderWidth: 1,
                       borderRadius: 12,
+                      backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
                     }}>
-                    <Text
-                      textAlign="center"
-                      style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>
-                      {size}
-                    </Text>
-                  </PlatformPressable>
+                    <Box
+                      accessible
+                      accessibilityRole="button"
+                      style={{
+                        flex: 1,
+                        height: 43,
+                        justifyContent: 'center',
+                        borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
+                        borderWidth: 1,
+                        borderRadius: 12,
+                      }}>
+                      <Text
+                        textAlign="center"
+                        style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>
+                        {size}
+                      </Text>
+                    </Box>
+                  </RectButton>
                 );
               })}
             </Box>
