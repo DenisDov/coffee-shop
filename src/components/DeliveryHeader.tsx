@@ -1,10 +1,8 @@
-import {
-  getDefaultHeaderHeight,
-  PlatformPressable,
-} from '@react-navigation/elements';
+import { getDefaultHeaderHeight } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import {
   useSafeAreaFrame,
   useSafeAreaInsets,
@@ -34,7 +32,7 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
       style={{
         paddingTop: insets.top,
       }}>
-      <PlatformPressable
+      <RectButton
         onPress={() => router.back()}
         hitSlop={16}
         style={styles.button}>
@@ -46,13 +44,10 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
           source={require('@/assets/icons/png/arrow-left.png')}
           contentFit="contain"
         />
-      </PlatformPressable>
+      </RectButton>
 
       <Box gap="m" flexDirection="row" alignItems="center">
-        <PlatformPressable
-          onPress={onRoutePress}
-          hitSlop={16}
-          style={styles.button}>
+        <RectButton onPress={onRoutePress} hitSlop={16} style={styles.button}>
           <Image
             style={{
               width: 24,
@@ -61,11 +56,8 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
             source={require('@/assets/icons/png/routing-2.png')}
             contentFit="contain"
           />
-        </PlatformPressable>
-        <PlatformPressable
-          onPress={onGpsPress}
-          hitSlop={16}
-          style={styles.button}>
+        </RectButton>
+        <RectButton onPress={onGpsPress} hitSlop={16} style={styles.button}>
           <Image
             style={{
               width: 24,
@@ -74,7 +66,7 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
             source={require('@/assets/icons/png/gps.png')}
             contentFit="contain"
           />
-        </PlatformPressable>
+        </RectButton>
       </Box>
     </Box>
   );
