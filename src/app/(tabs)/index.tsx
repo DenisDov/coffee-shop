@@ -1,8 +1,8 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CoffeeCard } from '@/components/CoffeeCard';
@@ -63,11 +63,12 @@ export default function HomeScreen() {
               flexDirection="row"
               alignItems="center"
               justifyContent="space-between">
-              <Box>
-                <Text color="white">Location</Text>
-                <PlatformPressable
-                  onPress={() => console.log('SHOW BOTTOMSHEET')}
-                  hitSlop={16}>
+              <BorderlessButton
+                borderless={false}
+                onPress={() => console.log('SHOW BOTTOMSHEET')}
+                hitSlop={16}>
+                <Box accessible accessibilityRole="button">
+                  <Text color="white">Location</Text>
                   <Box flexDirection="row" alignItems="center" gap="s">
                     <Text color="white">Bilzen, Tanjungbalai</Text>
                     <Image
@@ -80,24 +81,28 @@ export default function HomeScreen() {
                       contentFit="contain"
                     />
                   </Box>
-                </PlatformPressable>
-              </Box>
-              <PlatformPressable
+                </Box>
+              </BorderlessButton>
+
+              <BorderlessButton
+                foreground
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
                 hitSlop={16}>
-                <Image
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 14,
-                  }}
-                  source="https://i.pravatar.cc/150?img=11"
-                  placeholder={{
-                    thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
-                  }}
-                  contentFit="cover"
-                />
-              </PlatformPressable>
+                <Box accessible accessibilityRole="button">
+                  <Image
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: 14,
+                    }}
+                    source="https://i.pravatar.cc/150?img=11"
+                    placeholder={{
+                      thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
+                    }}
+                    contentFit="cover"
+                  />
+                </Box>
+              </BorderlessButton>
             </Box>
           </Box>
 
