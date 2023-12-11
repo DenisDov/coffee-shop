@@ -1,9 +1,8 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
@@ -280,22 +279,13 @@ export default function OrderScreen() {
                   </Box>
                 </Box>
               </Box>
-              <PlatformPressable
-                onPress={() => null}
-                hitSlop={16}
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: 4,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
+              <BorderlessButton onPress={() => null} hitSlop={16}>
                 <Image
                   style={{ width: 24, height: 24 }}
                   source={require('@/assets/icons/png/more.png')}
                   contentFit="contain"
                 />
-              </PlatformPressable>
+              </BorderlessButton>
             </Box>
             <Button title="Order" onPress={() => router.push('/delivery/2')} />
           </Box>

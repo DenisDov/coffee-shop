@@ -1,5 +1,5 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { StyleSheet } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
@@ -41,7 +41,7 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
           const renderIcon = icon({ focused: isFocused });
 
           return (
-            <PlatformPressable
+            <BorderlessButton
               key={route.key}
               onPress={onPress}
               style={{
@@ -50,7 +50,7 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
                 alignItems: 'center',
               }}>
               {renderIcon}
-            </PlatformPressable>
+            </BorderlessButton>
           );
         })}
       </Box>

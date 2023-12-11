@@ -1,8 +1,7 @@
 import { getDefaultHeaderHeight } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import {
   useSafeAreaFrame,
   useSafeAreaInsets,
@@ -35,10 +34,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
       }}>
       <Box width={24}>
         {!noBack && (
-          <RectButton
-            onPress={() => router.back()}
-            hitSlop={16}
-            style={styles.button}>
+          <BorderlessButton onPress={() => router.back()} hitSlop={16}>
             <Image
               style={{
                 width: 24,
@@ -47,7 +43,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
               source={require('@/assets/icons/png/arrow-left.png')}
               contentFit="contain"
             />
-          </RectButton>
+          </BorderlessButton>
         )}
       </Box>
 
@@ -63,7 +59,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
 
       <Box width={24} alignItems="flex-end">
         {iconRight && (
-          <RectButton onPress={() => null} hitSlop={16} style={styles.button}>
+          <BorderlessButton onPress={() => router.back()} hitSlop={16}>
             <Image
               style={{
                 width: 24,
@@ -72,20 +68,9 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
               source={require('@/assets/icons/png/heart.png')}
               contentFit="contain"
             />
-          </RectButton>
+          </BorderlessButton>
         )}
       </Box>
     </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
