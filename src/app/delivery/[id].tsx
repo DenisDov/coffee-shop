@@ -138,35 +138,35 @@ export default function DeliveryScreen() {
             </Box>
           </Box>
 
-          <Box
+          <RectButton
+            onPress={() => handlePhoneCall('+123456789')}
+            hitSlop={16}
             style={{
-              borderWidth: 1,
-              borderColor: '#DEDEDE',
               borderRadius: 14,
             }}>
-            <RectButton
-              onPress={() => handlePhoneCall('+123456789')}
-              hitSlop={16}
+            <Box
+              accessible
+              accessibilityRole="button"
               style={{
                 width: 54,
                 height: 54,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 14,
+                borderWidth: 1,
+                borderColor: '#DEDEDE',
               }}>
-              <Box accessible accessibilityRole="button">
-                <Image
-                  style={{
-                    width: 24,
-                    height: 24,
-                  }}
-                  source={require('@/assets/icons/png/calling.png')}
-                  contentFit="cover"
-                  transition={1000}
-                />
-              </Box>
-            </RectButton>
-          </Box>
+              <Image
+                style={{
+                  width: 24,
+                  height: 24,
+                }}
+                source={require('@/assets/icons/png/calling.png')}
+                contentFit="cover"
+                transition={1000}
+              />
+            </Box>
+          </RectButton>
         </Box>
       </BottomSheetFooter>
     );

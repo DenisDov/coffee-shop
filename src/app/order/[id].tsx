@@ -3,6 +3,7 @@ import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
@@ -47,50 +48,65 @@ export default function OrderScreen() {
                 </Text>
               </Box>
               <Box flexDirection="row" alignItems="center" gap="s">
-                <PlatformPressable
+                <RectButton
                   onPress={() => null}
                   hitSlop={16}
                   style={{
-                    paddingVertical: 6,
-                    paddingHorizontal: 12,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    borderWidth: 1,
-                    borderColor: '#DEDEDE',
                     borderRadius: 16,
-                    gap: 4,
                   }}>
-                  <Image
-                    style={{ width: 14, height: 14 }}
-                    source={require('@/assets/icons/png/edit.png')}
-                    contentFit="contain"
-                  />
-                  <Text fontSize={12} textTransform="capitalize">
-                    Edit Address
-                  </Text>
-                </PlatformPressable>
-                <PlatformPressable
+                  <Box
+                    accessible
+                    accessibilityRole="button"
+                    style={{
+                      paddingVertical: 6,
+                      paddingHorizontal: 12,
+                      flexDirection: 'row',
+                      gap: 4,
+                      alignItems: 'center',
+                      borderWidth: 1,
+                      borderColor: '#DEDEDE',
+                      borderRadius: 16,
+                    }}>
+                    <Image
+                      style={{ width: 14, height: 14 }}
+                      source={require('@/assets/icons/png/edit.png')}
+                      contentFit="contain"
+                    />
+                    <Text fontSize={12} textTransform="capitalize">
+                      Edit Address
+                    </Text>
+                  </Box>
+                </RectButton>
+
+                <RectButton
                   onPress={() => null}
                   hitSlop={16}
                   style={{
-                    paddingVertical: 6,
-                    paddingHorizontal: 12,
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    borderWidth: 1,
-                    borderColor: '#DEDEDE',
                     borderRadius: 16,
-                    gap: 4,
                   }}>
-                  <Image
-                    style={{ width: 14, height: 14 }}
-                    source={require('@/assets/icons/png/document-text.png')}
-                    contentFit="contain"
-                  />
-                  <Text fontSize={12} textTransform="capitalize">
-                    Add Note
-                  </Text>
-                </PlatformPressable>
+                  <Box
+                    accessible
+                    accessibilityRole="button"
+                    style={{
+                      paddingVertical: 6,
+                      paddingHorizontal: 12,
+                      flexDirection: 'row',
+                      gap: 4,
+                      alignItems: 'center',
+                      borderWidth: 1,
+                      borderColor: '#DEDEDE',
+                      borderRadius: 16,
+                    }}>
+                    <Image
+                      style={{ width: 14, height: 14 }}
+                      source={require('@/assets/icons/png/document-text.png')}
+                      contentFit="contain"
+                    />
+                    <Text fontSize={12} textTransform="capitalize">
+                      Add Note
+                    </Text>
+                  </Box>
+                </RectButton>
               </Box>
               <Box height={1} backgroundColor="stroke" />
             </Box>
@@ -134,34 +150,78 @@ export default function OrderScreen() {
           <Box height={4} style={{ backgroundColor: '#F4F4F4' }} />
 
           <Box paddingHorizontal="m" gap="ml">
-            <PlatformPressable
+            {/* <Box
+              style={{
+                // borderWidth: 1,
+                // borderColor: '#DEDEDE',
+                borderRadius: 16,
+              }}> */}
+            <RectButton
               onPress={() => null}
               hitSlop={16}
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: 12,
-                padding: 16,
                 borderRadius: 14,
-                borderWidth: 1,
-                borderColor: '#EAEAEA',
               }}>
-              <Image
-                style={{ width: 24, height: 24 }}
-                source={require('@/assets/icons/png/discount-shape.png')}
-                contentFit="cover"
-              />
-              <Box flex={1}>
-                <Text variant="semiBold" fontSize={14}>
-                  1 Discount is applied
-                </Text>
+              <Box
+                accessible
+                accessibilityRole="button"
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 12,
+                  padding: 16,
+                  borderRadius: 14,
+                  borderWidth: 1,
+                  borderColor: '#EAEAEA',
+                }}>
+                <Image
+                  style={{ width: 24, height: 24 }}
+                  source={require('@/assets/icons/png/discount-shape.png')}
+                  contentFit="cover"
+                />
+                <Box flex={1}>
+                  <Text variant="semiBold" fontSize={14}>
+                    1 Discount is applied
+                  </Text>
+                </Box>
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require('@/assets/icons/png/arrow-right.png')}
+                  contentFit="cover"
+                />
               </Box>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require('@/assets/icons/png/arrow-right.png')}
-                contentFit="cover"
-              />
-            </PlatformPressable>
+            </RectButton>
+            {/* </Box> */}
+            {/* <Box style={{ borderRadius: 14 }}>
+              <PlatformPressable
+                onPress={() => null}
+                hitSlop={16}
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 12,
+                  padding: 16,
+                  borderRadius: 14,
+                  borderWidth: 1,
+                  borderColor: '#EAEAEA',
+                }}>
+                <Image
+                  style={{ width: 24, height: 24 }}
+                  source={require('@/assets/icons/png/discount-shape.png')}
+                  contentFit="cover"
+                />
+                <Box flex={1}>
+                  <Text variant="semiBold" fontSize={14}>
+                    1 Discount is applied
+                  </Text>
+                </Box>
+                <Image
+                  style={{ width: 20, height: 20 }}
+                  source={require('@/assets/icons/png/arrow-right.png')}
+                  contentFit="cover"
+                />
+              </PlatformPressable>
+            </Box> */}
 
             <Box gap="m">
               <Text variant="semiBold">Payment Summary</Text>
