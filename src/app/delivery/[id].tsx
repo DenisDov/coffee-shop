@@ -4,12 +4,12 @@ import BottomSheet, {
   BottomSheetFooter,
   BottomSheetFooterProps,
 } from '@gorhom/bottom-sheet';
-import { PlatformPressable } from '@react-navigation/elements';
 import * as Clipboard from 'expo-clipboard';
 import { Image } from 'expo-image';
 import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
 import { Alert, Platform, StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -137,18 +137,24 @@ export default function DeliveryScreen() {
               </Box>
             </Box>
           </Box>
-          <Box width={100} alignItems="flex-end">
-            <PlatformPressable onPress={() => handlePhoneCall('+123456789')}>
-              <Box
-                width={54}
-                height={54}
-                justifyContent="center"
-                alignItems="center"
-                style={{
-                  borderWidth: 1,
-                  borderColor: '#DEDEDE',
-                  borderRadius: 14,
-                }}>
+
+          <Box
+            style={{
+              borderWidth: 1,
+              borderColor: '#DEDEDE',
+              borderRadius: 14,
+            }}>
+            <RectButton
+              onPress={() => handlePhoneCall('+123456789')}
+              hitSlop={16}
+              style={{
+                width: 54,
+                height: 54,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 14,
+              }}>
+              <Box accessible accessibilityRole="button">
                 <Image
                   style={{
                     width: 24,
@@ -159,7 +165,7 @@ export default function DeliveryScreen() {
                   transition={1000}
                 />
               </Box>
-            </PlatformPressable>
+            </RectButton>
           </Box>
         </Box>
       </BottomSheetFooter>

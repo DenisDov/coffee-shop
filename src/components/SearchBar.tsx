@@ -1,10 +1,10 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
-// import { Box, Text } from '@/theme';
+import { Box } from '@/theme';
 
 type Props = {
   value: string;
@@ -50,20 +50,20 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
         onChangeText={onChangeText}
         value={value}
       />
-      <PlatformPressable
-        onPress={() => null}
-        hitSlop={16}
-        style={styles.filter}>
-        <Image
-          style={{
-            width: 20,
-            height: 20,
-            tintColor: '#FFFFFF',
-          }}
-          source={require('@/assets/icons/png/setting-4.png')}
-          contentFit="contain"
-        />
-      </PlatformPressable>
+
+      <RectButton onPress={() => null} hitSlop={16} style={styles.filter}>
+        <Box accessible accessibilityRole="button">
+          <Image
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: '#FFFFFF',
+            }}
+            source={require('@/assets/icons/png/setting-4.png')}
+            contentFit="contain"
+          />
+        </Box>
+      </RectButton>
     </LinearGradient>
   );
 };
