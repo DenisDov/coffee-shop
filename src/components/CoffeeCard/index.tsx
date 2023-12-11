@@ -1,8 +1,8 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import { Image, ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
 import { memo } from 'react';
 import { StyleSheet, useWindowDimensions } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, Text } from '@/theme';
 
@@ -32,73 +32,71 @@ export const CoffeeCard = memo(
     };
 
     return (
-      <Box
+      <RectButton
+        onPress={navTo}
         style={{
-          borderRadius: 16,
-          overflow: 'hidden',
-          backgroundColor: 'white',
           width: cardWidth,
+          borderRadius: 16,
+          backgroundColor: 'white',
         }}>
-        <PlatformPressable onPress={navTo}>
-          <Box padding="xs">
-            <ImageBackground
-              style={styles.imageBackground}
-              source={image.source}
-              placeholder={{ thumbhash: image.thumbhash }}
-              contentFit="cover"
-              transition={1000}>
-              <Box flexDirection="row" alignItems="center" gap="xxs">
+        <Box padding="xs">
+          <ImageBackground
+            style={styles.imageBackground}
+            source={image.source}
+            placeholder={{ thumbhash: image.thumbhash }}
+            contentFit="cover"
+            transition={1000}>
+            <Box flexDirection="row" alignItems="center" gap="xxs">
+              <Image
+                style={{ width: 10, height: 10 }}
+                source={require('@/assets/icons/png/star.png')}
+                contentFit="contain"
+              />
+              <Text variant="semiBold" fontSize={10} color="white">
+                {rating}
+              </Text>
+            </Box>
+          </ImageBackground>
+        </Box>
+
+        <Box padding="sm" gap="s">
+          <Box>
+            <Text numberOfLines={1} variant="semiBold">
+              {title}
+            </Text>
+            <Text numberOfLines={1} fontSize={12} color="muted">
+              with {extras}
+            </Text>
+          </Box>
+          <Box
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between">
+            <Text numberOfLines={1} variant="semiBold" fontSize={18}>
+              $ {price}
+            </Text>
+            <Box
+              style={{
+                borderRadius: 10,
+                overflow: 'hidden',
+              }}>
+              <RectButton
+                onPress={onAddToCart}
+                hitSlop={16}
+                style={styles.button}>
                 <Image
-                  style={{ width: 10, height: 10 }}
-                  source={require('@/assets/icons/png/star.png')}
+                  style={{
+                    width: 16,
+                    height: 16,
+                  }}
+                  source={require('@/assets/icons/png/plus.png')}
                   contentFit="contain"
                 />
-                <Text variant="semiBold" fontSize={10} color="white">
-                  {rating}
-                </Text>
-              </Box>
-            </ImageBackground>
-          </Box>
-
-          <Box padding="sm" gap="s">
-            <Box>
-              <Text numberOfLines={1} variant="semiBold">
-                {title}
-              </Text>
-              <Text numberOfLines={1} fontSize={12} color="muted">
-                with {extras}
-              </Text>
-            </Box>
-            <Box
-              flexDirection="row"
-              alignItems="center"
-              justifyContent="space-between">
-              <Text numberOfLines={1} variant="semiBold" fontSize={18}>
-                $ {price}
-              </Text>
-              <Box
-                style={{
-                  borderRadius: 10,
-                  overflow: 'hidden',
-                }}>
-                <PlatformPressable
-                  onPress={onAddToCart}
-                  hitSlop={16}
-                  style={styles.button}>
-                  <Image
-                    style={{
-                      width: 16,
-                      height: 16,
-                    }}
-                    source={require('@/assets/icons/png/plus.png')}
-                    contentFit="contain"
-                  />
-                </PlatformPressable>
-              </Box>
+              </RectButton>
             </Box>
           </Box>
-        </PlatformPressable>
-      </Box>
+        </Box>
+      </RectButton>
     );
   },
 );

@@ -1,6 +1,6 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import React from 'react';
 import { StyleSheet, ViewProps } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, Text } from '@/theme';
 
@@ -17,21 +17,17 @@ export const CoffeeCategory = ({
   onLayout,
 }: CoffeeCategoryProps) => {
   return (
-    <Box
+    <RectButton
       onLayout={onLayout}
-      style={{
-        borderRadius: 12,
-        overflow: 'hidden',
-      }}>
-      <PlatformPressable
-        onPress={() => onPress(item)}
-        style={[
-          styles.category,
-          {
-            backgroundColor: isActive ? '#C67C4E' : 'white',
-          },
-        ]}
-        pressOpacity={0.7}>
+      onPress={() => onPress(item)}
+      hitSlop={16}
+      style={[
+        styles.category,
+        {
+          backgroundColor: isActive ? '#C67C4E' : 'white',
+        },
+      ]}>
+      <Box accessible accessibilityRole="button">
         <Text
           style={{
             fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',
@@ -40,8 +36,8 @@ export const CoffeeCategory = ({
           }}>
           {item}
         </Text>
-      </PlatformPressable>
-    </Box>
+      </Box>
+    </RectButton>
   );
 };
 
