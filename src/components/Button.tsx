@@ -1,8 +1,8 @@
-import { PlatformPressable } from '@react-navigation/elements';
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
-import { Text, theme } from '@/theme';
+import { Box, Text, theme } from '@/theme';
 
 type Props = {
   onPress: () => void;
@@ -11,9 +11,16 @@ type Props = {
 
 export const Button = ({ onPress, title }: Props) => {
   return (
-    <PlatformPressable onPress={onPress} hitSlop={16} style={styles.button}>
-      <Text variant="button">{title}</Text>
-    </PlatformPressable>
+    // on expo 49 - hitSlop not working on Android, waiting for expo 50?
+    <RectButton
+      onPress={onPress}
+      hitSlop={16}
+      activeOpacity={0.3}
+      style={styles.button}>
+      <Box accessible accessibilityRole="button">
+        <Text variant="button">{title}</Text>
+      </Box>
+    </RectButton>
   );
 };
 
