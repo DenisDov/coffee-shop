@@ -128,8 +128,6 @@ export default function CoffeeDetailScreen() {
                       backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
                     }}>
                     <Box
-                      accessible
-                      accessibilityRole="button"
                       style={{
                         flex: 1,
                         height: 43,

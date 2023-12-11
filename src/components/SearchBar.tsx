@@ -52,17 +52,15 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
       />
 
       <RectButton onPress={() => null} hitSlop={16} style={styles.filter}>
-        <Box accessible accessibilityRole="button">
-          <Image
-            style={{
-              width: 20,
-              height: 20,
-              tintColor: '#FFFFFF',
-            }}
-            source={require('@/assets/icons/png/setting-4.png')}
-            contentFit="contain"
-          />
-        </Box>
+        <Image
+          style={{
+            width: 20,
+            height: 20,
+            tintColor: '#FFFFFF',
+          }}
+          source={require('@/assets/icons/png/setting-4.png')}
+          contentFit="contain"
+        />
       </RectButton>
     </LinearGradient>
   );

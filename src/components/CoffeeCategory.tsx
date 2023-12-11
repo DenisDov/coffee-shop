@@ -27,16 +27,14 @@ export const CoffeeCategory = ({
           backgroundColor: isActive ? '#C67C4E' : 'white',
         },
       ]}>
-      <Box accessible accessibilityRole="button">
-        <Text
-          style={{
-            fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',
-            color: isActive ? 'white' : '#1C1C1C',
-            fontSize: 14,
-          }}>
-          {item}
-        </Text>
-      </Box>
+      <Text
+        style={{
+          fontFamily: isActive ? 'Sora_600SemiBold' : 'Sora_400Regular',
+          color: isActive ? 'white' : '#1C1C1C',
+          fontSize: 14,
+        }}>
+        {item}
+      </Text>
     </RectButton>
   );
 };

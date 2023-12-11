@@ -59,7 +59,7 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
 
       <Box width={24} alignItems="flex-end">
         {iconRight && (
-          <BorderlessButton onPress={() => router.back()} hitSlop={16}>
+          <BorderlessButton onPress={() => null} hitSlop={16}>
             <Image
               style={{
                 width: 24,
