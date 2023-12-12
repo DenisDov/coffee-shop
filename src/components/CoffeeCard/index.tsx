@@ -38,6 +38,7 @@ export const CoffeeCard = memo(
           width: cardWidth,
           borderRadius: 16,
           backgroundColor: 'white',
+          borderCurve: 'continuous',
         }}>
         <Box padding="xs">
           <ImageBackground
@@ -104,9 +105,10 @@ export const CoffeeCard = memo(
 const styles = StyleSheet.create({
   imageBackground: {
     padding: 8,
-    borderRadius: 16,
+    borderRadius: 14,
     overflow: 'hidden',
     height: 132,
+    borderCurve: 'continuous',
   },
   button: {
     width: 32,
