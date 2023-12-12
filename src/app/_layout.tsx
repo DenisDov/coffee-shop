@@ -58,7 +58,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider theme={theme}>
       <NavigationThemeProvider value={DefaultTheme}>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
         <Stack screenOptions={{ headerShown: false }} />
       </NavigationThemeProvider>
     </ThemeProvider>
