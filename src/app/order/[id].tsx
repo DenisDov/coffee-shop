@@ -55,8 +55,6 @@ export default function OrderScreen() {
                     backgroundColor: 'white',
                   }}>
                   <Box
-                    accessible
-                    accessibilityRole="button"
                     style={{
                       paddingVertical: 6,
                       paddingHorizontal: 12,
@@ -86,8 +84,6 @@ export default function OrderScreen() {
                     backgroundColor: 'white',
                   }}>
                   <Box
-                    accessible
-                    accessibilityRole="button"
                     style={{
                       paddingVertical: 6,
                       paddingHorizontal: 12,
@@ -159,8 +155,6 @@ export default function OrderScreen() {
                 backgroundColor: 'white',
               }}>
               <Box
-                accessible
-                accessibilityRole="button"
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',

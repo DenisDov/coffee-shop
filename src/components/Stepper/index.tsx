@@ -35,7 +35,7 @@ export const Stepper = ({
           borderRadius: 14,
           backgroundColor: 'white',
         }}>
-        <Box accessible accessibilityRole="button" style={styles.button}>
+        <Box style={styles.button}>
           <MinusSign stroke={minIsDisabled ? '#AAADB0' : '#2F2D2C'} />
         </Box>
       </RectButton>
@@ -58,7 +58,7 @@ export const Stepper = ({
           borderRadius: 14,
           backgroundColor: 'white',
         }}>
-        <Box accessible accessibilityRole="button" style={styles.button}>
+        <Box style={styles.button}>
           <PlusSign stroke={maxIsDisabled ? '#AAADB0' : '#2F2D2C'} />
         </Box>
       </RectButton>

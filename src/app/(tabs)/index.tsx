@@ -67,20 +67,18 @@ export default function HomeScreen() {
                 borderless={false}
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
                 hitSlop={16}>
-                <Box accessible accessibilityRole="button">
-                  <Text color="white">Location</Text>
-                  <Box flexDirection="row" alignItems="center" gap="s">
-                    <Text color="white">Bilzen, Tanjungbalai</Text>
-                    <Image
-                      style={{
-                        width: 20,
-                        height: 20,
-                        tintColor: 'white',
-                      }}
-                      source={require('@/assets/icons/png/arrow-down.png')}
-                      contentFit="contain"
-                    />
-                  </Box>
+                <Text color="white">Location</Text>
+                <Box flexDirection="row" alignItems="center" gap="s">
+                  <Text color="white">Bilzen, Tanjungbalai</Text>
+                  <Image
+                    style={{
+                      width: 20,
+                      height: 20,
+                      tintColor: 'white',
+                    }}
+                    source={require('@/assets/icons/png/arrow-down.png')}
+                    contentFit="contain"
+                  />
                 </Box>
               </BorderlessButton>
 
@@ -88,20 +86,18 @@ export default function HomeScreen() {
                 foreground
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
                 hitSlop={16}>
-                <Box accessible accessibilityRole="button">
-                  <Image
-                    style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: 14,
-                    }}
-                    source="https://i.pravatar.cc/150?img=11"
-                    placeholder={{
-                      thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
-                    }}
-                    contentFit="cover"
-                  />
-                </Box>
+                <Image
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: 14,
+                  }}
+                  source="https://i.pravatar.cc/150?img=11"
+                  placeholder={{
+                    thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
+                  }}
+                  contentFit="cover"
+                />
               </BorderlessButton>
             </Box>
           </Box>

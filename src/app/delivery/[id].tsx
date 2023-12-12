@@ -146,8 +146,6 @@ export default function DeliveryScreen() {
               backgroundColor: 'white',
             }}>
             <Box
-              accessible
-              accessibilityRole="button"
               style={{
                 width: 54,
                 height: 54,
