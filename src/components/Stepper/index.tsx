@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
@@ -15,6 +15,11 @@ type StepperProps = {
   value: number;
 };
 
+const _colors = {
+  disabled: '#AAADB0',
+  primary: '#2F2D2C',
+};
+
 export const Stepper = ({
   value,
   minValue = 1,
@@ -25,18 +30,29 @@ export const Stepper = ({
   const minIsDisabled = useMemo(() => value <= minValue, [minValue, value]);
   const maxIsDisabled = useMemo(() => value >= maxValue, [maxValue, value]);
 
+  const increment = useCallback(() => {
+    if (value < maxValue) {
+      handleIncrement();
+    }
+  }, [handleIncrement, maxValue, value]);
+
+  const decrement = useCallback(() => {
+    if (value > minValue) {
+      handleDecrement();
+    }
+  }, [handleDecrement, minValue, value]);
+
   return (
     <Box flexDirection="row" alignItems="center">
       <RectButton
-        onPress={handleDecrement}
+        onPress={decrement}
         enabled={!minIsDisabled}
         hitSlop={16}
-        style={{
-          borderRadius: 14,
-          backgroundColor: 'white',
-        }}>
+        style={styles.buttonContainer}>
         <Box style={styles.button}>
-          <MinusSign stroke={minIsDisabled ? '#AAADB0' : '#2F2D2C'} />
+          <MinusSign
+            stroke={minIsDisabled ? _colors.disabled : _colors.primary}
+          />
         </Box>
       </RectButton>
 
@@ -51,15 +67,14 @@ export const Stepper = ({
       </Box>
 
       <RectButton
-        onPress={handleIncrement}
+        onPress={increment}
         enabled={!maxIsDisabled}
         hitSlop={16}
-        style={{
-          borderRadius: 14,
-          backgroundColor: 'white',
-        }}>
+        style={styles.buttonContainer}>
         <Box style={styles.button}>
-          <PlusSign stroke={maxIsDisabled ? '#AAADB0' : '#2F2D2C'} />
+          <PlusSign
+            stroke={maxIsDisabled ? _colors.disabled : _colors.primary}
+          />
         </Box>
       </RectButton>
     </Box>
@@ -67,6 +82,10 @@ export const Stepper = ({
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    borderRadius: 14,
+    backgroundColor: 'white',
+  },
   button: {
     width: 28,
     height: 28,
