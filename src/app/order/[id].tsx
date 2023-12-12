@@ -273,7 +273,10 @@ export default function OrderScreen() {
                   </Box>
                 </Box>
               </Box>
-              <BorderlessButton onPress={() => null} hitSlop={16}>
+              <BorderlessButton
+                onPress={() => null}
+                hitSlop={16}
+                rippleRadius={24}>
                 <Image
                   style={{ width: 24, height: 24 }}
                   source={require('@/assets/icons/png/more.png')}
