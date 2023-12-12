@@ -32,9 +32,12 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
       style={{
         paddingTop: insets.top,
       }}>
-      <Box width={24}>
+      <Box width={24} alignItems="center" justifyContent="center">
         {!noBack && (
-          <BorderlessButton onPress={() => router.back()} hitSlop={16}>
+          <BorderlessButton
+            onPress={() => router.back()}
+            hitSlop={16}
+            rippleRadius={24}>
             <Image
               style={{
                 width: 24,
@@ -57,9 +60,9 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
         </Text>
       </Box>
 
-      <Box width={24} alignItems="flex-end">
+      <Box width={24} alignItems="center" justifyContent="center">
         {iconRight && (
-          <BorderlessButton onPress={() => null} hitSlop={16}>
+          <BorderlessButton onPress={() => null} hitSlop={16} rippleRadius={24}>
             <Image
               style={{
                 width: 24,
