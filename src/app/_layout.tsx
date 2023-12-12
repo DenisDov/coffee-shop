@@ -1,3 +1,6 @@
+// import '../../wdyr';
+import 'react-native-gesture-handler';
+
 import {
   Sora_400Regular,
   Sora_600SemiBold,
@@ -55,7 +58,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider theme={theme}>
       <NavigationThemeProvider value={DefaultTheme}>
-        <StatusBar style="light" />
+        <StatusBar style="auto" />
         <Stack screenOptions={{ headerShown: false }} />
       </NavigationThemeProvider>
     </ThemeProvider>

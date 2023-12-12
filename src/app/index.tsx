@@ -1,5 +1,3 @@
-// import '../../wdyr';
-
 import { ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
 import { StyleSheet } from 'react-native';
