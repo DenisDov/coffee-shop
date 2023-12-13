@@ -166,6 +166,7 @@ export default function DeliveryScreen() {
         backdropComponent={renderBackdrop}
         ref={bottomSheetRef}
         index={0}
+        bottomInset={bottom}
         snapPoints={snapPoints}
         enableDynamicSizing>
         <BottomSheetScrollView>
