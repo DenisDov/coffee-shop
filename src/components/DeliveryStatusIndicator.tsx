@@ -61,7 +61,7 @@ export const DeliveryStatusIndicator = ({ statuses, currentStep }: Props) => {
                     <Text variant="semiBold" textTransform="capitalize">
                       {status.title}
                     </Text>
-                    <Text color="muted" fontSize={12}>
+                    <Text color="muted250" fontSize={12}>
                       {status.desc}
                     </Text>
                   </Box>

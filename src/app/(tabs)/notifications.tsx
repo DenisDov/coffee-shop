@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
-import { Box, Text } from '@/theme';
+import { Box, Text, theme } from '@/theme';
 import { notifications } from '@/utils/data';
 
 type Notification = {
@@ -43,7 +43,9 @@ export default function NotificationsScreen() {
           width={10}
           height={10}
           borderRadius="s"
-          style={{ backgroundColor: item.read ? 'transparent' : '#C67C4E' }}
+          style={{
+            backgroundColor: item.read ? 'transparent' : theme.colors.primary,
+          }}
         />
       </Box>
     );

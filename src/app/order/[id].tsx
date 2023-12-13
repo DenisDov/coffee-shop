@@ -27,7 +27,7 @@ export default function OrderScreen() {
       <Header title="Order" />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+        style={styles.scrollView}>
         <Box flex={1} gap="ml" paddingVertical="m">
           <Box paddingHorizontal="m">
             <OrderControl />
@@ -41,7 +41,7 @@ export default function OrderScreen() {
                 <Text variant="semiBold" fontSize={14} marginBottom="s">
                   Jl. Kpg Sutoyo
                 </Text>
-                <Text fontSize={12} style={{ color: '#808080' }}>
+                <Text fontSize={12} color="muted250">
                   Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.
                 </Text>
               </Box>
@@ -129,7 +129,7 @@ export default function OrderScreen() {
                     <Text variant="semiBold" textTransform="capitalize">
                       {product?.title}
                     </Text>
-                    <Text color="muted" fontSize={12}>
+                    <Text color="muted250" fontSize={12}>
                       with {product?.extras}
                     </Text>
                   </Box>
@@ -296,6 +296,10 @@ export default function OrderScreen() {
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: theme.colors.white,
+  },
   footer: {
     borderTopLeftRadius: theme.borderRadii.l,
     borderTopRightRadius: theme.borderRadii.l,

@@ -128,7 +128,7 @@ export default function DeliveryScreen() {
                 <Text variant="semiBold" textTransform="capitalize">
                   Johan Hawn
                 </Text>
-                <Text color="muted" fontSize={12}>
+                <Text color="muted250" fontSize={12}>
                   Personal Courier
                 </Text>
               </Box>
@@ -179,7 +179,7 @@ export default function DeliveryScreen() {
       <Box flex={0.7}>
         <MapView
           ref={mapRef}
-          style={{ ...StyleSheet.absoluteFillObject }}
+          style={styles.map}
           provider={PROVIDER_GOOGLE}
           initialRegion={initialRegion}
           showsUserLocation>
@@ -229,23 +229,16 @@ export default function DeliveryScreen() {
         />
       </Box>
       <BottomSheet
-        // animateOnMount={false}
         backdropComponent={renderBackdrop}
         ref={bottomSheetRef}
         index={0}
         snapPoints={snapPoints}
-        footerComponent={renderFooter}
-        handleIndicatorStyle={{
-          width: 44,
-          height: 5,
-          borderRadius: 2.5,
-          backgroundColor: '#EAEAEA',
-        }}>
+        footerComponent={renderFooter}>
         <Box padding="m" gap="ml">
-          <Box alignItems="center" style={{ gap: 6 }}>
+          <Box alignItems="center" gap="xs">
             <Text variant="semiBold">10 minutes left</Text>
             <Box flexDirection="row" alignItems="center" gap="xs">
-              <Text fontSize={12} style={{ color: '#808080' }}>
+              <Text fontSize={12} color="muted250">
                 Delivery to
               </Text>
               <Text variant="semiBold" fontSize={12}>
@@ -261,5 +254,7 @@ export default function DeliveryScreen() {
 }
 
 const styles = StyleSheet.create({
-  shadow: {},
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
 });
