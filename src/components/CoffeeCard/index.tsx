@@ -1,10 +1,9 @@
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { memo } from 'react';
 import { StyleSheet, useWindowDimensions } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { Box, ImageBackgroundBox, Text, theme } from '@/theme';
+import { Box, ImageBackgroundBox, ImageBox, Text, theme } from '@/theme';
 
 type Props = {
   id: string;
@@ -43,8 +42,9 @@ export const CoffeeCard = memo(
             contentFit="cover"
             transition={1000}>
             <Box flexDirection="row" alignItems="center" gap="xxs">
-              <Image
-                style={{ width: 10, height: 10 }}
+              <ImageBox
+                width={10}
+                height={10}
                 source={require('@/assets/icons/png/star.png')}
                 contentFit="contain"
               />
@@ -75,12 +75,10 @@ export const CoffeeCard = memo(
             <RectButton
               onPress={onAddToCart}
               hitSlop={16}
-              style={styles.button}>
-              <Image
-                style={{
-                  width: 16,
-                  height: 16,
-                }}
+              style={styles.addButton}>
+              <ImageBox
+                width={16}
+                height={16}
                 source={require('@/assets/icons/png/plus.png')}
                 contentFit="contain"
               />
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
     height: 132,
     borderCurve: 'continuous',
   },
-  button: {
+  addButton: {
     width: 32,
     height: 32,
     justifyContent: 'center',
