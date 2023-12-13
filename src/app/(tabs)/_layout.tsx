@@ -1,12 +1,12 @@
 import { Tabs } from 'expo-router';
 
-import { MyTabBar } from '@/components/TabBar';
+import { TabBar } from '@/components/TabBar';
 import { TabBarIcon } from '@/components/TabBarIcon';
 
 export default function TabLayout() {
   return (
     <Tabs
-      tabBar={props => <MyTabBar {...props} />}
+      tabBar={props => <TabBar {...props} />}
       screenOptions={{
         headerShown: false,
       }}>

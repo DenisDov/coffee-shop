@@ -31,9 +31,9 @@ export const Promo = () => {
         <Box>
           <Text>
             <Text
+              variant="semiBold"
               style={{ backgroundColor: '#1C1C1C' }}
               fontSize={32}
-              fontFamily="Sora_600SemiBold"
               color="white">
               {'Buy one get\none FREE'}
             </Text>

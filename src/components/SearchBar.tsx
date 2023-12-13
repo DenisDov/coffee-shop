@@ -16,15 +16,7 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
       colors={['#131313', '#313131']}
       start={{ x: 0, y: 1 }}
       end={{ x: 1, y: 1 }}
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderWidth: 1,
-        padding: 4,
-        height: 52,
-        borderColor: '#313131',
-        borderRadius: 16,
-      }}>
+      style={styles.gradient}>
       <ImageBox
         width={20}
         height={20}
@@ -38,12 +30,7 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
         placeholderTextColor="#989898"
         autoCorrect={false}
         underlineColorAndroid="transparent"
-        style={{
-          flex: 1,
-          color: 'white',
-          paddingHorizontal: 12,
-          height: '100%',
-        }}
+        style={styles.input}
         onChangeText={onChangeText}
         value={value}
       />
@@ -62,6 +49,21 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
 };
 
 const styles = StyleSheet.create({
+  gradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    padding: 4,
+    height: 52,
+    borderColor: '#313131',
+    borderRadius: 16,
+  },
+  input: {
+    flex: 1,
+    color: 'white',
+    paddingHorizontal: 12,
+    height: '100%',
+  },
   filter: {
     height: 44,
     width: 44,

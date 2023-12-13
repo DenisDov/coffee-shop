@@ -5,7 +5,7 @@ import { Shadow } from 'react-native-shadow-2';
 
 import { Box, theme } from '@/theme';
 
-export const MyTabBar = ({ state, descriptors, navigation }) => {
+export const TabBar = ({ state, descriptors, navigation }) => {
   const { bottom } = useSafeAreaInsets();
 
   return (
@@ -44,11 +44,7 @@ export const MyTabBar = ({ state, descriptors, navigation }) => {
             <BorderlessButton
               key={route.key}
               onPress={onPress}
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+              style={styles.button}>
               {renderIcon}
             </BorderlessButton>
           );
@@ -67,5 +63,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     overflow: 'hidden',
+  },
+  button: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
