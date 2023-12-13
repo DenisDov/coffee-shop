@@ -1,11 +1,11 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { Platform, ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
 import { Button } from '@/components/Button';
+import { CupSize } from '@/components/CupSize';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
@@ -13,6 +13,16 @@ import { Box, ImageBox, Text, theme } from '@/theme';
 import { coffees } from '@/utils/data';
 
 const cupSizes = ['S', 'M', 'L'];
+const ingredients = [
+  {
+    id: 'beans',
+    image: require('@/assets/icons/png/icon-beans.png'),
+  },
+  {
+    id: 'milk',
+    image: require('@/assets/icons/png/icon-milk.png'),
+  },
+];
 
 export default function CoffeeDetailScreen() {
   const insets = useSafeAreaInsets();
@@ -32,7 +42,7 @@ export default function CoffeeDetailScreen() {
       <Header title="Detail" iconRight />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+        style={styles.scrollView}>
         <Box flex={1} gap="ml" padding="m">
           <Box>
             <ImageBox
@@ -75,34 +85,25 @@ export default function CoffeeDetailScreen() {
               </Box>
             </Box>
             <Box flexDirection="row" alignItems="center" gap="sm">
-              <Box
-                width={44}
-                height={44}
-                borderRadius="sm"
-                backgroundColor="background"
-                justifyContent="center"
-                alignItems="center">
-                <ImageBox
-                  width={24}
-                  height={24}
-                  source={require('@/assets/icons/png/icon-beans.png')}
-                  contentFit="contain"
-                />
-              </Box>
-              <Box
-                width={44}
-                height={44}
-                borderRadius="sm"
-                backgroundColor="background"
-                justifyContent="center"
-                alignItems="center">
-                <ImageBox
-                  width={24}
-                  height={24}
-                  source={require('@/assets/icons/png/icon-milk.png')}
-                  contentFit="contain"
-                />
-              </Box>
+              {ingredients.map(ingredient => {
+                return (
+                  <Box
+                    key={ingredient.id}
+                    width={44}
+                    height={44}
+                    borderRadius="sm"
+                    backgroundColor="background"
+                    justifyContent="center"
+                    alignItems="center">
+                    <ImageBox
+                      width={24}
+                      height={24}
+                      source={ingredient.image}
+                      contentFit="contain"
+                    />
+                  </Box>
+                );
+              })}
             </Box>
           </Box>
 
@@ -122,31 +123,12 @@ export default function CoffeeDetailScreen() {
               {cupSizes?.map(size => {
                 const isSelected = size === selectedCupSize;
                 return (
-                  <RectButton
+                  <CupSize
                     key={size}
+                    size={size}
                     onPress={() => setSelectedCupSize(size)}
-                    hitSlop={16}
-                    style={{
-                      flex: 1,
-                      borderRadius: 12,
-                      backgroundColor: isSelected ? '#FFF5EE' : '#FFFFFF',
-                    }}>
-                    <Box
-                      style={{
-                        flex: 1,
-                        height: 43,
-                        justifyContent: 'center',
-                        borderColor: isSelected ? '#C67C4E' : '#DEDEDE',
-                        borderWidth: 1,
-                        borderRadius: 12,
-                      }}>
-                      <Text
-                        textAlign="center"
-                        style={{ color: isSelected ? '#C67C4E' : '#1C1C1C' }}>
-                        {size}
-                      </Text>
-                    </Box>
-                  </RectButton>
+                    isSelected={isSelected}
+                  />
                 );
               })}
             </Box>
@@ -160,16 +142,12 @@ export default function CoffeeDetailScreen() {
         distance={theme.spacing.tabShadow}
         startColor="#E4E4E450"
         offset={[0, -10]}
-        style={{
-          paddingBottom: insets.bottom,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          backgroundColor: 'white',
-        }}>
+        style={[styles.footer, { paddingBottom: insets.bottom }]}>
         <Box
           style={{
-            padding: 16,
-            paddingBottom: 8,
+            padding: theme.spacing.m,
+            paddingBottom:
+              Platform.OS === 'ios' ? theme.spacing.s : theme.spacing.m,
           }}>
           <Box flexDirection="row" alignItems="center" gap="xxl">
             <Box gap="s">
@@ -191,9 +169,13 @@ export default function CoffeeDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    height: 226,
-    width: '100%',
-    borderRadius: 16,
+  scrollView: {
+    flex: 1,
+    backgroundColor: theme.colors.white,
+  },
+  footer: {
+    borderTopLeftRadius: theme.borderRadii.l,
+    borderTopRightRadius: theme.borderRadii.l,
+    backgroundColor: theme.colors.white,
   },
 });

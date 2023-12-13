@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView } from 'react-native';
+import { Platform, ScrollView, StyleSheet } from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
@@ -235,16 +235,12 @@ export default function OrderScreen() {
         distance={theme.spacing.tabShadow}
         startColor="#E4E4E450"
         offset={[0, -10]}
-        style={{
-          paddingBottom: insets.bottom,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
-          backgroundColor: 'white',
-        }}>
+        style={[styles.footer, { paddingBottom: insets.bottom }]}>
         <Box
           style={{
-            padding: 16,
-            paddingBottom: 8,
+            padding: theme.spacing.m,
+            paddingBottom:
+              Platform.OS === 'ios' ? theme.spacing.s : theme.spacing.m,
           }}>
           <Box gap="m">
             <Box flexDirection="row" alignItems="center" gap="m">
@@ -298,3 +294,11 @@ export default function OrderScreen() {
     </Box>
   );
 }
+
+const styles = StyleSheet.create({
+  footer: {
+    borderTopLeftRadius: theme.borderRadii.l,
+    borderTopRightRadius: theme.borderRadii.l,
+    backgroundColor: theme.colors.white,
+  },
+});

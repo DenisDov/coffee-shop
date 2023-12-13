@@ -5,6 +5,7 @@ const palette = {
   white: '#FFFFFF',
   gold: '#C67C4E',
   red: '#ED5151',
+  rose: '#FFF5EE',
 
   gray50: '#EAEAEA',
   gray100: '#F9F9F9',
@@ -28,6 +29,7 @@ const theme = createTheme({
     dark: palette.gray600,
     error: palette.red,
     stroke: palette.gray50,
+    cup: palette.rose,
 
     debug: palette.green,
   },
