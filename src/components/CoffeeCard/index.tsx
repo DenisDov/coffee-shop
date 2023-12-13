@@ -1,10 +1,10 @@
-import { Image, ImageBackground } from 'expo-image';
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { memo } from 'react';
 import { StyleSheet, useWindowDimensions } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { Box, Text } from '@/theme';
+import { Box, ImageBackgroundBox, Text, theme } from '@/theme';
 
 type Props = {
   id: string;
@@ -41,7 +41,7 @@ export const CoffeeCard = memo(
           borderCurve: 'continuous',
         }}>
         <Box padding="xs">
-          <ImageBackground
+          <ImageBackgroundBox
             style={styles.imageBackground}
             source={image.source}
             placeholder={{ thumbhash: image.thumbhash }}
@@ -57,7 +57,7 @@ export const CoffeeCard = memo(
                 {rating}
               </Text>
             </Box>
-          </ImageBackground>
+          </ImageBackgroundBox>
         </Box>
 
         <Box padding="sm" gap="s">
@@ -76,25 +76,20 @@ export const CoffeeCard = memo(
             <Text numberOfLines={1} variant="semiBold" fontSize={18}>
               $ {price}
             </Text>
-            <Box
-              style={{
-                borderRadius: 10,
-                overflow: 'hidden',
-              }}>
-              <RectButton
-                onPress={onAddToCart}
-                hitSlop={16}
-                style={styles.button}>
-                <Image
-                  style={{
-                    width: 16,
-                    height: 16,
-                  }}
-                  source={require('@/assets/icons/png/plus.png')}
-                  contentFit="contain"
-                />
-              </RectButton>
-            </Box>
+
+            <RectButton
+              onPress={onAddToCart}
+              hitSlop={16}
+              style={styles.button}>
+              <Image
+                style={{
+                  width: 16,
+                  height: 16,
+                }}
+                source={require('@/assets/icons/png/plus.png')}
+                contentFit="contain"
+              />
+            </RectButton>
           </Box>
         </Box>
       </RectButton>
@@ -104,7 +99,7 @@ export const CoffeeCard = memo(
 
 const styles = StyleSheet.create({
   imageBackground: {
-    padding: 8,
+    padding: theme.spacing.s,
     borderRadius: 14,
     overflow: 'hidden',
     height: 132,
@@ -115,7 +110,7 @@ const styles = StyleSheet.create({
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#C67C4E',
+    backgroundColor: theme.colors.primary,
     borderRadius: 10,
   },
 });

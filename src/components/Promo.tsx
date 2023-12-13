@@ -1,17 +1,14 @@
-import { ImageBackground } from 'expo-image';
 import React from 'react';
 
-import { Box, Text } from '@/theme';
+import { Box, ImageBackgroundBox, Text } from '@/theme';
 
 export const Promo = () => {
   return (
-    <ImageBackground
-      style={{
-        flex: 1,
-        borderRadius: 16,
-        height: 150,
-        overflow: 'hidden',
-      }}
+    <ImageBackgroundBox
+      flex={1}
+      borderRadius="m"
+      height={150}
+      overflow="hidden"
       contentFit="cover"
       source={require('@/assets/images/promo.png')}>
       <Box
@@ -43,6 +40,6 @@ export const Promo = () => {
           </Text>
         </Box>
       </Box>
-    </ImageBackground>
+    </ImageBackgroundBox>
   );
 };
