@@ -143,12 +143,7 @@ export default function CoffeeDetailScreen() {
         startColor="#E4E4E450"
         offset={[0, -10]}
         style={[styles.footer, { paddingBottom: insets.bottom }]}>
-        <Box
-          style={{
-            padding: theme.spacing.m,
-            paddingBottom:
-              Platform.OS === 'ios' ? theme.spacing.s : theme.spacing.m,
-          }}>
+        <Box padding="m">
           <Box flexDirection="row" alignItems="center" gap="xxl">
             <Box gap="s">
               <Text fontSize={14} color="muted">

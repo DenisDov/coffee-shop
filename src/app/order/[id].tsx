@@ -236,12 +236,7 @@ export default function OrderScreen() {
         startColor="#E4E4E450"
         offset={[0, -10]}
         style={[styles.footer, { paddingBottom: insets.bottom }]}>
-        <Box
-          style={{
-            padding: theme.spacing.m,
-            paddingBottom:
-              Platform.OS === 'ios' ? theme.spacing.s : theme.spacing.m,
-          }}>
+        <Box padding="m">
           <Box gap="m">
             <Box flexDirection="row" alignItems="center" gap="m">
               <ImageBox
