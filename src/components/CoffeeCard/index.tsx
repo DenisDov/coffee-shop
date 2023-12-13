@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     padding: theme.spacing.s,
-    borderRadius: 14,
+    borderRadius: theme.borderRadii.smm,
     overflow: 'hidden',
     height: 132,
     borderCurve: 'continuous',

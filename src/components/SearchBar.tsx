@@ -1,10 +1,9 @@
-import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { Box } from '@/theme';
+import { ImageBox } from '@/theme';
 
 type Props = {
   value: string;
@@ -26,13 +25,11 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
         borderColor: '#313131',
         borderRadius: 16,
       }}>
-      <Image
-        style={{
-          width: 20,
-          height: 20,
-          marginLeft: 12,
-          tintColor: '#FFFFFF',
-        }}
+      <ImageBox
+        width={20}
+        height={20}
+        marginLeft="sm"
+        tintColor="white"
         source={require('@/assets/icons/png/search-normal.png')}
         contentFit="contain"
       />
@@ -52,12 +49,10 @@ export const SearchBar = ({ value, onChangeText }: Props) => {
       />
 
       <RectButton onPress={() => null} hitSlop={16} style={styles.filter}>
-        <Image
-          style={{
-            width: 20,
-            height: 20,
-            tintColor: '#FFFFFF',
-          }}
+        <ImageBox
+          width={20}
+          height={20}
+          tintColor="white"
           source={require('@/assets/icons/png/setting-4.png')}
           contentFit="contain"
         />

@@ -5,7 +5,6 @@ import BottomSheet, {
   BottomSheetFooterProps,
 } from '@gorhom/bottom-sheet';
 import * as Clipboard from 'expo-clipboard';
-import { Image } from 'expo-image';
 import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
 import { Alert, Platform, StyleSheet } from 'react-native';
@@ -16,7 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DeliveryHeader } from '@/components/DeliveryHeader';
 import { DeliveryStatusIndicator } from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
-import { Box, Text } from '@/theme';
+import { Box, ImageBox, Text } from '@/theme';
 
 const initialRegion = {
   latitude: 37.792746711281175,
@@ -114,12 +113,10 @@ export default function DeliveryScreen() {
           paddingHorizontal="m">
           <Box flex={1}>
             <Box flexDirection="row" alignItems="center" gap="sm">
-              <Image
-                style={{
-                  width: 54,
-                  height: 54,
-                  borderRadius: 14,
-                }}
+              <ImageBox
+                width={54}
+                height={54}
+                borderRadius="smm"
                 source="https://i.pravatar.cc/150?img=52"
                 placeholder={{
                   thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
@@ -155,11 +152,9 @@ export default function DeliveryScreen() {
                 borderWidth: 1,
                 borderColor: '#DEDEDE',
               }}>
-              <Image
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
+              <ImageBox
+                width={24}
+                height={24}
                 source={require('@/assets/icons/png/calling.png')}
                 contentFit="cover"
                 transition={1000}
@@ -197,11 +192,9 @@ export default function DeliveryScreen() {
               borderRadius="xl"
               borderWidth={1}
               borderColor="primary">
-              <Image
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
+              <ImageBox
+                width={24}
+                height={24}
                 source={require('@/assets/icons/png/location.png')}
                 contentFit="cover"
               />
@@ -216,11 +209,9 @@ export default function DeliveryScreen() {
               borderRadius="xl"
               borderWidth={1}
               borderColor="primary">
-              <Image
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
+              <ImageBox
+                width={24}
+                height={24}
                 source={require('@/assets/icons/png/truck.png')}
                 contentFit="cover"
               />

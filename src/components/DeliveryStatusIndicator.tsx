@@ -1,7 +1,6 @@
-import { Image } from 'expo-image';
 import React from 'react';
 
-import { Box, Text } from '@/theme';
+import { Box, ImageBox, Text } from '@/theme';
 
 type Status = {
   id: number;
@@ -49,11 +48,9 @@ export const DeliveryStatusIndicator = ({ statuses, currentStep }: Props) => {
                       borderColor: '#DEDEDE',
                       borderRadius: 12,
                     }}>
-                    <Image
-                      style={{
-                        width: 32,
-                        height: 32,
-                      }}
+                    <ImageBox
+                      width={32}
+                      height={32}
                       source={require('@/assets/icons/png/signpost.png')}
                       contentFit="cover"
                       transition={1000}

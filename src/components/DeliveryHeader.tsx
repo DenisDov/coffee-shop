@@ -1,5 +1,4 @@
 import { getDefaultHeaderHeight } from '@react-navigation/elements';
-import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
@@ -8,7 +7,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { Box } from '@/theme';
+import { Box, ImageBox } from '@/theme';
 
 type Props = {
   onGpsPress: () => void;
@@ -36,11 +35,9 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
         onPress={() => router.back()}
         hitSlop={16}
         style={styles.button}>
-        <Image
-          style={{
-            width: 24,
-            height: 24,
-          }}
+        <ImageBox
+          width={24}
+          height={24}
           source={require('@/assets/icons/png/arrow-left.png')}
           contentFit="contain"
         />
@@ -48,21 +45,17 @@ export const DeliveryHeader = ({ onGpsPress, onRoutePress }: Props) => {
 
       <Box gap="m" flexDirection="row" alignItems="center">
         <RectButton onPress={onRoutePress} hitSlop={16} style={styles.button}>
-          <Image
-            style={{
-              width: 24,
-              height: 24,
-            }}
+          <ImageBox
+            width={24}
+            height={24}
             source={require('@/assets/icons/png/routing-2.png')}
             contentFit="contain"
           />
         </RectButton>
         <RectButton onPress={onGpsPress} hitSlop={16} style={styles.button}>
-          <Image
-            style={{
-              width: 24,
-              height: 24,
-            }}
+          <ImageBox
+            width={24}
+            height={24}
             source={require('@/assets/icons/png/gps.png')}
             contentFit="contain"
           />

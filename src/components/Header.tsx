@@ -1,5 +1,4 @@
 import { getDefaultHeaderHeight } from '@react-navigation/elements';
-import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import {
@@ -7,7 +6,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { Box, Text } from '@/theme';
+import { Box, ImageBox, Text } from '@/theme';
 
 type Props = {
   title: string;
@@ -38,11 +37,9 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
             onPress={() => router.back()}
             hitSlop={16}
             rippleRadius={24}>
-            <Image
-              style={{
-                width: 24,
-                height: 24,
-              }}
+            <ImageBox
+              width={24}
+              height={24}
               source={require('@/assets/icons/png/arrow-left.png')}
               contentFit="contain"
             />
@@ -63,11 +60,9 @@ export const Header = ({ title, iconRight, noBack }: Props) => {
       <Box width={24} alignItems="center" justifyContent="center">
         {iconRight && (
           <BorderlessButton onPress={() => null} hitSlop={16} rippleRadius={24}>
-            <Image
-              style={{
-                width: 24,
-                height: 24,
-              }}
+            <ImageBox
+              width={24}
+              height={24}
               source={require('@/assets/icons/png/heart.png')}
               contentFit="contain"
             />

@@ -1,4 +1,3 @@
-import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
@@ -10,7 +9,7 @@ import { Button } from '@/components/Button';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
-import { Box, Text, theme } from '@/theme';
+import { Box, ImageBox, Text, theme } from '@/theme';
 import { coffees } from '@/utils/data';
 
 const cupSizes = ['S', 'M', 'L'];
@@ -36,8 +35,10 @@ export default function CoffeeDetailScreen() {
         style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
         <Box flex={1} gap="ml" padding="m">
           <Box>
-            <Image
-              style={styles.image}
+            <ImageBox
+              height={226}
+              width="100%"
+              borderRadius="m"
               source={product?.image.source}
               placeholder={{ thumbhash: product?.image.thumbhash as string }}
               contentFit="cover"
@@ -61,8 +62,9 @@ export default function CoffeeDetailScreen() {
                 </Text>
               </Box>
               <Box flexDirection="row" alignItems="flex-end" gap="xs">
-                <Image
-                  style={{ width: 20, height: 20 }}
+                <ImageBox
+                  width={20}
+                  height={20}
                   source={require('@/assets/icons/png/star.png')}
                   contentFit="contain"
                 />
@@ -80,8 +82,9 @@ export default function CoffeeDetailScreen() {
                 backgroundColor="background"
                 justifyContent="center"
                 alignItems="center">
-                <Image
-                  style={{ width: 24, height: 24 }}
+                <ImageBox
+                  width={24}
+                  height={24}
                   source={require('@/assets/icons/png/icon-beans.png')}
                   contentFit="contain"
                 />
@@ -93,8 +96,9 @@ export default function CoffeeDetailScreen() {
                 backgroundColor="background"
                 justifyContent="center"
                 alignItems="center">
-                <Image
-                  style={{ width: 24, height: 24 }}
+                <ImageBox
+                  width={24}
+                  height={24}
                   source={require('@/assets/icons/png/icon-milk.png')}
                   contentFit="contain"
                 />

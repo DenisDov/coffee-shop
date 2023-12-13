@@ -1,4 +1,3 @@
-import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView } from 'react-native';
@@ -11,7 +10,7 @@ import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { OrderControl } from '@/components/OrderControl';
 import { Stepper } from '@/components/Stepper';
-import { Box, Text, theme } from '@/theme';
+import { Box, ImageBox, Text, theme } from '@/theme';
 import { coffees } from '@/utils/data';
 
 export default function OrderScreen() {
@@ -65,8 +64,9 @@ export default function OrderScreen() {
                       borderColor: '#DEDEDE',
                       borderRadius: 16,
                     }}>
-                    <Image
-                      style={{ width: 14, height: 14 }}
+                    <ImageBox
+                      width={14}
+                      height={14}
                       source={require('@/assets/icons/png/edit.png')}
                       contentFit="contain"
                     />
@@ -94,8 +94,9 @@ export default function OrderScreen() {
                       borderColor: '#DEDEDE',
                       borderRadius: 16,
                     }}>
-                    <Image
-                      style={{ width: 14, height: 14 }}
+                    <ImageBox
+                      width={14}
+                      height={14}
                       source={require('@/assets/icons/png/document-text.png')}
                       contentFit="contain"
                     />
@@ -113,8 +114,10 @@ export default function OrderScreen() {
             <Box flexDirection="row" alignItems="center" gap="m">
               <Box flex={1}>
                 <Box flexDirection="row" alignItems="center" gap="sm">
-                  <Image
-                    style={{ width: 54, height: 54, borderRadius: 12 }}
+                  <ImageBox
+                    width={54}
+                    height={54}
+                    borderRadius="sm"
                     source={product?.image.source}
                     placeholder={{
                       thumbhash: product?.image.thumbhash as string,
@@ -164,8 +167,9 @@ export default function OrderScreen() {
                   borderWidth: 1,
                   borderColor: '#EAEAEA',
                 }}>
-                <Image
-                  style={{ width: 24, height: 24 }}
+                <ImageBox
+                  width={24}
+                  height={24}
                   source={require('@/assets/icons/png/discount-shape.png')}
                   contentFit="cover"
                 />
@@ -174,8 +178,9 @@ export default function OrderScreen() {
                     1 Discount is applied
                   </Text>
                 </Box>
-                <Image
-                  style={{ width: 20, height: 20 }}
+                <ImageBox
+                  width={20}
+                  height={20}
                   source={require('@/assets/icons/png/arrow-right.png')}
                   contentFit="cover"
                 />
@@ -243,8 +248,9 @@ export default function OrderScreen() {
           }}>
           <Box gap="m">
             <Box flexDirection="row" alignItems="center" gap="m">
-              <Image
-                style={{ width: 24, height: 24 }}
+              <ImageBox
+                width={24}
+                height={24}
                 source={require('@/assets/icons/png/moneys.png')}
                 contentFit="contain"
               />
@@ -277,8 +283,9 @@ export default function OrderScreen() {
                 onPress={() => null}
                 hitSlop={16}
                 rippleRadius={24}>
-                <Image
-                  style={{ width: 24, height: 24 }}
+                <ImageBox
+                  width={24}
+                  height={24}
                   source={require('@/assets/icons/png/more.png')}
                   contentFit="contain"
                 />

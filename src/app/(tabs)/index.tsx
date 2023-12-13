@@ -1,4 +1,3 @@
-import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
@@ -10,7 +9,7 @@ import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { Promo } from '@/components/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
-import { Box, Text, theme } from '@/theme';
+import { Box, ImageBox, Text, theme } from '@/theme';
 import { categories, coffees } from '@/utils/data';
 
 type CategoryCoords = { [key: string]: number };
@@ -70,12 +69,10 @@ export default function HomeScreen() {
                 <Text color="white">Location</Text>
                 <Box flexDirection="row" alignItems="center" gap="s">
                   <Text color="white">Bilzen, Tanjungbalai</Text>
-                  <Image
-                    style={{
-                      width: 20,
-                      height: 20,
-                      tintColor: 'white',
-                    }}
+                  <ImageBox
+                    width={20}
+                    height={20}
+                    tintColor="white"
                     source={require('@/assets/icons/png/arrow-down.png')}
                     contentFit="contain"
                   />
@@ -86,12 +83,10 @@ export default function HomeScreen() {
                 foreground
                 onPress={() => console.log('SHOW BOTTOMSHEET')}
                 hitSlop={16}>
-                <Image
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 14,
-                  }}
+                <ImageBox
+                  width={44}
+                  height={44}
+                  borderRadius="smm"
                   source="https://i.pravatar.cc/150?img=11"
                   placeholder={{
                     thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
