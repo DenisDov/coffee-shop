@@ -34,12 +34,7 @@ export const CoffeeCard = memo(
     return (
       <RectButton
         onPress={navTo}
-        style={{
-          width: cardWidth,
-          borderRadius: 16,
-          backgroundColor: 'white',
-          borderCurve: 'continuous',
-        }}>
+        style={[styles.rectButton, { width: cardWidth }]}>
         <Box padding="xs">
           <ImageBackgroundBox
             style={styles.imageBackground}
@@ -98,6 +93,11 @@ export const CoffeeCard = memo(
 );
 
 const styles = StyleSheet.create({
+  rectButton: {
+    borderRadius: theme.borderRadii.m,
+    backgroundColor: theme.colors.white,
+    borderCurve: 'continuous',
+  },
   imageBackground: {
     padding: theme.spacing.s,
     borderRadius: 14,
