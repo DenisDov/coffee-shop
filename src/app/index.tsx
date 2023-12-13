@@ -1,45 +1,29 @@
-import { ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
-import { StyleSheet } from 'react-native';
 
 import { Button } from '@/components/Button';
-import { Box, Text } from '@/theme';
+import { Box, ImageBackgroundBox, Text } from '@/theme';
 
 export default function OnboardingScreen() {
   return (
-    <ImageBackground
-      style={styles.image}
+    <ImageBackgroundBox
+      flex={1}
+      contentFit="cover"
+      backgroundColor="black"
       source={require('@/assets/images/onboarding.png')}>
       <Box flex={1} padding="l" justifyContent="flex-end">
-        <Text style={styles.title}>
+        <Text
+          color="white"
+          fontSize={34}
+          variant="semiBold"
+          textAlign="center"
+          marginBottom="s">
           Coffee so good, your taste buds will love it.
         </Text>
-        <Text style={styles.subTitle}>
+        <Text color="muted" textAlign="center" marginBottom="l">
           The best grain, the finest roast, the powerful flavor.
         </Text>
         <Button title="Get Started" onPress={() => router.replace('/(tabs)')} />
       </Box>
-    </ImageBackground>
+    </ImageBackgroundBox>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    backgroundColor: 'black',
-  },
-  title: {
-    color: 'white',
-    fontSize: 34,
-    fontFamily: 'Sora_600SemiBold',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  subTitle: {
-    color: '#A9A9A9',
-    textAlign: 'center',
-    marginBottom: 24,
-  },
-});
