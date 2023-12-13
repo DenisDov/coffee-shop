@@ -8,6 +8,8 @@ import { Shadow } from 'react-native-shadow-2';
 import { Button } from '@/components/Button';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
+import { DeliveryAddress } from '@/components/order/DeliveryAddress';
+import { DiscountButton } from '@/components/order/DiscountButton';
 import { OrderControl } from '@/components/OrderControl';
 import { Stepper } from '@/components/Stepper';
 import { Box, ImageBox, Text, theme } from '@/theme';
@@ -34,78 +36,7 @@ export default function OrderScreen() {
           </Box>
           <Box paddingHorizontal="m">
             <Box gap="m">
-              <Box>
-                <Text variant="semiBold" marginBottom="m">
-                  Delivery Address
-                </Text>
-                <Text variant="semiBold" fontSize={14} marginBottom="s">
-                  Jl. Kpg Sutoyo
-                </Text>
-                <Text fontSize={12} color="muted250">
-                  Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.
-                </Text>
-              </Box>
-              <Box flexDirection="row" alignItems="center" gap="s">
-                <RectButton
-                  onPress={() => null}
-                  hitSlop={16}
-                  style={{
-                    borderRadius: 16,
-                    backgroundColor: 'white',
-                  }}>
-                  <Box
-                    style={{
-                      paddingVertical: 6,
-                      paddingHorizontal: 12,
-                      flexDirection: 'row',
-                      gap: 4,
-                      alignItems: 'center',
-                      borderWidth: 1,
-                      borderColor: '#DEDEDE',
-                      borderRadius: 16,
-                    }}>
-                    <ImageBox
-                      width={14}
-                      height={14}
-                      source={require('@/assets/icons/png/edit.png')}
-                      contentFit="contain"
-                    />
-                    <Text fontSize={12} textTransform="capitalize">
-                      Edit Address
-                    </Text>
-                  </Box>
-                </RectButton>
-
-                <RectButton
-                  onPress={() => null}
-                  hitSlop={16}
-                  style={{
-                    borderRadius: 16,
-                    backgroundColor: 'white',
-                  }}>
-                  <Box
-                    style={{
-                      paddingVertical: 6,
-                      paddingHorizontal: 12,
-                      flexDirection: 'row',
-                      gap: 4,
-                      alignItems: 'center',
-                      borderWidth: 1,
-                      borderColor: '#DEDEDE',
-                      borderRadius: 16,
-                    }}>
-                    <ImageBox
-                      width={14}
-                      height={14}
-                      source={require('@/assets/icons/png/document-text.png')}
-                      contentFit="contain"
-                    />
-                    <Text fontSize={12} textTransform="capitalize">
-                      Add Note
-                    </Text>
-                  </Box>
-                </RectButton>
-              </Box>
+              <DeliveryAddress />
               <Box height={1} backgroundColor="stroke" />
             </Box>
           </Box>
@@ -150,42 +81,7 @@ export default function OrderScreen() {
           <Box height={4} style={{ backgroundColor: '#F4F4F4' }} />
 
           <Box paddingHorizontal="m" gap="ml">
-            <RectButton
-              onPress={() => null}
-              hitSlop={16}
-              style={{
-                borderRadius: 14,
-                backgroundColor: 'white',
-              }}>
-              <Box
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  gap: 12,
-                  padding: 16,
-                  borderRadius: 14,
-                  borderWidth: 1,
-                  borderColor: '#EAEAEA',
-                }}>
-                <ImageBox
-                  width={24}
-                  height={24}
-                  source={require('@/assets/icons/png/discount-shape.png')}
-                  contentFit="cover"
-                />
-                <Box flex={1}>
-                  <Text variant="semiBold" fontSize={14}>
-                    1 Discount is applied
-                  </Text>
-                </Box>
-                <ImageBox
-                  width={20}
-                  height={20}
-                  source={require('@/assets/icons/png/arrow-right.png')}
-                  contentFit="cover"
-                />
-              </Box>
-            </RectButton>
+            <DiscountButton />
 
             <Box gap="m">
               <Text variant="semiBold">Payment Summary</Text>
