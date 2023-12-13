@@ -56,7 +56,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-react": "^7.23.3",
-    "@faker-js/faker": "^8.3.1",
     "@types/react": "~18.2.14",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "eslint": "^8.54.0",
