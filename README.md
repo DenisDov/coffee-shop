@@ -1,4 +1,4 @@
-# Coffee Shop
+# React Native Coffee Shop
 
 UI KIT application build with Expo.
 
@@ -19,11 +19,14 @@ Figma file: [Coffee Shop Mobile App Design](https://www.figma.com/community/file
 
 ## Screenshots
 
-<img src="./readme-assets/1.png" width="200" style="margin-right: 8px;">
-<img src="./readme-assets/2.png" width="200" style="margin-right: 8px;">
-<img src="./readme-assets/3.png" width="200" style="margin-right: 8px;">
-<img src="./readme-assets/4.png" width="200" style="margin-right: 8px;">
-<img src="./readme-assets/5.png" width="200">
+<p float="left">
+  <img src="./readme-assets/1.png" width="200" />
+  <img src="./readme-assets/2.png" width="200" />
+  <img src="./readme-assets/3.png" width="200" />
+  <img src="./readme-assets/4.png" width="200" />
+  <img src="./readme-assets/5.png" width="200" />
+ 
+</p>
 
 ## Features
 
