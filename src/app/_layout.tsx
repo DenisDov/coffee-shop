@@ -7,7 +7,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/sora';
 import {
-  DefaultTheme,
+  DarkTheme,
   ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
@@ -57,7 +57,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <ThemeProvider theme={theme}>
-      <NavigationThemeProvider value={DefaultTheme}>
+      <NavigationThemeProvider value={DarkTheme}>
         <StatusBar style="light" />
         <Stack screenOptions={{ headerShown: false }} />
       </NavigationThemeProvider>
