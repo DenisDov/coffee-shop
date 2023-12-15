@@ -15,7 +15,7 @@ Figma file: [Coffee Shop Mobile App Design](https://www.figma.com/community/file
 
 ## Video
 
-<video src="./readme-assets/videoapp.mp4" width="200" style="margin-right: 8px;"></video>
+<video src="./readme-assets/videoapp.mp4" width="200" ></video>
 
 ## Screenshots
 
