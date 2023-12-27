@@ -45,3 +45,7 @@ Figma file: [Coffee Shop Mobile App Design](https://www.figma.com/community/file
 1. Clone the repository
 2. npm i
 3. npx expo start
+
+## Build preview build locally:
+
+android: `eas build --platform android --profile preview --local`

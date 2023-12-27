@@ -6,11 +6,10 @@ import BottomSheet, {
 import * as Clipboard from 'expo-clipboard';
 import * as Linking from 'expo-linking';
 import { useCallback, useMemo, useRef } from 'react';
-import { Alert, Platform, StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { Alert, StyleSheet } from 'react-native';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { DeliveryFooter } from '@/components/delivery/Footer';
 import { DeliveryHeader } from '@/components/DeliveryHeader';
 import { DeliveryStatusIndicator } from '@/components/DeliveryStatusIndicator';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
@@ -65,7 +64,6 @@ const statuses = [
 ];
 
 export default function DeliveryScreen() {
-  const { bottom } = useSafeAreaInsets();
   const mapRef = useRef<MapView>(null);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -166,7 +164,6 @@ export default function DeliveryScreen() {
         backdropComponent={renderBackdrop}
         ref={bottomSheetRef}
         index={0}
-        bottomInset={bottom}
         snapPoints={snapPoints}
         enableDynamicSizing>
         <BottomSheetScrollView>
@@ -183,63 +180,7 @@ export default function DeliveryScreen() {
               </Box>
             </Box>
             <DeliveryStatusIndicator statuses={statuses} currentStep={3} />
-            <Box
-              flexDirection="row"
-              alignItems="center"
-              gap="m"
-              backgroundColor="white"
-              paddingHorizontal="m">
-              <Box flex={1}>
-                <Box flexDirection="row" alignItems="center" gap="sm">
-                  <ImageBox
-                    width={54}
-                    height={54}
-                    borderRadius="smm"
-                    source="https://i.pravatar.cc/150?img=52"
-                    placeholder={{
-                      thumbhash: '0RcGDwSGeWT6c1qNesenSnxqyACILmAI',
-                    }}
-                    contentFit="cover"
-                    transition={1000}
-                  />
-                  <Box gap="xs">
-                    <Text variant="semiBold" textTransform="capitalize">
-                      Johan Hawn
-                    </Text>
-                    <Text color="muted250" fontSize={12}>
-                      Personal Courier
-                    </Text>
-                  </Box>
-                </Box>
-              </Box>
-
-              <RectButton
-                onPress={() => handlePhoneCall('+123456789')}
-                hitSlop={16}
-                style={{
-                  borderRadius: 14,
-                  backgroundColor: 'white',
-                }}>
-                <Box
-                  style={{
-                    width: 54,
-                    height: 54,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 14,
-                    borderWidth: 1,
-                    borderColor: '#DEDEDE',
-                  }}>
-                  <ImageBox
-                    width={24}
-                    height={24}
-                    source={require('@/assets/icons/png/calling.png')}
-                    contentFit="cover"
-                    transition={1000}
-                  />
-                </Box>
-              </RectButton>
-            </Box>
+            <DeliveryFooter onPress={() => handlePhoneCall('+123456789')} />
           </Box>
         </BottomSheetScrollView>
       </BottomSheet>
