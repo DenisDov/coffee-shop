@@ -1,6 +1,3 @@
-// import '../../wdyr';
-import 'react-native-gesture-handler';
-
 import {
   Sora_400Regular,
   Sora_600SemiBold,
@@ -11,9 +8,11 @@ import {
   ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
-import { SplashScreen, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { theme } from '@/theme';
 
@@ -56,11 +55,13 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationThemeProvider value={DarkTheme}>
-        <StatusBar style="light" />
-        <Stack screenOptions={{ headerShown: false }} />
-      </NavigationThemeProvider>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider theme={theme}>
+        <NavigationThemeProvider value={DarkTheme}>
+          <StatusBar style="light" />
+          <Stack screenOptions={{ headerShown: false }} />
+        </NavigationThemeProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
