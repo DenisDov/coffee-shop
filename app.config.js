@@ -44,7 +44,6 @@ module.exports = {
     plugins: ['expo-router'],
     experiments: {
       typedRoutes: true,
-      tsconfigPaths: true,
     },
     extra: {
       router: {
