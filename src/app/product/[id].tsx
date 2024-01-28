@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
-import { Button } from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { CupSize } from '@/components/CupSize';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';

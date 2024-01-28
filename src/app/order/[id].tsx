@@ -5,7 +5,7 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Shadow } from 'react-native-shadow-2';
 
-import { Button } from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { DeliveryAddress } from '@/components/order/DeliveryAddress';

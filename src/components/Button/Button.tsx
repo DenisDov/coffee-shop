@@ -11,7 +11,6 @@ type Props = {
 
 export const Button = ({ onPress, title }: Props) => {
   return (
-    // on expo 49 - hitSlop not working on Android, waiting for expo 50?
     <RectButton onPress={onPress} hitSlop={16} style={styles.button}>
       <Box accessible accessibilityRole="button">
         <Text variant="button">{title}</Text>

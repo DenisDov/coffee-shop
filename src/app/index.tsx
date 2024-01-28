@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 
-import { Button } from '@/components/Button';
+import { Button } from '@/components/Button/Button';
 import { Box, ImageBackgroundBox, Text } from '@/theme';
 
 export default function OnboardingScreen() {
