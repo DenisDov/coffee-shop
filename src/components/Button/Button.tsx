@@ -4,16 +4,16 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, Text, theme } from '@/theme';
 
-type Props = {
+export type ButtonProps = {
   onPress: () => void;
-  title?: string;
+  text?: string;
 };
 
-export const Button = ({ onPress, title }: Props) => {
+export const Button = ({ onPress, text }: ButtonProps) => {
   return (
     <RectButton onPress={onPress} hitSlop={16} style={styles.button}>
       <Box accessible accessibilityRole="button">
-        <Text variant="button">{title}</Text>
+        <Text variant="button">{text}</Text>
       </Box>
     </RectButton>
   );

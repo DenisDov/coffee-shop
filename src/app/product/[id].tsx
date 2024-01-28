@@ -154,7 +154,7 @@ export default function CoffeeDetailScreen() {
               </Text>
             </Box>
             <Box flex={1}>
-              <Button title="Buy Now" onPress={navTo} />
+              <Button text="Buy Now" onPress={navTo} />
             </Box>
           </Box>
         </Box>

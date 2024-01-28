@@ -3,7 +3,9 @@ import { router } from 'expo-router';
 import { Button } from '@/components/Button/Button';
 import { Box, ImageBackgroundBox, Text } from '@/theme';
 
-export default function OnboardingScreen() {
+const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true';
+
+const Index = () => {
   return (
     <ImageBackgroundBox
       flex={1}
@@ -22,8 +24,23 @@ export default function OnboardingScreen() {
         <Text color="muted" textAlign="center" marginBottom="l">
           The best grain, the finest roast, the powerful flavor.
         </Text>
-        <Button title="Get Started" onPress={() => router.replace('/(tabs)')} />
+        <Button text="Get Started" onPress={() => router.replace('/(tabs)')} />
       </Box>
     </ImageBackgroundBox>
   );
+};
+
+let EntryPoint = Index;
+
+if (storybookEnabled) {
+  const StorybookUI = require('../../.storybook').default;
+  EntryPoint = () => {
+    return (
+      <Box style={{ flex: 1 }}>
+        <StorybookUI />
+      </Box>
+    );
+  };
 }
+
+export default EntryPoint;

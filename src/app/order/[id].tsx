@@ -178,7 +178,7 @@ export default function OrderScreen() {
                 />
               </BorderlessButton>
             </Box>
-            <Button title="Order" onPress={() => router.push('/delivery/2')} />
+            <Button text="Order" onPress={() => router.push('/delivery/2')} />
           </Box>
         </Box>
       </Shadow>
