@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CoffeeCard } from '@/components/CoffeeCard';
 import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { TopBar } from '@/components/home/TopBar';
-import { Promo } from '@/components/Promo';
+import { Promo } from '@/components/Promo/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
 import { Box, theme } from '@/theme';
