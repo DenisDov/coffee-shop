@@ -17,10 +17,7 @@
     "storybook-watch": "sb-rn-watcher"
   },
   "jest": {
-    "preset": "jest-expo",
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1"
-    }
+    "preset": "jest-expo"
   },
   "dependencies": {
     "@expo-google-fonts/sora": "^0.2.3",

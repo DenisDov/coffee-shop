@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders button with correct text 1`] = `
+<RNGestureHandlerButton
+  activeOpacity={0.105}
+  collapsable={false}
+  delayLongPress={600}
+  handlerTag={1}
+  handlerType="NativeViewGestureHandler"
+  hitSlop={16}
+  onActiveStateChange={[Function]}
+  onGestureEvent={[Function]}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onHandlerStateChange={[Function]}
+  onPress={[MockFunction]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#C67C4E",
+      "borderRadius": 16,
+      "height": 64,
+      "justifyContent": "center",
+      "paddingHorizontal": 8,
+    }
+  }
+  underlayColor="black"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "black",
+        "borderBottomLeftRadius": undefined,
+        "borderBottomRightRadius": undefined,
+        "borderRadius": 16,
+        "borderTopLeftRadius": undefined,
+        "borderTopRightRadius": undefined,
+        "bottom": 0,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+  <View
+    accessibilityRole="button"
+    accessible={true}
+    style={
+      [
+        {},
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+            "fontFamily": "Sora_600SemiBold",
+            "fontSize": 16,
+            "textTransform": "capitalize",
+          },
+        ]
+      }
+    >
+      Click me
+    </Text>
+  </View>
+</RNGestureHandlerButton>
+`;
