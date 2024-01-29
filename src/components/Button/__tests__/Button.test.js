@@ -4,7 +4,7 @@ import renderer, { act } from 'react-test-renderer';
 
 import { theme } from '@/theme';
 
-import { Button } from './Button';
+import { Button } from '../Button';
 
 test('renders button with correct text', () => {
   const onPressMock = jest.fn();
