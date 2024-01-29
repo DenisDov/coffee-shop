@@ -9,8 +9,8 @@ import { TopBar } from '@/components/home/TopBar';
 import { Promo } from '@/components/Promo/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
+import { categories, coffees } from '@/lib/data';
 import { Box, theme } from '@/theme';
-import { categories, coffees } from '@/utils/data';
 
 type CategoryCoords = { [key: string]: number };
 

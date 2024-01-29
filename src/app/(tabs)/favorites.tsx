@@ -1,8 +1,8 @@
 import { CoffeeCard } from '@/components/CoffeeCard/CoffeeCard';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
+import { coffees } from '@/lib/data';
 import { Box } from '@/theme';
-import { coffees } from '@/utils/data';
 
 export default function FavoritesScreen() {
   const item = coffees[0];

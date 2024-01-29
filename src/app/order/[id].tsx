@@ -12,8 +12,8 @@ import { DeliveryAddress } from '@/components/order/DeliveryAddress';
 import { DiscountButton } from '@/components/order/DiscountButton';
 import { OrderControl } from '@/components/OrderControl';
 import { Stepper } from '@/components/Stepper';
+import { coffees } from '@/lib/data';
 import { Box, ImageBox, Text, theme } from '@/theme';
-import { coffees } from '@/utils/data';
 
 export default function OrderScreen() {
   const insets = useSafeAreaInsets();
