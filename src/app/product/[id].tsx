@@ -9,8 +9,8 @@ import { CupSize } from '@/components/CupSize';
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
 import { ReadMore } from '@/components/ReadMore';
+import { coffees } from '@/lib/data';
 import { Box, ImageBox, Text, theme } from '@/theme';
-import { coffees } from '@/utils/data';
 
 const cupSizes = ['S', 'M', 'L'];
 const ingredients = [

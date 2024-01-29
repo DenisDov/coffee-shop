@@ -2,8 +2,8 @@ import { FlashList } from '@shopify/flash-list';
 
 import { FocusAwareStatusBar } from '@/components/FocusAwareStatusBar';
 import { Header } from '@/components/Header';
+import { notifications } from '@/lib/data';
 import { Box, Text, theme } from '@/theme';
-import { notifications } from '@/utils/data';
 
 type Notification = {
   item: {

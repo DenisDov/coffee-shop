@@ -1,26 +1,33 @@
-import { ThemeProvider } from '@shopify/restyle';
-import * as React from 'react';
-import renderer, { act } from 'react-test-renderer';
+import React from 'react';
 
-import { theme } from '@/theme';
+import { fireEvent, render } from '@/lib/test-utils';
 
 import { Button } from '../Button';
 
-test('renders button with correct text', () => {
-  const onPressMock = jest.fn();
-  const buttonText = 'Click me';
+describe('Button Component', () => {
+  test('renders button with correct text', () => {
+    const onPressMock = jest.fn();
+    const buttonText = 'Click me';
 
-  let component;
-
-  act(() => {
-    component = renderer.create(
-      <ThemeProvider theme={theme}>
-        <Button text={buttonText} onPress={onPressMock} />
-      </ThemeProvider>,
+    const { getByText } = render(
+      <Button onPress={onPressMock} text={buttonText} />,
     );
+
+    const button = getByText(buttonText);
+    expect(button).toBeTruthy();
   });
 
-  const tree = component.toJSON();
+  test('calls onPress when button is pressed', () => {
+    const onPressMock = jest.fn();
+    const buttonText = 'Click me';
 
-  expect(tree).toMatchSnapshot();
+    const { getByText } = render(
+      <Button onPress={onPressMock} text={buttonText} />,
+    );
+
+    const button = getByText(buttonText);
+    fireEvent.press(button);
+
+    expect(onPressMock).toHaveBeenCalledTimes(1);
+  });
 });

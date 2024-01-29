@@ -49,3 +49,7 @@ Figma file: [Coffee Shop Mobile App Design](https://www.figma.com/community/file
 ## Build preview build locally:
 
 android: `eas build --platform android --profile preview --local`
+
+## Storybook
+
+To enable storybook view, create `.env.local` file in the root with ` EXPO_PUBLIC_STORYBOOK_ENABLED=true`
