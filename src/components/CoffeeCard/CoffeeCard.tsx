@@ -5,7 +5,7 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, ImageBackgroundBox, ImageBox, Text, theme } from '@/theme';
 
-type Props = {
+export type CoffeeCardProps = {
   id: string;
   title: string;
   extras: string;
@@ -18,9 +18,9 @@ type Props = {
 };
 
 export const CoffeeCard = memo(
-  ({ id, title, extras, price, image, rating }: Props) => {
+  ({ id, title, extras, price, image, rating }: CoffeeCardProps) => {
     const { width } = useWindowDimensions();
-    const cardWidth = width / 2 - 24; // minus gap
+    const cardWidth = width / 2 - 24;
 
     const navTo = () => {
       router.push(`/product/${id}`);

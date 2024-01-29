@@ -3,7 +3,7 @@ import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { CoffeeCard } from '@/components/CoffeeCard';
+import { CoffeeCard } from '@/components/CoffeeCard/CoffeeCard';
 import { CoffeeCategory } from '@/components/CoffeeCategory';
 import { TopBar } from '@/components/home/TopBar';
 import { Promo } from '@/components/Promo/Promo';
