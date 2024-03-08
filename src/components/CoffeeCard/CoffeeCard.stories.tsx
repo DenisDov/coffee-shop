@@ -8,8 +8,11 @@ const meta: Meta<CoffeeCardProps> = {
   component: CoffeeCard,
   decorators: [
     Story => (
-      <View style={{ padding: 16 }}>
-        <Story />
+      <View
+        style={{ flex: 1, paddingTop: 10, backgroundColor: 'rebeccapurple' }}>
+        <View style={{ width: 164, height: 240 }}>
+          <Story />
+        </View>
       </View>
     ),
   ],

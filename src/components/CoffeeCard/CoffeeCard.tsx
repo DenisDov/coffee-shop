@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { memo } from 'react';
-import { StyleSheet, useWindowDimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import { Box, ImageBackgroundBox, ImageBox, Text, theme } from '@/theme';
@@ -19,9 +19,6 @@ export type CoffeeCardProps = {
 
 export const CoffeeCard = memo(
   ({ id, title, extras, price, image, rating }: CoffeeCardProps) => {
-    const { width } = useWindowDimensions();
-    const cardWidth = width / 2 - 24;
-
     const navTo = () => {
       router.push(`/product/${id}`);
     };
@@ -31,9 +28,7 @@ export const CoffeeCard = memo(
     };
 
     return (
-      <RectButton
-        onPress={navTo}
-        style={[styles.rectButton, { width: cardWidth }]}>
+      <RectButton onPress={navTo} style={styles.rectButton}>
         <Box padding="xs">
           <ImageBackgroundBox
             style={styles.imageBackground}
@@ -92,6 +87,8 @@ export const CoffeeCard = memo(
 
 const styles = StyleSheet.create({
   rectButton: {
+    flex: 1,
+    marginHorizontal: theme.spacing.s,
     borderRadius: theme.borderRadii.m,
     backgroundColor: theme.colors.white,
     borderCurve: 'continuous',

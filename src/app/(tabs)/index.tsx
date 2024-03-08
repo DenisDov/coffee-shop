@@ -1,3 +1,5 @@
+import { FlashList } from '@shopify/flash-list';
+import { useTheme } from '@shopify/restyle';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback, useRef, useState } from 'react';
 import { RefreshControl, ScrollView } from 'react-native';
@@ -10,14 +12,13 @@ import { Promo } from '@/components/Promo/Promo';
 import { ScrollViewBackgroundLayer } from '@/components/ScrollViewBackgroundLayer';
 import { SearchBar } from '@/components/SearchBar';
 import { categories, coffees } from '@/lib/data';
-import { Box, theme } from '@/theme';
+import { Box } from '@/theme';
 
 type CategoryCoords = { [key: string]: number };
 
-const contentPadding = theme.spacing.tabShadow + theme.spacing.m;
-
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const theme = useTheme();
   const categoriesRef = useRef<ScrollView>(null);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -65,11 +66,9 @@ export default function HomeScreen() {
             <SearchBar onChangeText={() => null} value="" />
           </Box>
         </LinearGradient>
-
         <Box paddingTop="m" paddingHorizontal="m" backgroundColor="background">
           <Promo />
         </Box>
-
         <Box backgroundColor="background">
           <ScrollView
             ref={categoriesRef}
@@ -94,18 +93,23 @@ export default function HomeScreen() {
             })}
           </ScrollView>
         </Box>
-
-        <Box
-          paddingHorizontal="m"
-          backgroundColor="background"
-          flexWrap="wrap"
-          flexDirection="row"
-          justifyContent="space-between"
-          gap="m"
-          style={{ paddingBottom: contentPadding }}>
-          {coffees?.map(item => {
-            return <CoffeeCard key={item.id} {...item} />;
-          })}
+        <Box minHeight={2}>
+          <FlashList
+            renderItem={({ item }) => {
+              return <CoffeeCard {...item} />;
+            }}
+            data={coffees}
+            scrollEnabled={false}
+            estimatedItemSize={50}
+            ItemSeparatorComponent={() => <Box height={16} />}
+            numColumns={2}
+            contentContainerStyle={{
+              backgroundColor: theme.colors.background,
+              paddingHorizontal: theme.spacing.s,
+              paddingBottom: theme.spacing.tabShadow,
+            }}
+            keyExtractor={item => item.id}
+          />
         </Box>
       </ScrollView>
     </Box>
